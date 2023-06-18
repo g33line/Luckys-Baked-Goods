@@ -13,7 +13,12 @@
     <!--BS Icon CDN-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+
+
 <style>
+.nav-link {
+    color: black;
+}
 .navbar .navbar-nav .nav-link::after{
   content: '';
   width: 0;
@@ -32,34 +37,39 @@
   color: #65BDC7;
 }
 
-.a:hover {
-    
-}
-
 .col-2:hover {
 padding: .25rem;
 
 }
 
+.item {
+    background-color: #DCE0E1;
+    box-shadow: 0 50px 50px #757676; 
+ 
+    padding: 7%;
+}
+
 </style>
 
 </head>
+
+
 <body>
 <!--Header Navigation-->
-<nav class="navbar fixed-top navbar-expand-xl " >
+<nav class="navbar fixed-top navbar-expand-xl border-bottom border-5" style="background-color: white;">
     <div class="container-md">
-        <div class="navbar container" style="background-color: white;">
+        <div class="navbar container py-0"  >
             <a class="navbar-brand" href="#">
                 <img src="mp2images/headerlogomx.gif" alt="Lucky's logo" height="70" class="px-4">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarShop" aria-controls="navbarShop" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse px-auto" id="navbarShop">
+            <div class="collapse navbar-collapse px-auto" >
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                     <a class="nav-link" href="#">MENU</a>
-                    <a class="nav-link" href="#">All Recipes</a>
+                    <a class="nav-link" href="#">Pricelist</a>
                     <a class="nav-link" href="#">Baking Tools</a>
                     <a class="nav-link" href="#">Baking Tips</a>
                     <a class="nav-link" href="#">Videos</a>
@@ -74,41 +84,202 @@ padding: .25rem;
         </div>
     </div>
 </nav>
+
+
+
+<!--Main Content-->
 <section class="pt-5 mt-5">
-    <div class="container">
-        <div class="row py-3 ">
-            <div class="col card ">
-                <h1 class="display-2 py-5 text-center text-muted">IMAGE HERE</h1>
+    <div class="container py-4">
+
+        <!--1st Row of items-->
+        <div class="row pb-4">
+
+            <div class="col ">
+                <div class="item ">
+                    <img src="mp2images/carrotcake.jpg" class="img-flulid" width="220" height="220" alt="Carrot Cake">
+                    <div class="row  pb-2">
+                        <div class="col">
+                            <div class="title fw-bold ">Carrot Cake</div>
+                            <div class="price  ">650.00</div>
+                        </div>
+                        <div class="col text-end">
+                            <button type="button" class="btn" id="comment">
+                                <span><i class="bi bi-chat-left"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
+                    </div>
+                </div>                                                                              
             </div>
-            <div class="col card">
-                <h1 class="display-2 py-5 text-center text-muted">IMAGE HERE</h1>
+
+            <div class="col ">
+                <div class="item ">
+                    <img src="mp2images/mangocake.jpg" class="img-flulid" width="220" height="220" alt="Carrot Cake">
+                    <div class="row  pb-2">
+                        <div class="col">
+                            <div class="title fw-bold ">Carrot Cake</div>
+                            <div class="price  ">650.00</div>
+                        </div>
+                        <div class="col text-end">
+                            <button type="button" class="btn" id="comment">
+                                <span><i class="bi bi-chat-left"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
+                    </div>
+                </div>                                                                              
             </div>
-            <div class="col card">
-                <h1 class="display-2 py-5 text-center text-muted">IMAGE HERE</h1>
+
+            <div class="col ">
+                <div class="item ">
+                    <img src="mp2images/chococake.jpg" class="img-flulid" width="220" height="220" alt="Carrot Cake">
+                    <div class="row  pb-2">
+                        <div class="col">
+                            <div class="title fw-bold ">Carrot Cake</div>
+                            <div class="price  ">650.00</div>
+                        </div>
+                        <div class="col text-end">
+                            <button type="button" class="btn" id="comment">
+                                <span><i class="bi bi-chat-left"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
+                    </div>
+                </div>                                                                              
             </div>
-            <div class="col card">
-                <h1 class="display-2 py-5 text-center text-muted">IMAGE HERE</h1>
+
+            <div class="col ">
+                <div class="item ">
+                    <img src="mp2images/meringuecake.jpg" class="img-flulid" width="220" height="220" alt="Carrot Cake">
+                    <div class="row  pb-2">
+                        <div class="col">
+                            <div class="title fw-bold ">Carrot Cake</div>
+                            <div class="price  ">650.00</div>
+                        </div>
+                        <div class="col text-end">
+                            <button type="button" class="btn" id="comment">
+                                <span><i class="bi bi-chat-left"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
+                    </div>
+                </div>                                                                              
             </div>
+            
+       </div>
+
+       <!--2nd Row of items-->
+       <div class="row">
+
+            <div class="col ">
+                <div class="item ">
+                    <img src="mp2images/blueberry.jpg" class="img-flulid" width="220" height="220" alt="Carrot Cake">
+                    <div class="row  pb-2">
+                        <div class="col">
+                            <div class="title fw-bold ">Carrot Cake</div>
+                            <div class="price  ">650.00</div>
+                        </div>
+                        <div class="col text-end">
+                            <button type="button" class="btn" id="comment">
+                                <span><i class="bi bi-chat-left"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
+                    </div>
+                </div>                                                                              
+            </div>
+
+            <div class="col ">
+                <div class="item ">
+                    <img src="mp2images/redvelvetcupcake.jpg" class="img-flulid" width="220" height="220" alt="Carrot Cake">
+                    <div class="row  pb-2">
+                        <div class="col">
+                            <div class="title fw-bold ">Carrot Cake</div>
+                            <div class="price  ">650.00</div>
+                        </div>
+                        <div class="col text-end">
+                            <button type="button" class="btn" id="comment">
+                                <span><i class="bi bi-chat-left"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
+                    </div>
+                </div>                                                                              
+            </div>
+
+            <div class="col ">
+                <div class="item ">
+                    <img src="mp2images/bananabread.jpg" class="img-flulid" width="220" height="220" alt="Carrot Cake">
+                    <div class="row  pb-2">
+                        <div class="col">
+                            <div class="title fw-bold ">Carrot Cake</div>
+                            <div class="price  ">650.00</div>
+                        </div>
+                        <div class="col text-end">
+                            <button type="button" class="btn" id="comment">
+                                <span><i class="bi bi-chat-left"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
+                    </div>
+                </div>                                                                              
+            </div>
+
+            <div class="col ">
+                <div class="item ">
+                    <img src="mp2images/cookies.jpg" class="img-flulid" width="220" height="220" alt="Carrot Cake">
+                    <div class="row  pb-2">
+                        <div class="col">
+                            <div class="title fw-bold ">Carrot Cake</div>
+                            <div class="price  ">650.00</div>
+                        </div>
+                        <div class="col text-end">
+                            <button type="button" class="btn" id="comment">
+                                <span><i class="bi bi-chat-left"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
+                    </div>
+                </div>                                                                              
+            </div>
+        
         </div>
+        
+        
+        <section class=" pt-4 " >
+            <div class="">
+                <div class="card align-items-center shadow pt-2">
+                    <p class=" fw-light fst-italic " style="font-size: x-large;">We are a home-based bakery that makes delicious cakes,cheesecakes,cupcakes,bread and cookies!</p>
+                </div>
+            </div>
+        </section>
+
     </div>
 </section>
 
-<section class=" py-3">
-    <div class="container-fluid">
-        <div class="card text-center border-0 shadow py-2">
-            <p class="display-6 fw-light fst-italic ">We are a home-based bakery that makes delicious cakes,cheesecakes,cupcakes,bread and cookies!</p>
-        </div>
-    </div>
-</section>
 
-<section class="py-3">
-    
-    
-    
-</section>
 
+
+
+<!--Footer-->
 <footer class=" bg-secondary">
-    <div class="container-fluid text-center ">
+    <div class="container-fluid text-center">
         <div class="row justify-content-md-center">
             <div class="col  text-light pt-4">
                 <ul class="list-unstyled">
@@ -126,9 +297,9 @@ padding: .25rem;
                 </ul>
             </div>
          
-            <div class="col-2">
-                <button type="button" class="btn btn-sm">
-                    <img src="mp2images/logo.png" alt="logo" class="" height="140" width="140">
+            <div class="col-2 bg-muted">
+                <button type="button" class="btn btn-sm ">
+                    <img src="mp2images/logo.png" alt="logo" class="img-fluid" height="110" width="110">
                 </button>
             </div>
 
@@ -142,12 +313,16 @@ padding: .25rem;
                     <li>
                         <a href="#" class="btn-floating btn-sm text-white" style="text-decoration: none;"  class="btn-floating btn-sm text-white" style="font-size: 15px;"><i class="bi bi-instagram"></i> &nbsp Instagram</a>
                     </li>
+                    <li class="text-muted pt-2" style="font-size: smaller;"><i class="bi bi-c-circle"></i>  &nbspAll rights reserved, 2023  </li>
                 </ul>
             </div>
         </div>
     </div>
-
 </footer>
+
+
+<!--Javasript-->
+
     
 </body>
 </html>
