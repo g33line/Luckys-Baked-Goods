@@ -44,7 +44,7 @@ padding: .25rem;
 
 .item {
     background-color: #DCE0E1;
-    box-shadow: 0 50px 50px #757676; 
+    box-shadow: 0 25px 25px #757676; 
     padding: 7%;
 }
 
@@ -52,6 +52,17 @@ padding: .25rem;
     font-size: smaller;
 }
 
+.offcanvas {
+    background-color: #453E3B;
+}
+.offcanvas-header {
+    color: #E8BC0E;
+}
+
+.offcanvas-body {
+    color: white;
+    font-size: smaller;
+}
 </style>
 
 </head>
@@ -59,7 +70,7 @@ padding: .25rem;
 
 <body>
 <!--Header Navigation-->
-<nav class="navbar fixed-top navbar-expand-xl border-bottom border-5" style="background-color: white;">
+<nav class="navbar fixed-top navbar-expand-xl " style="background-color: white;">
     <div class="container-md">
         <div class="navbar container py-0"  >
             <a class="navbar-brand" href="#">
@@ -80,8 +91,8 @@ padding: .25rem;
                 </div>
                 <div class="navbar-nav mx-auto">
                     <a class="nav-link" href="#">Login</a>
-                    <a class="nav-link" href="#"> <span><i class="bi bi-shop-window"></i>
-                    Order</span></a>
+                    <button type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder" aria-controls="offCanvasOrder"> 
+                    <span><i class="bi bi-shop-window"></i>Order</span></a>
                 </div>
             </div>
         </div>
@@ -89,10 +100,54 @@ padding: .25rem;
 </nav>
 
 
+<!--Basket of Items slide panel on right side-->
+
+<div class="offcanvas offcanvas-end"  data-bs-scroll="true" tabindex="-1" id="offCanvasOrder" aria-labelledby="offCanvasOrder">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title ">Your Orders</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body fw-light">
+        <div class="row ps-2 align-items-center">
+            <div class="col ">
+                <div class="row align-items-center">
+                    <div class="col g-0 ">
+                        <img src="mp2images/carrotcake.jpg" id="" height="50" width="50">
+                    </div>
+                    <div class="col g-0 ">Bluebery CheeseCake</div>
+                    <div class="col ">400</div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="row align-items-center text-center">
+                    <div class="col g-0">
+                        <button type="button" class="btn btn-sm  text-light"  id="" style="background-color: #453E3B;">
+                        <span> <i class="bi bi-dash-square"></i> </span> </button>
+                    </div>
+                    <div class="col g-0">
+                        1
+                    </div>
+                    <div class="col g-0">
+                        <button type="button" class="btn btn-sm  text-light"  id="" style="background-color: #453E3B;">
+                        <span> <i class="bi bi-plus-square"></i> </span> </button>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+    </div>
+  </div>
+
+
+
+
+
 
 <!--Main Content-->
-<section class="pt-5 mt-5">
-    <div class="container py-4">
+<section class="pt-5 mt-5  bg-secondary bg-opacity-25">
+    <div class="container py-4 ">
 
         <!--1st Row of items-->
         <div class="row pb-4">
@@ -281,7 +336,7 @@ padding: .25rem;
 
 
 <!--Footer-->
-<footer class=" bg-secondary">
+<footer class=" bg-dark">
     <div class="container-fluid text-center">
         <div class="row justify-content-md-center">
             <div class="col  text-light pt-4">
@@ -316,7 +371,7 @@ padding: .25rem;
                     <li>
                         <a href="#" class="btn-floating btn-sm text-white" style="text-decoration: none;"  class="btn-floating btn-sm text-white" style="font-size: 15px;"><i class="bi bi-instagram"></i> &nbsp Instagram</a>
                     </li>
-                    <li class="text-muted pt-2" style="font-size: smaller;"><i class="bi bi-c-circle"></i>  &nbspAll rights reserved, 2023  </li>
+                    <li class="text-secondary pt-2" style="font-size: smaller;"><i class="bi bi-c-circle"></i>  &nbspAll rights reserved, 2023  </li>
                 </ul>
             </div>
         </div>
