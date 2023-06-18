@@ -16,6 +16,7 @@
 
 
 <style>
+
 .nav-link {
     color: black;
 }
@@ -67,12 +68,11 @@ padding-top: .25rem;
 
 
 
-/* RESPONSIVE GRID
-MENU ITEM CSS */
+/* RESPONSIVE GRID MENU ITEM */
 
 .list-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill,minmax(230px, 1fr));
     column-gap: 20px;
     row-gap: 20px;
     margin-top: 25px;
@@ -99,6 +99,7 @@ MENU ITEM CSS */
 }
 .list .item .price{
     margin-bottom: 10px;
+    font-weight:bold;
 }
 .list .item button{
     background-color: #453E3B;
@@ -142,9 +143,14 @@ MENU ITEM CSS */
                 <div class="navbar-nav mx-auto">
                     <a class="nav-link" href="#">Login</a>
 
-                    <button type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder" aria-controls="offCanvasOrder"> 
-                    <span><i class="bi bi-shop-window"></i> Order</span></a>
-               
+                   <div class="shopping navbar-nav">
+                        <button type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder" aria-controls="offCanvasOrder"> 
+                        <span class="quantity fw-bold">
+                            <i class="bi bi-shop-window "></i> 0
+                        </span>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -192,26 +198,18 @@ MENU ITEM CSS */
     </div>
   </div>
 
-  <br>
 
 <!--Main Content-->
 <section class="pt-5 mt-5  bg-secondary bg-opacity-25">
-    <div class="container py-4 ">
+    <div class="container pt-4 pb-2">
 
 
 
         <!--TESTING CSS STYLE-->
 
-        <div class="shopping">
-            <button type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder" aria-controls="offCanvasOrder"> 
-            <span class="quantity">
-                <i class="bi bi-shop-window"></i> 0
-            </span>
-        </div>
-
          
-        <div class="list-container">
-            <div class="list">
+        <div class="list-container ">
+            <div class="list bg-info">
                 <div class="item">
                     <img src="mp2images/carrotcake.jpg" alt="">
                     <div class="title"> 
@@ -235,10 +233,82 @@ MENU ITEM CSS */
                     <button> Add to basket</button>
                 </div>
             </div>
+            <div class="list">
+                <div class="item">
+                    <img src="mp2images/chococake.jpg" alt="">
+                    <div class="title"> 
+                        Chocolate Cake
+                    </div>
+                    <div class="price">
+                        400
+                    </div>
+                    <button> Add to basket</button>
+                </div>
+            </div>
+            <div class="list">
+                <div class="item">
+                    <img src="mp2images/meringuecake.jpg" alt="">
+                    <div class="title"> 
+                        Lemon Meringue Cake
+                    </div>
+                    <div class="price">
+                        680
+                    </div>
+                    <button> Add to basket</button>
+                </div>
+            </div>
+            <div class="list">
+                <div class="item">
+                    <img src="mp2images/blueberry.jpg" alt="">
+                    <div class="title"> 
+                        Blueberry Cheesecake
+                    </div>
+                    <div class="price">
+                        450
+                    </div>
+                    <button> Add to basket</button>
+                </div>
+            </div>
+            <div class="list">
+                <div class="item">
+                    <img src="mp2images/redvelvetcupcake.jpg" alt="">
+                    <div class="title"> 
+                        Red Velvet Cupcake
+                    </div>
+                    <div class="price">
+                        600
+                    </div>
+                    <button> Add to basket</button>
+                </div>
+            </div>
+            <div class="list">
+                <div class="item">
+                    <img src="mp2images/bananabread.jpg" alt="">
+                    <div class="title"> 
+                        Banana Bread
+                    </div>
+                    <div class="price">
+                        220
+                    </div>
+                    <button> Add to basket</button>
+                </div>
+            </div>
+            <div class="list">
+                <div class="item">
+                    <img src="mp2images/cookies.jpg" alt="">
+                    <div class="title"> 
+                        Oatmeal Cookies
+                    </div>
+                    <div class="price">
+                        600
+                    </div>
+                    <button> Add to basket</button>
+                </div>
+            </div>
         </div>
         
         
-
+        <!--CHECKOUT-->
 
         <div class="offcanvas">
             <h5 class="offcanvas-title ">Your Orders</h5>
@@ -258,215 +328,53 @@ MENU ITEM CSS */
 
 
 
+        <br> <hr> 
 
 
-
-
-
-
-        <br> <br> <hr> <br> <br>
-
-
-
-
-        <!--1st Row of items-->
-        <div class="row pb-4">
-
-            <div class="col ">
-                <div class="item card">
-                    <img src="mp2images/carrotcake.jpg" class="img-fluid" width="220" height="220" alt="Carrot Cake">
-                    <div class="row  pb-2">
-                        <div class="col">
-                            <div class="title fw-bold ">Carrot Cake</div>
-                            <div class="price">400.00</div>
-                        </div>
-                        <div class="col-3 text-end">
-                            <button type="button" class="btn" id="comment">
-                                <span><i class="bi bi-chat-left"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
-                    </div>
-                </div>                                                                              
-            </div>
-
-            <div class="col ">
-                <div class="item card">
-                    <img src="mp2images/peachcake.jpg" class="img-fluid" width="220" height="220" alt="Carrot Cake">
-                    <div class="row  pb-2">
-                        <div class="col">
-                            <div class="title fw-bold ">Peaches & Cream Cake</div>
-                            <div class="price">700.00</div>
-                        </div>
-                        <div class="col-3 text-end">
-                            <button type="button" class="btn" id="comment">
-                                <span><i class="bi bi-chat-left"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
-                    </div>
-                </div>                                                                              
-            </div>
-
-            <div class="col ">
-                <div class="item card">
-                    <img src="mp2images/chococake.jpg" class="img-fluid" width="220" height="220" alt="Carrot Cake">
-                    <div class="row  pb-2">
-                        <div class="col">
-                            <div class="title fw-bold ">Chocolate Cake</div>
-                            <div class="price  ">400.00</div>
-                        </div>
-                        <div class="col-3 text-end">
-                            <button type="button" class="btn" id="comment">
-                                <span><i class="bi bi-chat-left"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
-                    </div>
-                </div>                                                                              
-            </div>
-
-            <div class="col ">
-                <div class="item card">
-                    <img src="mp2images/meringuecake.jpg" class="img-fluid" width="220" height="220" alt="Carrot Cake">
-                    <div class="row  pb-2">
-                        <div class="col">
-                            <div class="title fw-bold ">Lemon Meringue Cake</div>
-                            <div class="price  ">680.00</div>
-                        </div>
-                        <div class="col-3 text-end">
-                            <button type="button" class="btn" id="comment">
-                                <span><i class="bi bi-chat-left"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
-                    </div>
-                </div>                                                                              
-            </div>
-            
-       </div>
-
-       <!--2nd Row of items-->
-       <div class="row">
-
-            <div class="col ">
-                <div class="item card">
-                    <img src="mp2images/blueberry.jpg" class="img-fluid" width="220" height="220" alt="Carrot Cake">
-                    <div class="row  pb-2">
-                        <div class="col">
-                            <div class="title fw-bold ">Blueberry Cheesecake</div>
-                            <div class="price  ">450.00</div>
-                        </div>
-                        <div class="col-3 text-end">
-                            <button type="button" class="btn" id="comment">
-                                <span><i class="bi bi-chat-left"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
-                    </div>
-                </div>                                                                              
-            </div>
-
-            <div class="col ">
-                <div class="item card">
-                    <img src="mp2images/redvelvetcupcake.jpg" class="img-fluid" width="220" height="220" alt="Carrot Cake">
-                    <div class="row  pb-2">
-                        <div class="col">
-                            <div class="title fw-bold ">Red Velvet Cupcake</div>
-                            <div class="price  ">600.00</div>
-                        </div>
-                        <div class="col-3 text-end">
-                            <button type="button" class="btn" id="comment">
-                                <span><i class="bi bi-chat-left"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
-                    </div>
-                </div>                                                                              
-            </div>
-
-            <div class="col ">
-                <div class="item card">
-                    <img src="mp2images/bananabread.jpg" class="img-fluid" width="220" height="220" alt="Carrot Cake">
-                    <div class="row  pb-2">
-                        <div class="col">
-                            <div class="title fw-bold ">Banana Bread</div>
-                            <div class="price  ">220.00</div>
-                        </div>
-                        <div class="col-3 text-end">
-                            <button type="button" class="btn" id="comment">
-                                <span><i class="bi bi-chat-left"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
-                    </div>
-                </div>                                                                              
-            </div>
-
-            <div class="col ">
-                <div class="item card">
-                    <img src="mp2images/cookies.jpg" class="img-fluid" width="220" height="220" alt="Carrot Cake">
-                    <div class="row  pb-2">
-                        <div class="col">
-                            <div class="title fw-bold ">Cookies</div>
-                            <div class="price  ">600.00</div>
-                        </div>
-                        <div class="col-3 text-end">
-                            <button type="button" class="btn" id="comment">
-                                <span><i class="bi bi-chat-left"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="button" class="btn btn-sm btn-dark "> Add to basket</button>
-                    </div>
-                </div>                                                                              
-            </div>
-        
-        </div>
 
     </div>
 </section>
 
 
-        <!--Slogan-->
-        <section class=" pt-4 " >
+        <!--ABOUT-->
+        <section class="container pt-4 " >
             <div class="">
                 <div class=" text-center pt-3">
-                    <p class="fw-light fst-italic" style="font-size: x-large;">
-                        We are a home-based bakery that makes <br> delicious
-                        🍰 cakes, 🥧 cheesecakes, 🧁 cupcakes, 🍞 bread, and 🍪 cookies!
+                    <p class="fw-light fst-italic" style="font-size: x-large;">We are a home-based bakery that makes delicious 🍰 cakes, 🥧 cheesecakes, 🧁 cupcakes, 🍞 bread, and 🍪 cookies!
                     </p>
                 </div>
             </div>
+
+
+            <!--MEET LUCKY-->
+
+
+
+
+            
+
         </section>
+
+
+       
+        
+
+
+
+
 
 
 
         <!--Customer Tab Reviews-->
-        <nav> 
+        <nav class="container"> 
             <div class="nav nav-tabs p-4 pb-0" id="customerreview" role="tablist">
                 <button class="nav-link active bg-info bg-opacity-25 border-color-info pt-0 pb-0 mt-0" id="review-tab" data-bs-toggle="tab" data-bs-target="#review1" 
                     type="button" role="tab" aria-controls="review" aria-selected="true">
-                    <span> <p class="fw-bold mx-2 my-2">
+                    <span> <p class="fw-bold mx-2 my-2 text-uppercase">
                         <i class="bi bi-stars"></i> Customer Reviews
                     </p> </span>
                 </button>
-                <button class="nav-link border-0"> Add a Review</button>
+                <button class="nav-link border-0 "> Add a Review</button>
             </div>
             
             </nav>
@@ -617,14 +525,23 @@ MENU ITEM CSS */
 
         <!--Sign up Form-->
 
+            <div class="container">
+                <div class="signup-form">
+                    <form action="">
 
+                    </form> 
+                </div>
+                <div class="MapLocation">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15438.745196143802!2d121.04497624999998!3d14.673735749999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1687118614822!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
 
 
 
 
 <!--Footer-->
 <footer class=" bg-dark">
-    <div class="container-fluid text-center">
+    <div class="container text-center">
         <div class="row justify-content-md-center">
             <div class="col  text-light pt-4">
                 <ul class="list-unstyled">
