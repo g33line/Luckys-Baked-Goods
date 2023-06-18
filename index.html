@@ -63,6 +63,57 @@ padding-top: .25rem;
     color: white;
     font-size: smaller;
 }
+
+
+
+
+/* RESPONSIVE GRID
+MENU ITEM CSS */
+.list{
+    display: inline-block;
+    
+    grid-template-columns: repeat(auto-fill,minmax(180px, 1fr));
+    width: 50%;
+    column-gap: 0px;
+    row-gap: 0px;
+    margin-top: 25px;
+}
+.list .item{
+    text-align: center;
+    background-color: #DCE0E1;
+    padding: 0px;
+    margin-top: 0px;
+    box-shadow: 0 15px 10px #757676;
+    letter-spacing: 0px;
+    border-radius: 0px;
+}
+.list .item img{
+    width: 100%;
+    border-radius: 0px;
+}
+.list .item .title{
+    padding: 5px;
+    font-weight:600;
+    font-size: medium;
+    margin: 0px;
+}
+.list .item .price{
+    margin-bottom: 10px;
+}
+.list .item button{
+    background-color: #453E3B;
+    border-radius: 5px;
+    color: #fff;
+    width: 90%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
 </style>
 
 </head>
@@ -90,8 +141,10 @@ padding-top: .25rem;
                 </div>
                 <div class="navbar-nav mx-auto">
                     <a class="nav-link" href="#">Login</a>
+
                     <button type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder" aria-controls="offCanvasOrder"> 
                     <span><i class="bi bi-shop-window"></i> Order</span></a>
+               
                 </div>
             </div>
         </div>
@@ -140,13 +193,78 @@ padding-top: .25rem;
   </div>
 
 
-
-
-
-
 <!--Main Content-->
 <section class="pt-5 mt-5  bg-secondary bg-opacity-25">
     <div class="container py-4 ">
+
+
+
+        <!--TESTING CSS STYLE-->
+
+        <div class="shopping">
+            <button type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder" aria-controls="offCanvasOrder"> 
+            <span class="quantity">
+                <i class="bi bi-shop-window"></i> 0
+            </span>
+        </div>
+
+         
+    
+        <div class="list">
+            <div class="item">
+                <img src="mp2images/carrotcake.jpg" alt="">
+                <div class="title"> 
+                    Carrot Cake
+                </div>
+                <div class="price">
+                    650
+                </div>
+                <button> Add to basket</button>
+            </div>
+        </div>
+        <div class="list">
+            <div class="item">
+                <img src="mp2images/peachcake.jpg" alt="">
+                <div class="title"> 
+                    Peaches&Cream Cake
+                </div>
+                <div class="price">
+                    700
+                </div>
+                <button> Add to basket</button>
+            </div>
+        </div>
+        
+
+
+        <div class="offcanvas">
+            <h5 class="offcanvas-title ">Your Orders</h5>
+            <ul class="listCard">
+
+            </ul>
+            <div class="checkOut">
+                <div class="total">0
+
+                </div>
+                <div class="closeOffCanvas">Close 
+
+                </div>
+            </div>
+            
+        </div>
+
+
+
+
+
+
+
+
+
+        <br> <br> <hr> <br> <br>
+
+
+
 
         <!--1st Row of items-->
         <div class="row pb-4">
