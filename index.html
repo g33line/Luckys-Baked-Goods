@@ -70,7 +70,7 @@ padding-top: .25rem;
 
 /* RESPONSIVE GRID MENU ITEM */
 
-.list-container {
+.list {
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(230px, 1fr));
     column-gap: 20px;
@@ -202,8 +202,8 @@ padding-top: .25rem;
 
                    <div class="shopping navbar-nav">
                         <button type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder" aria-controls="offCanvasOrder"> 
-                        <span class="quantity fw-bold">
-                            <i class="bi bi-cart4 " style="font-size: large;"></i> 0
+                        <span class="quantity fw-bold"> <i class="bi bi-cart4 " style="font-size: large;"></i> 
+                            0
                         </span>
                         </button>
                     </div>
@@ -225,7 +225,7 @@ padding-top: .25rem;
 
          
         <div class="list-container ">
-            <div class="list bg-info">
+            <div class="list">
                 <div class="item">
                     <img src="mp2images/carrotcake.jpg" alt="">
                     <div class="title"> 
@@ -236,8 +236,7 @@ padding-top: .25rem;
                     </div>
                     <button> Add to cart</button>
                 </div>
-            </div>
-            <div class="list">
+                
                 <div class="item">
                     <img src="mp2images/peachcake.jpg" alt="">
                     <div class="title"> 
@@ -248,8 +247,7 @@ padding-top: .25rem;
                     </div>
                     <button> Add to cart</button>
                 </div>
-            </div>
-            <div class="list">
+            
                 <div class="item">
                     <img src="mp2images/chococake.jpg" alt="">
                     <div class="title"> 
@@ -260,8 +258,8 @@ padding-top: .25rem;
                     </div>
                     <button> Add to cart</button>
                 </div>
-            </div>
-            <div class="list">
+                
+                
                 <div class="item">
                     <img src="mp2images/meringuecake.jpg" alt="">
                     <div class="title"> 
@@ -272,8 +270,7 @@ padding-top: .25rem;
                     </div>
                     <button> Add to cart</button>
                 </div>
-            </div>
-            <div class="list">
+                
                 <div class="item">
                     <img src="mp2images/blueberry.jpg" alt="">
                     <div class="title"> 
@@ -284,8 +281,7 @@ padding-top: .25rem;
                     </div>
                     <button> Add to cart</button>
                 </div>
-            </div>
-            <div class="list">
+                
                 <div class="item">
                     <img src="mp2images/redvelvetcupcake.jpg" alt="">
                     <div class="title"> 
@@ -296,8 +292,7 @@ padding-top: .25rem;
                     </div>
                     <button> Add to cart</button>
                 </div>
-            </div>
-            <div class="list">
+                
                 <div class="item">
                     <img src="mp2images/bananabread.jpg" alt="">
                     <div class="title"> 
@@ -308,8 +303,7 @@ padding-top: .25rem;
                     </div>
                     <button> Add to cart</button>
                 </div>
-            </div>
-            <div class="list">
+                
                 <div class="item">
                     <img src="mp2images/cookies.jpg" alt="">
                     <div class="title"> 
@@ -325,7 +319,7 @@ padding-top: .25rem;
         
         
         <!--CHECKOUT-->
-        <!--Basket of Items slide panel on right side-->
+        <!--Basket of Items slide panel on right side -->
 
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offCanvasOrder">
             <div class="offcanvas-header">
@@ -560,48 +554,54 @@ padding-top: .25rem;
         <!--SIGN UP-->
         <section class="pt-3 mt-3 bg-secondary bg-opacity-25">
             <div class="container">
-                <div class="row  pb-3">
+                <div class="row pb-3 align-items-center">
 
-                    <div class="col-3 ">
-                        <form action="" class="signup-form float-start ">
-                            <h4>Sign Up</h4>
+                    <div class="col bg-info bg-opacity-25 ">
+                        <div class="row ">
 
-                            <div class="mb-1">
-                                <input type="text" class="form-control form-control-sm" id="inputSignupName" aria-describedby="SignupName" placeholder="Name">
-                            </div >
-                            <div class="mb-1">
-                                <input type="text" class="form-control form-control-sm" id="inputMobile" placeholder="Mobile Number">
+                            <div class="col-lg-6 p-4 ">
+                                <form action="" class="signup-form float-start text-center">
+                                    <h4>Sign Up</h4>
+        
+                                    <div class="mb-1">
+                                        <input type="text" class="form-control form-control-sm" id="inputSignupName" aria-describedby="SignupName" placeholder="Name">
+                                    </div >
+                                    <div class="mb-1">
+                                        <input type="text" class="form-control form-control-sm" id="inputMobile" placeholder="Mobile Number">
+                                    </div>
+                                    <div class="mb-1">
+                                        <input type="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailSignUp" placeholder="Email Address">
+                                    </div>
+                                    <div class="mb-1">
+                                        <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Password">
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="agreeCheckbox">
+                                        <label class="form-text form-check-label" for="exampleCheck1">I agree to store my details here. </label>
+                                    </div>
+        
+                                    <button type="submit" class="btn btn-sm btn-primary text-uppercase">Yes, sign me up</button>
+                                    <div class="form-text">We won't share your email.</div>
+        
+                                </form> 
                             </div>
-                            <div class="mb-1">
-                                <input type="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailSignUp" placeholder="Email Address">
-                            </div>
-                            <div class="mb-1">
-                                <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Password">
-                            </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="agreeCheckbox">
-                                <label class="form-text form-check-label" for="exampleCheck1">I agree to store my details here. </label>
+                    
+        
+                            <div class="col-lg-6 p-4 mt-2 ">
+                                <br> 
+                               <form class="form-floating">
+                                    <textarea type="text" class="form-control" id="floatingInputValue" placeholder="Send us your inquiries and/or suggestions." style="height: 170px;"> </textarea>
+                                    <label for="floatingInputValue">Got questions or suggestions?</label>
+                                </form>
+                                <button id="btnInquiries" type="button" class="btn btn-sm btn-primary mt-3 ">Submit</button>
                             </div>
 
-                            <button type="submit" class="btn btn-sm btn-primary text-uppercase">Yes, sign me up</button>
-                            <div class="form-text">We won't share your email.</div>
 
-                        </form> 
-                    </div>
-            
-
-                    <div class="col">
-                        <br> <br>
-                       <div class="form-floating">
-                            <textarea class="form-control" id="floatingTextarea" rows="7"></textarea>
-                            <label for="floatingTextarea">Type your inquiries and/or suggestions.</label>
                         </div>
-                        <button id="btnInquiries" type="button" class="btn btn-sm btn-primary mt-3 float-end">Submit</button>
                     </div>
-
                     
     
-                    <div class="GoogleMaps col text-center">
+                    <div class="GoogleMaps col-lg text-center ">
                         <p class="form-text"> Store Address: Calongbuyan, Galimuyod, Ilocos Sur </p>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15438.745196143802!2d121.04497624999998!3d14.673735749999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1687118614822!5m2!1sen!2sph" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
@@ -666,7 +666,124 @@ padding-top: .25rem;
 </footer>
 
 
-<!--Javasript-->
+<!--JAVASCRIPT-->
+
+<script>
+
+
+// CHECKOUT SCRIPT let openShopping = document.querySelector('.shopping');
+let closeShopping = document.querySelector('.closeShopping');
+let list = document.querySelector('.list');
+let listCard = document.querySelector('.listcanvas');
+let body = document.querySelector('.list-container');
+let total = document.querySelector('.total');
+let quantity = document.querySelector('.quantity');
+
+openShopping.addEventListener('click', ()=>{
+    body.classList.add('active');
+})
+closeShopping.addEventListener('click', ()=>{
+    body.classList.remove('active');
+})
+
+let products = [
+    {
+        id: 1,
+        name: 'Carrot Cake',
+        image: '111.jpg',
+        price: 650
+    },
+    {
+        id: 2,
+        name: 'Lemon Meringue Cake',
+        image: '666.jpg',
+        price: 650
+    },
+    {
+        id: 3,
+        name: 'Chocolate Cake',
+        image: '333.jpg',
+        price: 680
+    },
+    {
+        id: 4,
+        name: 'Red Velvet Cupcake',
+        image: '44.jpg',
+        price: 300
+    },
+    {
+        id: 5,
+        name: 'Banana Loaf',
+        image: '55.jpg',
+        price: 250
+    },
+    {
+        id: 6,
+        name: 'Oatmeal Cookies',
+        image: '22.jpg',
+        price: 200
+    }
+];
+let listCards  = [];
+function initApp(){
+    products.forEach((value, key) =>{
+        let newDiv = document.createElement('div');
+        newDiv.classList.add('item');
+        newDiv.innerHTML = `
+            <img src="image/${value.image}">
+            <div class="title">${value.name}</div>
+            <div class="price">${value.price.toLocaleString()}</div>
+            <button onclick="addToCard(${key})">Add To Card</button>`;
+        list.appendChild(newDiv);
+    })
+}
+initApp();
+function addToCard(key){
+    if(listCards[key] == null){
+        // copy product form list to list card
+        listCards[key] = JSON.parse(JSON.stringify(products[key]));
+        listCards[key].quantity = 1;
+    }
+    reloadCard();
+}
+function reloadCard(){
+    listCard.innerHTML = '';
+    let count = 0;
+    let totalPrice = 0;
+    listCards.forEach((value, key)=>{
+        totalPrice = totalPrice + value.price;
+        count = count + value.quantity;
+        if(value != null){
+            let newDiv = document.createElement('li');
+            newDiv.innerHTML = `
+                <div><img src="image/${value.image}"/></div>
+                <div>${value.name}</div>
+                <div>${value.price.toLocaleString()}</div>
+                <div>
+                    <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
+                    <div class="count">${value.quantity}</div>
+                    <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
+                </div>`;
+                listCard.appendChild(newDiv);
+        }
+    })
+    total.innerText = totalPrice.toLocaleString();
+    quantity.innerText = count;
+}
+function changeQuantity(key, quantity){
+    if(quantity == 0){
+        delete listCards[key];
+    }else{
+        listCards[key].quantity = quantity;
+        listCards[key].price = quantity * products[key].price;
+    }
+    reloadCard();
+}
+
+
+
+</script>
+
 
     
 </body>
