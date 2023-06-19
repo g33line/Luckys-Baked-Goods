@@ -105,12 +105,74 @@ padding-top: .25rem;
     background-color: #453E3B;
     border-radius: 5px;
     color: #fff;
-    width: 90%;
+    width: 50%;
     padding: 5px;
     margin-bottom: 10px;
 }
 
+/* CHECKOUT */
 
+.offcanvas {
+    background-color: #453E3B;
+}
+.active .offcanvas{
+    left: calc(100% - 500px);
+}
+.active .container{
+   transform: translateX(-200px);
+}
+.offcanvas h5 {
+    color: #E8BC0E;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 0px;
+    height: 50px;
+    display: flex;
+}
+.offcanvas .checkOut {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.offcanvas .checkOut div{
+    background-color: #E8BC0E;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+.offcanvas .checkOut div:nth-child(2){
+    background-color: #1C1F25;
+    color: #fff;
+}
+.listcanvas li{
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #fff;
+    row-gap: 10px;
+    
+}
+.listcanvas li div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listcanvas li img{
+    width: 80%;
+    padding: 0px;
+}
+.listcanvas li button{
+    background-color: #fff5;
+    border: none;
+}
+.listcanvas .count{
+    margin: 0 10px;
+}
 
 
 
@@ -146,7 +208,7 @@ padding-top: .25rem;
                    <div class="shopping navbar-nav">
                         <button type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder" aria-controls="offCanvasOrder"> 
                         <span class="quantity fw-bold">
-                            <i class="bi bi-shop-window "></i> 0
+                            <i class="bi bi-cart4 " style="font-size: large;"></i> 0
                         </span>
                         </button>
                     </div>
@@ -156,47 +218,6 @@ padding-top: .25rem;
         </div>
     </div>
 </nav>
-
-
-<!--Basket of Items slide panel on right side-->
-
-<div class="offcanvas offcanvas-end"  data-bs-scroll="true" tabindex="-1" id="offCanvasOrder" aria-labelledby="offCanvasOrder">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title ">Your Orders</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body fw-light">
-        <div class="row ps-2 align-items-center">
-            <div class="col ">
-                <div class="row align-items-center">
-                    <div class="col g-0 ">
-                        <img src="mp2images/carrotcake.jpg" id="" height="50" width="50">
-                    </div>
-                    <div class="col g-0 ">Bluebery CheeseCake</div>
-                    <div class="col ">450</div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="row align-items-center text-center">
-                    <div class="col g-0">
-                        <button type="button" class="btn btn-sm  text-light"  id="" style="background-color: #453E3B;">
-                        <span> <i class="bi bi-dash-square"></i> </span> </button>
-                    </div>
-                    <div class="col g-0">
-                        1
-                    </div>
-                    <div class="col g-0">
-                        <button type="button" class="btn btn-sm  text-light"  id="" style="background-color: #453E3B;">
-                        <span> <i class="bi bi-plus-square"></i> </span> </button>
-                    </div>
-                </div>
-                
-                
-            </div>
-        </div>
-        
-    </div>
-  </div>
 
 
 <!--Main Content-->
@@ -218,7 +239,7 @@ padding-top: .25rem;
                     <div class="price">
                         650
                     </div>
-                    <button> Add to basket</button>
+                    <button> Add to cart</button>
                 </div>
             </div>
             <div class="list">
@@ -230,7 +251,7 @@ padding-top: .25rem;
                     <div class="price">
                         700
                     </div>
-                    <button> Add to basket</button>
+                    <button> Add to cart</button>
                 </div>
             </div>
             <div class="list">
@@ -242,7 +263,7 @@ padding-top: .25rem;
                     <div class="price">
                         400
                     </div>
-                    <button> Add to basket</button>
+                    <button> Add to cart</button>
                 </div>
             </div>
             <div class="list">
@@ -254,7 +275,7 @@ padding-top: .25rem;
                     <div class="price">
                         680
                     </div>
-                    <button> Add to basket</button>
+                    <button> Add to cart</button>
                 </div>
             </div>
             <div class="list">
@@ -266,7 +287,7 @@ padding-top: .25rem;
                     <div class="price">
                         450
                     </div>
-                    <button> Add to basket</button>
+                    <button> Add to cart</button>
                 </div>
             </div>
             <div class="list">
@@ -278,7 +299,7 @@ padding-top: .25rem;
                     <div class="price">
                         600
                     </div>
-                    <button> Add to basket</button>
+                    <button> Add to cart</button>
                 </div>
             </div>
             <div class="list">
@@ -290,7 +311,7 @@ padding-top: .25rem;
                     <div class="price">
                         220
                     </div>
-                    <button> Add to basket</button>
+                    <button> Add to cart</button>
                 </div>
             </div>
             <div class="list">
@@ -302,28 +323,46 @@ padding-top: .25rem;
                     <div class="price">
                         600
                     </div>
-                    <button> Add to basket</button>
+                    <button> Add to cart</button>
                 </div>
             </div>
         </div>
         
         
         <!--CHECKOUT-->
+        <!--Basket of Items slide panel on right side-->
 
-        <div class="offcanvas">
-            <h5 class="offcanvas-title ">Your Orders</h5>
-            <ul class="listCard">
-
-            </ul>
-            <div class="checkOut">
-                <div class="total">0
-
-                </div>
-                <div class="closeOffCanvas">Close 
-
-                </div>
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offCanvasOrder">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title ">Your Orders</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" ></button>
             </div>
-            
+
+            <div class="offcanvas-body">
+
+
+                <ul class="listcanvas">
+                    <li>
+                        <div>
+                            <img src="mp2images/bananabread.jpg" alt="">
+                        </div>
+                        <div> Banana Bread </div>
+                        <div> 220 </div>
+                        <div>
+                            <button onclick="changeQuantity(1,0)"> - </button>
+                            <div class="count"> 1 </div>
+                            <button onclick="changeQuantity(1,0)"> + </button>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="checkOut">
+                    <div class="total"> 0  </div>
+                    <div class="closeOffCanvas" data-bs-dismiss="offcanvas"> Close </div>
+                </div>
+
+
+            </div>
         </div>
 
 
@@ -351,7 +390,7 @@ padding-top: .25rem;
 
 
 
-            
+
 
         </section>
 
@@ -523,21 +562,62 @@ padding-top: .25rem;
 
         
 
-        <!--Sign up Form-->
-
+        <!--SIGN UP-->
+        <section class="pt-3 mt-3 bg-secondary bg-opacity-25">
             <div class="container">
-                <div class="signup-form">
-                    <form action="">
+                <div class="row  pb-3">
 
-                    </form> 
+                    <div class="col-3 ">
+                        <form action="" class="signup-form float-start ">
+                            <h4>Sign Up</h4>
+
+                            <div class="mb-1">
+                                <input type="text" class="form-control form-control-sm" id="inputSignupName" aria-describedby="SignupName" placeholder="Name">
+                            </div >
+                            <div class="mb-1">
+                                <input type="text" class="form-control form-control-sm" id="inputMobile" placeholder="Mobile Number">
+                            </div>
+                            <div class="mb-1">
+                                <input type="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailSignUp" placeholder="Email Address">
+                            </div>
+                            <div class="mb-1">
+                                <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Password">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="agreeCheckbox">
+                                <label class="form-text form-check-label" for="exampleCheck1">I agree to store my details here. </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-sm btn-primary text-uppercase">Yes, sign me up</button>
+                            <div class="form-text">We won't share your email.</div>
+
+                        </form> 
+                    </div>
+            
+
+                    <div class="col">
+                        <br> <br>
+                       <div class="form-floating">
+                            <textarea class="form-control" id="floatingTextarea" rows="7"></textarea>
+                            <label for="floatingTextarea">Type your inquiries and/or suggestions.</label>
+                        </div>
+                        <button id="btnInquiries" type="button" class="btn btn-sm btn-primary mt-3 float-end">Submit</button>
+                    </div>
+
+                    
+    
+                    <div class="GoogleMaps col text-center">
+                        <p class="form-text"> Store Address: Calongbuyan, Galimuyod, Ilocos Sur </p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15438.745196143802!2d121.04497624999998!3d14.673735749999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1687118614822!5m2!1sen!2sph" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+
+
                 </div>
-                <div class="MapLocation">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15438.745196143802!2d121.04497624999998!3d14.673735749999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1687118614822!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
+             </div>
+        </section>
 
-
-
+        
 
 <!--Footer-->
 <footer class=" bg-dark">
