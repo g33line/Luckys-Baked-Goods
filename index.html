@@ -65,7 +65,7 @@ padding-top: .25rem;
 
 .list {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
     column-gap: 20px;
     row-gap: 20px;
     margin-top: 25px;
@@ -103,20 +103,44 @@ padding-top: .25rem;
     margin-bottom: 10px;
 }
 
-/* CHECKOUT */
-
-
-
-#quantity{
-    
-    font-weight: 700;
-    font-size: large;
-    color: #65BDC7;
-    padding: 0px;
-    margin: 0px;
+/* IMAGE HOVER */
+.row {
 }
-#quantity:hover{
-    color: #1C1F25;
+.image {
+    display: inline-block;
+    text-align: center;
+    width: 20%;
+    float: left;
+}
+figure {
+    overflow: hidden;
+    margin: 0px 0px;
+}
+.image img  {
+    display: block;
+    width: auto;
+    height: 400px;
+    cursor: pointer;
+}
+.image #zoom-In img {
+    transform: scale(1);
+    transition: .3s ease-in-out;
+}
+.image #zoom-In:hover img {
+    transform: scale(1.5);
+}
+
+/*THUMBNAIL*/
+.thumbnail {
+    display: inline-block;
+    text-align: center;
+    width: 16%;
+}
+.thumbnail img  {
+    display: block;
+    width: auto;
+    height: 200px;
+    border-radius: 5px;
 }
 
 </style>
@@ -126,7 +150,7 @@ padding-top: .25rem;
 
 <body>
 <!--Header Navigation-->
-<nav class="navbar fixed-top navbar-expand-xl " style="background-color: white;">
+<nav class="navbar fixed-top navbar-expand-xl border-bottom" style="background-color: white;">
     <div class="container-md">
         <div class="navbar container py-0"  >
             <a class="navbar-brand "  href="#">
@@ -154,156 +178,95 @@ padding-top: .25rem;
     </div>
 </nav>
 
-
 <!--Main Content-->
-<section class="pt-5 mt-5  bg-secondary bg-opacity-25">
+<br>
+
+<section class="pt-5 mt-5 container card bg-secondary bg-opacity-25">
     <div class="container pt-4 pb-2">
 
-        <div id="carouselExampleFade" class="carousel slide carousel-fade">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                
-                    <div class="container">
-                        <div class="list">
-                            <div class="item">
-                                <img src="mp2images/carrotcake.jpg" alt="">
-                                <div class="title"> 
-                                    Carrot Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                            
-                            <div class="item">
-                                <img src="mp2images/peachcake.jpg" alt="">
-                                <div class="title"> 
-                                    Peaches&Cream Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                        
-                            <div class="item">
-                                <img src="mp2images/chococake.jpg" alt="">
-                                <div class="title"> 
-                                    Chocolate Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                            
-                            <div class="item">
-                                <img src="mp2images/meringuecake.jpg" alt="">
-                                <div class="title"> 
-                                    Lemon Meringue Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
 
-                <div class="carousel-item">
-                
-                    <div class="container">
-                        <div class="list">
-                            <div class="item">
-                                <img src="mp2images/carrotcake.jpg" alt="">
-                                <div class="title"> 
-                                    Carrot Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                            
-                            <div class="item">
-                                <img src="mp2images/peachcake.jpg" alt="">
-                                <div class="title"> 
-                                    Peaches&Cream Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                        
-                            <div class="item">
-                                <img src="mp2images/chococake.jpg" alt="">
-                                <div class="title"> 
-                                    Chocolate Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                            
-                            <div class="item">
-                                <img src="mp2images/meringuecake.jpg" alt="">
-                                <div class="title"> 
-                                    Lemon Meringue Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-
+        <div class="">
+            <div class=" text-center ">
+                <p class="display-6  fst-italic" style="font-size: x-large;">We are a home-based bakery that makes delicious...
+                </p>
             </div>
+        </div>
 
-           
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-    
-       
+<!--TESTING HOVER IMAGE-->
+
+        <div class="row">
+
+            <div class="image">
+                <div  id="zoom-In">
+                    <figure>
+                        <a href="menu.html">
+                            <img src="mp2images/8.jpg" alt="">
+                        </a>
+                        </figure>
+                    <h5>CAKES</h5>
+                </div>
+            </div>
+            <div class="image">
+                <div id="zoom-In">
+                    <figure>
+                        <a href="menu.html">
+                            <img src="mp2images/29.jpg" alt="">
+                        </a>
+                    </figure>
+                    <h5>CHEESECAKES</h5>
+                </div>
+            </div>
+            <div class="image">
+                <div id="zoom-In">
+                    <figure>
+                        <a href="menu.html">
+                            <img src="mp2images/21.jpg" alt="">
+                        </a>
+                        </figure>
+                    <h5>CUPCAKES</h5>
+                </div>
+            </div>
+            <div class="image">
+                <div id="zoom-In">
+                    <figure>
+                        <a href="menu.html">
+                            <img src="mp2images/31.jpg" alt="">
+                        </a>
+                        </figure>
+                    <h5>BREAD</h5>
+                </div>
+            </div>
+            <div class="image">
+                <div id="zoom-In">
+                    <figure>
+                        <a href="menu.html">
+                            <img src="mp2images/30.jpg" alt="">
+                        </a>
+                    </figure>
+                    <h5>COOKIES</h5>
+                </div>
+            </div>
+            
+
+        </div>
+
+
 
 
 
 
     </div>
 </section>
-<br>
 
-<div class="">
-    <div class=" text-center py-3">
-        <p class="fw-light fst-italic" style="font-size: x-large;">We are a home-based bakery that makes delicious 🍰 cakes, 🥧 cheesecakes, 🧁 cupcakes, 🍞 bread, and 🍪 cookies!
-        </p>
-    </div>
-</div>
-<hr><br>
+<div class="container py-3"> <hr></div>
 
         <!--ABOUT-->
-        <section class="container card shadow-lg py-4 " >
+        <section class="container card shadow-lg py-4 bg-outline-secondary bg-opacity-25 text-center" >
  
             <!--MEET LUCKY-->
 
-            <div id="MeetLucky" class="container">
-                <div class=" card  border-0 text-center">
                       <div class="col ">
-                            <h5 class="">Meet our Resident Baker</h5>
+                            <h5 class="display-6" style="font-size: x-large;">Meet our Resident Baker</h5>
                             <img src="mp2images/meetlucky.jpg" width="260" class="bg-info bg-opacity-25 float-center img-thumbnail" alt="...">
                             <div class="container px-5" >
                                 <p class="">Lucky, a.k.a. Yen, was born and raised in Ilocos Sur.  
@@ -311,13 +274,61 @@ padding-top: .25rem;
                             </div>
                             <a href="story.html" class="text-decoration-none"> Know more about her... </a>
                         </div>
-                      </div>
-            </div>
-  </section>
+         </section>
 
     
 
-<br><br>
+<div class="container py-3"> <hr></div>
+
+
+         <!--photo THUMBNAILS for CUSTOMER REVIEWS-->
+        <section class="container ">
+            <h6 class="display-6 text-uppercase text-center" style="font-size:xx-large;">Testimonials</h6>
+            <div class="thumbnail">
+                <div >
+                    <figure class="">
+                        <img src="mp2images/19.jpg" alt="">
+                    </figure>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <div >
+                    <figure class="">
+                        <img src="mp2images/18.jpg" alt="">
+                    </figure>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <div >
+                    <figure class="">
+                        <img src="mp2images/12.jpg" alt="">
+                    </figure>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <div >
+                    <figure class="">
+                        <img src="mp2images/37.jpg" alt="">
+                    </figure>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <div >
+                    <figure class="">
+                        <img src="mp2images/11.jpg" alt="">
+                    </figure>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <div >
+                    <figure class="">
+                        <img src="mp2images/32.jpg" alt="">
+                    </figure>
+                </div>
+            </div>
+            
+
+         </section>
 
         <!--Customer Tab Reviews-->
         <nav class="container" id="reviews"> 
@@ -328,9 +339,39 @@ padding-top: .25rem;
                         <i class="bi bi-stars"></i> Customer Reviews
                     </p> </span>
                 </button>
-                <button class="nav-link border-0 text-muted text-decoration-none"> Add a Review</button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#addCustomerReviewModal" class=" btn nav-link border-0 text-muted text-decoration-none"> Add a Review</button>
+            
+                <!--ADD REVIEW MODAL-->
+                <div class="modal fade" id="addCustomerReviewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="staticBackdropLabel">Thank you for your support!</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                <label for="floatingTextarea2">Add a review</label>
+                            </div>  
+                            <br>
+                            <small>Share a photo of the product your ordered</small>
+                            <input type="file" class="form-control form-control-sm" aria-label="file example" required>
+                            <br>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Clear</button>
+                                <button type="button" class="btn btn-sm btn-info bg-opacity-25">Submit</button>
+                            </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+            
+            
             </div>
             
+            <!--CUSTOMER REVIEW TAB WINDOW-->
             </nav>
             <div class="tab-content border-1" id="reviewtabContent">
                 <div class="tab-pane fade show active border-color-info" id="review1" height="150px" role="tabpanel" aria-labelledby="review-tab" tabindex="0">
@@ -483,7 +524,7 @@ padding-top: .25rem;
                 <div class="row pb-3 align-items-center">
 
                     <div class="col-lg-8 bg-info bg-opacity-25 ">
-                        <div class="row ">
+                        <div class="row g-0">
 
                             <div class="col-lg-6 p-4 ">
                                 <form action="" class="signup-form  text-center">
@@ -517,7 +558,7 @@ padding-top: .25rem;
                                 <br> 
                                <form class="form-floating">
                                     <textarea type="text" class="form-control " id="floatingInputValue" placeholder="Send us your inquiries and/or suggestions." style="height: 170px;"> </textarea>
-                                    <label for="floatingInputValue" >Send us your questions and/or suggestions.</label>
+                                    <label for="floatingInputValue" class="text-wrap">Send us your questions and/or suggestions.</label>
                                 </form>
                                 <button id="btnInquiries" type="submit" class="btn btn-sm btn-primary mt-3 ">Submit</button>
                             </div>
@@ -528,8 +569,7 @@ padding-top: .25rem;
                     
     
                     <div class="GoogleMaps col-lg text-center ">
-                        <p class="form-text"> Store Address: Calongbuyan, Galimuyod, Ilocos Sur </p>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15438.745196143802!2d121.04497624999998!3d14.673735749999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1687118614822!5m2!1sen!2sph" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15438.745196143802!2d121.04497624999998!3d14.673735749999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1687118614822!5m2!1sen!2sph" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
 
 
@@ -549,7 +589,7 @@ padding-top: .25rem;
                     <li > <small> ABOUT </small></li>
                     <hr class="my-1">
                     <li>
-                        <a href="#" class="text-light" style="text-decoration: none;">
+                        <a href="story.html" class="text-light" style="text-decoration: none;">
                             <small> Meet Lucky </small></a>
                     </li>
                     <li>

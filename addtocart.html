@@ -114,10 +114,75 @@
     justify-content: space-between;
 }
 
+
+
+/* IMAGE GOVER */
+.image {
+    display: inline-block;
+    text-align: center;
+    width: 25%;
+    float: left;
+}
+figure {
+    overflow: hidden;
+    margin: 0 10px;
+}
+.image img  {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+.image #zoom-In img {
+    transform: scale(1);
+    transition: .3s ease-in-out;
+}
+.image #zoom-In:hover img {
+    transform: scale(1.5);
+}
+
 </style>
 
 </head>
 <body>
+
+
+
+<!--TESTING HOVER IMAGE-->
+
+<div class="row">
+
+    <div class="image">
+        <div id="zoom-In">
+            <figure>
+                <img src="mp2images/30.jpg" alt="">
+            </figure>
+        </div>
+    </div>
+    <div class="image">
+        <div id="zoom-In">
+            <figure>
+                <img src="mp2images/30.jpg" alt="">
+            </figure>
+        </div>
+    </div>
+    <div class="image">
+        <div id="zoom-In">
+            <figure>
+                <img src="mp2images/30.jpg" alt="">
+            </figure>
+        </div>
+    </div>
+    
+
+</div>
+
+<br><br><br><br>
+
+
+<!--ADD TO CART-->
+
+
     <div class="header">
         <p class="logo">LOGO</p>
         <div class="cart bg-info">
