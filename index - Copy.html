@@ -12,20 +12,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <!--BS Icon CDN-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-   
+
 
 
 <style>
-* {
-   
-}
 
 .nav-link {
     color: black;
-    font-size: large;
-}
-.navbar-nav{
-    justify-content: space-evenly;
 }
 .navbar .navbar-nav .nav-link::after{
   content: '';
@@ -60,6 +53,20 @@ padding-top: .25rem;
     font-size: smaller;
 }
 
+.offcanvas {
+    background-color: #453E3B;
+}
+.offcanvas-header {
+    color: #E8BC0E;
+}
+
+.offcanvas-body {
+    color: white;
+    font-size: smaller;
+}
+
+
+
 
 /* RESPONSIVE GRID MENU ITEM */
 
@@ -76,7 +83,7 @@ padding-top: .25rem;
     background-color: #DCE0E1;
     padding: 0px;
     margin-top: 0px;
-    box-shadow: 0 15px 10px;
+    box-shadow: 0 15px 10px #757676;
     letter-spacing: 0px;
     border-radius: 0px;
 }
@@ -105,19 +112,65 @@ padding-top: .25rem;
 
 /* CHECKOUT */
 
+.offcanvas {
+    background-color: #453E3B;
+}
 
-
-#quantity{
+.offcanvas h5 {
+    color: #E8BC0E;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 0px;
+    height: 50px;
+    display: flex;
+}
+.offcanvas .checkOut {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.offcanvas .checkOut div{
+    background-color: #E8BC0E;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+.offcanvas .checkOut div:nth-child(2){
+    background-color: #1C1F25;
+    color: #fff;
+}
+.listcanvas li{
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #fff;
+    row-gap: 10px;
     
-    font-weight: 700;
-    font-size: large;
-    color: #65BDC7;
-    padding: 0px;
-    margin: 0px;
 }
-#quantity:hover{
-    color: #1C1F25;
+.listcanvas li div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.listcanvas li img{
+    width: 80%;
+}
+.listcanvas li button{
+    background-color: #fff5;
+    border: none;
+    
+}
+.listcanvas .count{
+    margin: 0 10px;
+}
+
+
+
 
 </style>
 
@@ -129,24 +182,31 @@ padding-top: .25rem;
 <nav class="navbar fixed-top navbar-expand-xl " style="background-color: white;">
     <div class="container-md">
         <div class="navbar container py-0"  >
-            <a class="navbar-brand "  href="#">
-                <img src="mp2images/logomx.gif" alt="Lucky's logo" height="80" class="">
+            <a class="navbar-brand" href="#">
+                <img src="mp2images/headerlogomx.gif" alt="Lucky's logo" height="70" class="px-4">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarShop" aria-controls="navbarShop" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse px-auto " id="navbarShop">
-                <div class="navbar-nav  ">
-                    <a href="menu.html" class="nav-link" >MENU</a>
-                    <a class="nav-link" href="#orderform">Pre-Order</a>
-                    <a class="nav-link" href="#">Payment</a>
-                    <a class="nav-link" href="#reviews">Customer Reviews</a>
-                    <a class="nav-link" href="#">Contact Us</a>
-                    <a class="nav-link" href="story.html">Story</a>
-                    
+            <div class="collapse navbar-collapse px-auto" id="navbarShop">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">MENU</a>
+                    <a class="nav-link" href="#">Pricelist</a>
+                    <a class="nav-link" href="#">Baking Tools</a>
+                    <a class="nav-link" href="#">Baking Tips</a>
+                    <a class="nav-link" href="#">Videos</a>
+                    <a class="nav-link" href="#">Story</a>
                 </div>
-                <div class="navbar-nav mx-auto align-items-center ">
-                    <a class="nav-link" href="#">Admin Login</a>
+                <div class="navbar-nav mx-auto">
+                    <a class="nav-link" href="#">Login</a>
+
+                   <div class="shopping navbar-nav">
+                        <button type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder" aria-controls="offCanvasOrder"> 
+                        <span class="quantity fw-bold"> <i class="bi bi-cart4 " style="font-size: large;"></i> 
+                            0
+                        </span>
+                        </button>
+                    </div>
 
                 </div>
             </div>
@@ -159,168 +219,182 @@ padding-top: .25rem;
 <section class="pt-5 mt-5  bg-secondary bg-opacity-25">
     <div class="container pt-4 pb-2">
 
-        <div id="carouselExampleFade" class="carousel slide carousel-fade">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                
-                    <div class="container">
-                        <div class="list">
-                            <div class="item">
-                                <img src="mp2images/carrotcake.jpg" alt="">
-                                <div class="title"> 
-                                    Carrot Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                            
-                            <div class="item">
-                                <img src="mp2images/peachcake.jpg" alt="">
-                                <div class="title"> 
-                                    Peaches&Cream Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                        
-                            <div class="item">
-                                <img src="mp2images/chococake.jpg" alt="">
-                                <div class="title"> 
-                                    Chocolate Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                            
-                            <div class="item">
-                                <img src="mp2images/meringuecake.jpg" alt="">
-                                <div class="title"> 
-                                    Lemon Meringue Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
 
-                <div class="carousel-item">
-                
-                    <div class="container">
-                        <div class="list">
-                            <div class="item">
-                                <img src="mp2images/carrotcake.jpg" alt="">
-                                <div class="title"> 
-                                    Carrot Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                            
-                            <div class="item">
-                                <img src="mp2images/peachcake.jpg" alt="">
-                                <div class="title"> 
-                                    Peaches&Cream Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                        
-                            <div class="item">
-                                <img src="mp2images/chococake.jpg" alt="">
-                                <div class="title"> 
-                                    Chocolate Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                            
-                            <div class="item">
-                                <img src="mp2images/meringuecake.jpg" alt="">
-                                <div class="title"> 
-                                    Lemon Meringue Cake
-                                </div>
-                                <div class="price">
-                                    
-                                </div>
-                                <button > Details</button>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
 
+        <!--TESTING CSS STYLE-->
+
+         
+        <div class="list-container ">
+            <div class="list">
+                <div class="item">
+                    <img src="mp2images/carrotcake.jpg" alt="">
+                    <div class="title"> 
+                        Carrot Cake
+                    </div>
+                    <div class="price">
+                        650
+                    </div>
+                    <button> Add to cart</button>
+                </div>
+                
+                <div class="item">
+                    <img src="mp2images/peachcake.jpg" alt="">
+                    <div class="title"> 
+                        Peaches&Cream Cake
+                    </div>
+                    <div class="price">
+                        700
+                    </div>
+                    <button> Add to cart</button>
+                </div>
+            
+                <div class="item">
+                    <img src="mp2images/chococake.jpg" alt="">
+                    <div class="title"> 
+                        Chocolate Cake
+                    </div>
+                    <div class="price">
+                        400
+                    </div>
+                    <button> Add to cart</button>
+                </div>
+                
+                
+                <div class="item">
+                    <img src="mp2images/meringuecake.jpg" alt="">
+                    <div class="title"> 
+                        Lemon Meringue Cake
+                    </div>
+                    <div class="price">
+                        680
+                    </div>
+                    <button> Add to cart</button>
+                </div>
+                
+                <div class="item">
+                    <img src="mp2images/blueberry.jpg" alt="">
+                    <div class="title"> 
+                        Blueberry Cheesecake
+                    </div>
+                    <div class="price">
+                        450
+                    </div>
+                    <button> Add to cart</button>
+                </div>
+                
+                <div class="item">
+                    <img src="mp2images/redvelvetcupcake.jpg" alt="">
+                    <div class="title"> 
+                        Red Velvet Cupcake
+                    </div>
+                    <div class="price">
+                        600
+                    </div>
+                    <button> Add to cart</button>
+                </div>
+                
+                <div class="item">
+                    <img src="mp2images/bananabread.jpg" alt="">
+                    <div class="title"> 
+                        Banana Bread
+                    </div>
+                    <div class="price">
+                        220
+                    </div>
+                    <button> Add to cart</button>
+                </div>
+                
+                <div class="item">
+                    <img src="mp2images/cookies.jpg" alt="">
+                    <div class="title"> 
+                        Oatmeal Cookies
+                    </div>
+                    <div class="price">
+                        600
+                    </div>
+                    <button> Add to cart</button>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!--CHECKOUT-->
+        <!--Basket of Items slide panel on right side -->
+
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offCanvasOrder">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title ">Your Orders</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" ></button>
             </div>
 
-           
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-    
-       
+            <div class="offcanvas-body ps-0">
 
+
+                <ul class="listcanvas">
+                    <li>
+                        <div>
+                            <img src="mp2images/bananabread.jpg" alt="">
+                        </div>
+                        <div> Banana Bread </div>
+                        <div> 220 </div>
+                        <div>
+                            <button onclick="changeQuantity(1,0)"> - </button>
+                            <div class="count"> 1 </div>
+                            <button onclick="changeQuantity(1,0)"> + </button>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="checkOut">
+                    <div class="total"> 0  </div>
+                    <div class="closeOffCanvas" data-bs-dismiss="offcanvas"> Close </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <br> <hr> 
 
 
 
     </div>
 </section>
-<br>
 
-<div class="">
-    <div class=" text-center py-3">
-        <p class="fw-light fst-italic" style="font-size: x-large;">We are a home-based bakery that makes delicious 🍰 cakes, 🥧 cheesecakes, 🧁 cupcakes, 🍞 bread, and 🍪 cookies!
-        </p>
-    </div>
-</div>
-<hr><br>
 
         <!--ABOUT-->
-        <section class="container card shadow-lg py-4 " >
- 
+        <section class="container pt-4 " >
+            <div class="">
+                <div class=" text-center pt-3">
+                    <p class="fw-light fst-italic" style="font-size: x-large;">We are a home-based bakery that makes delicious 🍰 cakes, 🥧 cheesecakes, 🧁 cupcakes, 🍞 bread, and 🍪 cookies!
+                    </p>
+                </div>
+            </div>
+
+
             <!--MEET LUCKY-->
 
-            <div id="MeetLucky" class="container">
-                <div class=" card  border-0 text-center">
-                      <div class="col ">
-                            <h5 class="">Meet our Resident Baker</h5>
-                            <img src="mp2images/meetlucky.jpg" width="260" class="bg-info bg-opacity-25 float-center img-thumbnail" alt="...">
-                            <div class="container px-5" >
-                                <p class="">Lucky, a.k.a. Yen, was born and raised in Ilocos Sur.  
-                                    <br> Fond of traveling and taking photos. And not many know that she loves to cook.</p>
-                            </div>
-                            <a href="story.html" class="text-decoration-none"> Know more about her... </a>
-                        </div>
-                      </div>
-            </div>
-  </section>
 
-    
 
-<br><br>
+
+
+
+        </section>
+
+
+       
+        
+
+
+
+
+
+
 
         <!--Customer Tab Reviews-->
-        <nav class="container" id="reviews"> 
+        <nav class="container"> 
             <div class="nav nav-tabs p-4 pb-0" id="customerreview" role="tablist">
                 <button class="nav-link active bg-info bg-opacity-25 border-color-info pt-0 pb-0 mt-0" id="review-tab" data-bs-toggle="tab" data-bs-target="#review1" 
                     type="button" role="tab" aria-controls="review" aria-selected="true">
@@ -328,7 +402,7 @@ padding-top: .25rem;
                         <i class="bi bi-stars"></i> Customer Reviews
                     </p> </span>
                 </button>
-                <button class="nav-link border-0 text-muted text-decoration-none"> Add a Review</button>
+                <button class="nav-link border-0 "> Add a Review</button>
             </div>
             
             </nav>
@@ -478,16 +552,16 @@ padding-top: .25rem;
         
 
         <!--SIGN UP-->
-        <section class="pt-3 mt-3 bg-secondary bg-opacity-25" id="orderform">
+        <section class="pt-3 mt-3 bg-secondary bg-opacity-25">
             <div class="container">
                 <div class="row pb-3 align-items-center">
 
-                    <div class="col-lg-8 bg-info bg-opacity-25 ">
+                    <div class="col bg-info bg-opacity-25 ">
                         <div class="row ">
 
                             <div class="col-lg-6 p-4 ">
                                 <form action="" class="signup-form  text-center">
-                                    <h4>Pre-Order Form</h4>
+                                    <h4>Sign Up</h4>
         
                                     <div class="mb-1 text-center">
                                         <input type="text" class="form-control form-control-sm" id="inputSignupName" aria-describedby="SignupName" placeholder="Name">
@@ -499,15 +573,15 @@ padding-top: .25rem;
                                         <input type="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailSignUp" placeholder="Email Address">
                                     </div>
                                     <div class="mb-1">
-                                        <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Pick-up or Delivery ">
+                                        <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Password">
                                     </div>
                                     <div class="mb-3 form-check">
                                         <input type="checkbox" class="form-check-input " id="agreeCheckbox">
                                         <label class="form-text form-check-label" for="exampleCheck1">I agree to store my details here. </label>
                                     </div>
         
-                                    <button type="submit" class="btn btn-sm btn-primary text-uppercase">Yes, proceed</button>
-                                    <div class="form-text">We won't share your details.</div>
+                                    <button type="submit" class="btn btn-sm btn-primary text-uppercase">Yes, sign me up</button>
+                                    <div class="form-text">We won't share your email.</div>
         
                                 </form> 
                             </div>
@@ -516,8 +590,8 @@ padding-top: .25rem;
                             <div class="col-lg-6 p-4 mt-2 ">
                                 <br> 
                                <form class="form-floating">
-                                    <textarea type="text" class="form-control " id="floatingInputValue" placeholder="Send us your inquiries and/or suggestions." style="height: 170px;"> </textarea>
-                                    <label for="floatingInputValue" >Send us your questions and/or suggestions.</label>
+                                    <textarea type="text" class="form-control" id="floatingInputValue" placeholder="Send us your inquiries and/or suggestions." style="height: 170px;"> </textarea>
+                                    <label for="floatingInputValue">Got questions or suggestions?</label>
                                 </form>
                                 <button id="btnInquiries" type="submit" class="btn btn-sm btn-primary mt-3 ">Submit</button>
                             </div>
@@ -594,84 +668,9 @@ padding-top: .25rem;
 
 <!--JAVASCRIPT-->
 
-
 <script>
 
-const product = [
-    {
-        id: 0,
-        image: 'mp2images/carrotcake.jpg',
-        title: 'Carrot Cake',
-        price: 650,
-    },
-    {
-        id: 1,
-        image: 'mp2images/peachcake.jpg',
-        title: 'Peaches&Cream Cake',
-        price: 700,
-    },
-    {
-        id: 2,
-        image: 'mp2images/chococake.jpg',
-        title: 'Chocolate Cake',
-        price: 400,
-    },
-    {
-        id: 3,
-        image: 'mp2images/lemonmeringue.jpg',
-        title: 'Lemon Meringue Cake',
-        price: 680,
-    }
 
-];
-
-const categories = [...new Set(product.map((item)=>
-{return item}))]
-
-
-var orders = [];
-
-function addtocart(a){
-    orders.push({...categories[a]});
-    displayorders();
-}
-
-function delElement(a){
-    orders.splice(a,1);
-    displayorders();
-}
-
-
-function displayorders(a){
-    let j=0, total=0;
-
-
-    document.getElementById("quantity").innerHTML = orders.length;
-
-    if(orders.length==0){
-        document.getElementById('yourorders').innerHTML = "You have no orders";
-        document.getElementById("totalamount").innerHTML = "P "+0+".00";
-    }
-    else{
-        document.getElementById("yourorders").innerHTML = orders.map((items)=>
-        {
-            var {image, title, price} = items;
-            total += price;
-            document.getElementById("totalamount").innerHTML = "P "+total+".00";
-
-            return(
-                `<div class='cart-item'>
-                <div class='row-img'>
-                    <img class='rowimg' src=${image}>
-                    </div>
-                    <p style='font-size:12px;'>${title}</p>
-                    <h2 style='font-size:15px;'>P ${price}.00</h2>`+
-                    "<i class='fa-solid fa-trash' onclick='delElement("+(j++)+")'></i></div>"
-            );
-        }).join('');
-    }
-
-}
 
 
 

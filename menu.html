@@ -1,47 +1,790 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Lucky's Baked Goods</title>
+    <link rel="icon" type="image/x-icon" href="mp2images/favicon.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
 
-    
-
-</head>
-<body class="">
+    <!--BS5 CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!--BS Icon CDN-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
    
 
 
-    <div class="container">
-        <header>
-            <h1>Shopping Cart</h1>
-            <div class="shopping">
-                <img src="image/shopping1.svg">
-                <span class="quantity">0</span>
-            </div>
-        </header>
+<style>
 
-        <div class="list">
-          
-        </div>
-    </div>
-    <div class="card">
-        <h1>Cart</h1>
-        <ul class="listCard">
-        </ul>
-        <div class="checkOut">
-            <div class="total">0</div>
-            <div class="closeShopping">Close</div>
-        </div>
-    </div>
+.nav-link {
+    color: black;
+    font-size: large;
+}
+.navbar-nav{
+    justify-content: space-evenly;
+}
+.navbar .navbar-nav .nav-link::after{
+  content: '';
+  width: 0;
+  height: 3px;
+  background-color: #65BDC7;
+  margin: auto;
+  display: block;
+}
+
+.navbar .navbar-nav .nav-link:hover::after {
+  width: 100%;
+  transition: width 0.1s linear;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+  color: #65BDC7;
+}
+
+.col-2:hover {
+padding-top: .25rem;
+
+}
+
+.item {
+    background-color: #DCE0E1;
+    box-shadow: 0 15px 10px #757676; 
+    padding: 7%;
+}
+
+.title {
+    font-size: smaller;
+}
+
+
+/* RESPONSIVE GRID MENU ITEM */
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(230px, 1fr));
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-top: 25px;
+}
+
+.list .item{
+    text-align: center;
+    background-color: #DCE0E1;
+    padding: 0px;
+    margin-top: 0px;
+    box-shadow: 0 15px 10px;
+    letter-spacing: 0px;
+    border-radius: 0px;
+}
+.list .item img{
+    width: 100%;
+    border-radius: 0px;
+}
+.list .item .title{
+    padding: 5px;
+    font-weight:600;
+    font-size: medium;
+    margin: 0px;
+}
+.list .item .price{
+    margin-bottom: 10px;
+    font-weight:bold;
+}
+.list .item button{
+    background-color: #453E3B;
+    border-radius: 5px;
+    color: #fff;
+    width: 50%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+/* CHECKOUT */
+
+
+.offcanvas-header {
+    color: #453E3B;
+    font-size: larger;
+}
+
+.offcanvas-body {
+    color: #453E3B;
+    font-size: smaller;
+}
+.orders-container{
+    overflow: scroll;
+    height: 500px;
+}
+
+.offcanvas h5 {
+    color: #453E3B;
+    font-weight: 500;
+    margin: 0;
+    padding: 0 0px;
+    height: 25px;
+    display: flex;
+}
+.offcanvas .checkOut {
+    position: absolute;
+    justify-content: center;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.offcanvas .checkOut div{
+    background-color: #65BDC7;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+.offcanvas .checkOut div:nth-child(2){
+    background-color: #453E3B;
+    color: white;
+   
+}
+.listcanvas li{
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #453E3B;
+    row-gap: 10px;
+    
+}
+.listcanvas li div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listcanvas li img{
+    width: 60%;
+}
+.listcanvas li button{
+    background-color: #453E3B;
+    border: none;
+    color: white;
 
     
+}
+.listcanvas .count{
+    margin: 0 10px;
+}
+
+#quantity{
+    
+    font-weight: 700;
+    font-size: large;
+    color: #65BDC7;
+    padding: 0px;
+    margin: 0px;
+}
+#quantity:hover{
+    color: #1C1F25;
+}
+
+</style>
+
+</head>
+
+
+<body>
+<!--Header Navigation-->
+<nav class="navbar fixed-top navbar-expand-xl " style="background-color: white;">
+    <div class="container-md">
+        <div class="navbar container py-0"  >
+            <a class="navbar-brand "  href="index.html">
+                <img src="mp2images/logomx.gif" alt="Lucky's logo" height="80" class="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarShop" aria-controls="navbarShop" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse px-auto " id="navbarShop">
+                <div class="navbar-nav  ">
+                    <a class="nav-link active" aria-current="page" href="#">MENU</a>
+                    <a class="nav-link" href="#">Pre-Order</a>
+                    <a class="nav-link" href="#">Payment</a>
+                    <a class="nav-link" href="#reviews">Customer Reviews</a>
+                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" href="story.html">Story</a>
+                    
+                </div>
+                <div class="navbar-nav mx-auto align-items-center ">
+                     <div class="navbar-nav" >
+                        <button type="button" class="cart nav-link " data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder"> 
+                            Orders <i class=" bi bi-cart4" style="font-size: x-large;"></i> 
+                           <span  id="quantity">  </span>
+                        </span>
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<!--Main Content-->
+<section class="pt-5 mt-5  bg-secondary bg-opacity-25">
+    <div class="container pt-4 pb-2">
+
+        <a href="index.html" class="text-decoration-none text-muted"> HOME</a> > MENU
+
+        <!--TESTING CSS STYLE-->
+
+         
+        <div class="list-container ">
+            <div class="list">
+                <div class="item">
+                    <img src="mp2images/carrotcake.jpg" alt="">
+                    <div class="title"> 
+                        Carrot Cake
+                    </div>
+                    <div class="price">
+                        650
+                    </div>
+                    <button onclick="addtocart()"> Add to cart</button>
+                </div>
+                
+                <div class="item">
+                    <img src="mp2images/peachcake.jpg" alt="">
+                    <div class="title"> 
+                        Peaches&Cream Cake
+                    </div>
+                    <div class="price">
+                        700
+                    </div>
+                    <button onclick="addtocart()"> Add to cart</button>
+                </div>
+            
+                <div class="item">
+                    <img src="mp2images/chococake.jpg" alt="">
+                    <div class="title"> 
+                        Chocolate Cake
+                    </div>
+                    <div class="price">
+                        400
+                    </div>
+                    <button onclick="addtocart()"> Add to cart</button>
+                </div>
+                
+                
+                <div class="item">
+                    <img src="mp2images/meringuecake.jpg" alt="">
+                    <div class="title"> 
+                        Lemon Meringue Cake
+                    </div>
+                    <div class="price">
+                        680
+                    </div>
+                    <button onclick="addtocart()"> Add to cart</button>
+                </div>
+                
+                <div class="item">
+                    <img src="mp2images/blueberry.jpg" alt="">
+                    <div class="title"> 
+                        Blueberry Cheesecake
+                    </div>
+                    <div class="price">
+                        450
+                    </div>
+                    <button onclick="addtocart()"> Add to cart</button>
+                </div>
+                
+                <div class="item">
+                    <img src="mp2images/redvelvetcupcake.jpg" alt="">
+                    <div class="title"> 
+                        Red Velvet Cupcake
+                    </div>
+                    <div class="price">
+                        600
+                    </div>
+                    <button onclick="addtocart()"> Add to cart</button>
+                </div>
+                
+                <div class="item">
+                    <img src="mp2images/bananabread.jpg" alt="">
+                    <div class="title"> 
+                        Banana Bread
+                    </div>
+                    <div class="price">
+                        220
+                    </div>
+                    <button onclick="addtocart()"> Add to cart</button>
+                </div>
+                
+                <div class="item">
+                    <img src="mp2images/cookies.jpg" alt="">
+                    <div class="title"> 
+                        Oatmeal Cookies
+                    </div>
+                    <div class="price">
+                        600
+                    </div>
+                    <button onclick="addtocart()"> Add to cart</button>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!--CHECKOUT-->
+        <!--Basket of Items slide panel on right side -->
+
+        <div class="offcanvas offcanvas-end" data-bs-backdrop="false" data-bs-scroll="true" tabindex="-1" id="offCanvasOrder">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title ">Your Orders</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" ></button>
+            </div>
+
+            <div id="offcanvas-body" class="ps-0">
+
+                <div class="orders-container">
+
+                    <ul class="listcanvas">
+                        <li>
+                            <div>
+                                <img src="mp2images/bananabread.jpg" alt="">
+                            </div>
+                            <div> Banana Bread </div>
+                            <div> 220 </div>
+                            <div>
+                                <button onclick="changeQuantity(1,0)"> - </button>
+                                <div class="count"> 1 </div>
+                                <button onclick="changeQuantity(1,0)"> + </button>
+                            </div>
+                        </li>
+                    </ul>
+    
+    
+    
+    
+                    <!--TESTING ADDTOCART-->
+                    <div class="container" id="yourorders">
+                        You have no orders
+                    </div>
+    
+
+                </div>
+               
 
 
 
 
-      <script src="app.js"></script>
+
+                <!--CHECKOUT TOTAL AMOUNT-->
+                <div class="checkOut">
+                    <div id="totalamount"> 0  </div>
+                    <div class="closeOffCanvas" data-bs-dismiss="offcanvas"> Close </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <br> <hr> 
+
+
+
+    </div>
+</section>
+
+
+        <!--ABOUT-->
+        <section class="container pt-4 " >
+            <div class="">
+                <div class=" text-center pt-3">
+                    <p class="fw-light fst-italic" style="font-size: x-large;">We are a home-based bakery that makes delicious 🍰 cakes, 🥧 cheesecakes, 🧁 cupcakes, 🍞 bread, and 🍪 cookies!
+                    </p>
+                </div>
+            </div>
+
+
+            <!--MEET LUCKY-->
+
+
+
+
+
+
+        </section>
+
+
+       
+        
+
+
+
+
+
+
+
+        <!--Customer Tab Reviews-->
+        <nav class="container" id="reviews"> 
+            <div class="nav nav-tabs p-4 pb-0" id="customerreview" role="tablist">
+                <button class="nav-link active bg-info bg-opacity-25 border-color-info pt-0 pb-0 mt-0" id="review-tab" data-bs-toggle="tab" data-bs-target="#review1" 
+                    type="button" role="tab" aria-controls="review" aria-selected="true">
+                    <span> <p class="fw-bold mx-2 my-2 text-uppercase">
+                        <i class="bi bi-stars"></i> Customer Reviews
+                    </p> </span>
+                </button>
+                <button class="nav-link border-0 "> Add a Review</button>
+            </div>
+            
+            </nav>
+            <div class="tab-content border-1" id="reviewtabContent">
+                <div class="tab-pane fade show active border-color-info" id="review1" height="150px" role="tabpanel" aria-labelledby="review-tab" tabindex="0">
+                    
+                    <!--Carousel-->
+                    <div class="container">
+                        <div id="customerreviews" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+
+                                <div class="carousel-item active">
+                                    <div class="row text-center py-3">
+                                        <div class="col">
+                                            <img src="mp2images/venus.jpg" class="rounded-circle" width="130" alt="">
+                                            <h5 class="pt-2">Venusa Snow</h5>
+                                            <p class="fw-light">This is where you can find the best cake in town! Suki na for all kinds of occasions!  
+                                               <br> You'll never go wrong with any of the cakes in their menu! But my all time faves will be their carrot and chocolate cake! 
+                                                Awan suya factor na. 😁🥰🍰♥️
+                                            </p>
+                                        </div>
+                                        <ul class="list-unstyled d-flex justify-content-center text-warning">
+                                            <li><i class="bi bi-star-fill"></i></li>
+                                            <li><i class="bi bi-star-fill"></i></li>
+                                            <li><i class="bi bi-star-fill"></i></li>
+                                            <li><i class="bi bi-star-fill"></i></li>
+                                            <li><i class="bi bi-star-fill"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <div class="row text-center py-3">
+                                        <div class="container">
+                                            <div class="col">
+                                                <img src="mp2images/gary.jpg" class="rounded-circle" width="130" alt="">
+                                                <h5 class="pt-2">Garry Aldu Tallayo</h5>
+                                                <div height="80">
+                                                <p class="fw-light">The best cake in town! 
+                                                    <br> The taste and texture stands out among other cake maker.😍 
+                                                     Custom cakes</p>
+                                                </div>
+                                            </div>
+                                            <ul class="list-unstyled d-flex justify-content-center text-warning">
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <div class="row text-center py-3">
+                                        <div class="container">
+                                            <div class="col">
+                                                <img src="mp2images/andrea.jpg" class="rounded-circle" width="130" alt="">
+                                                <h5 class="pt-2">Andrea Kristin Ang-oay</h5>
+                                                <div height="80">
+                                                <p class="fw-light">The best cake and cupcakes around gali💞
+                                                    <br>
+                                                    <br>
+                                                </p>
+                                                </div>
+                                            </div>
+                                            <ul class="list-unstyled d-flex justify-content-center text-warning">
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <div class="row text-center py-3">
+                                        <div class="container">
+                                            <div class="col">
+                                                <img src="mp2images/cyc.jpg" class="rounded-circle" width="130" alt="">
+                                                <h5 class="pt-2">Cyc Ammog-ao Burgonio</h5>
+                                                <div height="80">
+                                                <p class="fw-light">Naimas, naraman, sakto lang sugar level na ken worth it presyo na. 
+                                                    <br> Quality❣️
+                                                    <br>
+                                                </p>
+                                                </div>
+                                            </div>
+                                            <ul class="list-unstyled d-flex justify-content-center text-warning">
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <div class="row text-center py-3">
+                                        <div class="container">
+                                            <div class="col">
+                                                <img src="mp2images/kath.jpg" class="rounded-circle" width="130" alt="">
+                                                <h5 class="pt-2">Kathryn Joyce Galanta</h5>
+                                                <div height="80">
+                                                <p class="fw-light">The best and delicious cakes and cupcakes ever!!🩵
+                                                    <br>
+                                                    <br>
+                                                </p>
+                                                </div>
+                                            </div>
+                                            <ul class="list-unstyled d-flex justify-content-center text-warning">
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#customerreviews" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#customerreviews" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+        
+
+        <!--SIGN UP-->
+        <section class="pt-3 mt-3 bg-secondary bg-opacity-25">
+            <div class="container">
+                <div class="row pb-3 align-items-center">
+
+                    <div class="col-lg-8 bg-info bg-opacity-25 ">
+                        <div class="row ">
+
+                            <div class="col-lg-6 p-4 ">
+                                <form action="" class="signup-form  text-center">
+                                    <h4>Pre-Order Form</h4>
+        
+                                    <div class="mb-1 text-center">
+                                        <input type="text" class="form-control form-control-sm" id="inputSignupName" aria-describedby="SignupName" placeholder="Name">
+                                    </div >
+                                    <div class="mb-1">
+                                        <input type="text" class="form-control form-control-sm" id="inputMobile" placeholder="Mobile Number">
+                                    </div>
+                                    <div class="mb-1">
+                                        <input type="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailSignUp" placeholder="Email Address">
+                                    </div>
+                                    <div class="mb-1">
+                                        <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Pick-up or Delivery ">
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input " id="agreeCheckbox">
+                                        <label class="form-text form-check-label" for="exampleCheck1">I agree to store my details here. </label>
+                                    </div>
+        
+                                    <button type="submit" class="btn btn-sm btn-primary text-uppercase">Yes, proceed</button>
+                                    <div class="form-text">We won't share your details.</div>
+        
+                                </form> 
+                            </div>
+                    
+        
+                            <div class="col-lg-6 p-4 mt-2 ">
+                                <br> 
+                               <form class="form-floating">
+                                    <textarea type="text" class="form-control " id="floatingInputValue" placeholder="Send us your inquiries and/or suggestions." style="height: 170px;"> </textarea>
+                                    <label for="floatingInputValue" >Send us your questions and/or suggestions.</label>
+                                </form>
+                                <button id="btnInquiries" type="submit" class="btn btn-sm btn-primary mt-3 ">Submit</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    
+    
+                    <div class="GoogleMaps col-lg text-center ">
+                        <p class="form-text"> Store Address: Calongbuyan, Galimuyod, Ilocos Sur </p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15438.745196143802!2d121.04497624999998!3d14.673735749999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1687118614822!5m2!1sen!2sph" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+
+
+                </div>
+             </div>
+        </section>
+
+        
+
+<!--Footer-->
+<footer class=" bg-dark">
+    <div class="container text-center">
+        <div class="row justify-content-md-center">
+            <div class="col  text-light pt-4">
+                <ul class="list-unstyled">
+                    <li > <small> ABOUT </small></li>
+                    <hr class="my-1">
+                    <li>
+                        <a href="#" class="text-light" style="text-decoration: none;">
+                            <small> Meet Lucky </small></a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-light" style="text-decoration: none;">
+                            <small> Privacy Disclosure </small> </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-light" style="text-decoration: none;">
+                            <small> FAQs </small></a>
+                    </li>
+                </ul>
+            </div>
+         
+            <div class="col-2 bg-muted mt-2">
+                <a href="#" class="btn btn-sm ">
+                    <img src="mp2images/logo.png" alt="logo" class="img-fluid" height="110" width="110">
+                </a>
+            </div>
+
+            <div class="col text-light pt-4">
+                <ul class="list-unstyled">
+                    <li class="float-bottom"><small> LET'S CONNECT </small></li>
+                    <hr class="my-1">
+                    <li>
+                        <a href="https://www.facebook.com/luckysbakedgoods" style="text-decoration: none;"  class="btn-floating btn-sm text-white" style="font-size: 15px;">
+                            <small><i class="bi bi-facebook"></i> &nbsp Facebook</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-floating btn-sm text-white" style="text-decoration: none;"  class="btn-floating btn-sm text-white" style="font-size: 15px;">
+                            <small> <i class="bi bi-instagram"></i> &nbsp Instagram </small>
+                        </a>
+                    </li>
+                    <li class="text-secondary pt-2" style="font-size: smaller;">
+                        <i class="bi bi-c-circle"></i>  &nbspAll rights reserved, 2023  </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!--JAVASCRIPT-->
+
+
+<script>
+
+const product = [
+    {
+        id: 0,
+        image: 'mp2images/carrotcake.jpg',
+        title: 'Carrot Cake',
+        price: 650,
+    },
+    {
+        id: 1,
+        image: 'mp2images/peachcake.jpg',
+        title: 'Peaches&Cream Cake',
+        price: 700,
+    },
+    {
+        id: 2,
+        image: 'mp2images/chococake.jpg',
+        title: 'Chocolate Cake',
+        price: 400,
+    },
+    {
+        id: 3,
+        image: 'mp2images/lemonmeringue.jpg',
+        title: 'Lemon Meringue Cake',
+        price: 680,
+    }
+
+];
+
+const categories = [...new Set(product.map((item)=>
+{return item}))]
+
+
+var orders = [];
+
+function addtocart(a){
+    orders.push({...categories[a]});
+    displayorders();
+}
+
+function delElement(a){
+    orders.splice(a,1);
+    displayorders();
+}
+
+
+function displayorders(a){
+    let j=0, total=0;
+
+
+    document.getElementById("quantity").innerHTML = orders.length;
+
+    if(orders.length==0){
+        document.getElementById('yourorders').innerHTML = "You have no orders";
+        document.getElementById("totalamount").innerHTML = "P "+0+".00";
+    }
+    else{
+        document.getElementById("yourorders").innerHTML = orders.map((items)=>
+        {
+            var {image, title, price} = items;
+            total += price;
+            document.getElementById("totalamount").innerHTML = "P "+total+".00";
+
+            return(
+                `<div class='cart-item'>
+                <div class='row-img'>
+                    <img class='rowimg' src=${image}>
+                    </div>
+                    <p style='font-size:12px;'>${title}</p>
+                    <h2 style='font-size:15px;'>P ${price}.00</h2>`+
+                    "<i class='fa-solid fa-trash' onclick='delElement("+(j++)+")'></i></div>"
+            );
+        }).join('');
+    }
+
+}
+
+
+
+</script>
+
+
+    
 </body>
 </html>

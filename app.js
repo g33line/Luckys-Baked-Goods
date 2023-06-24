@@ -1,17 +1,19 @@
-let openShopping = document.querySelector('.shopping');
-let closeShopping = document.querySelector('.closeShopping');
-let list = document.querySelector('.list');
-let listCard = document.querySelector('.listCard');
-let body = document.querySelector('body');
-let total = document.querySelector('.total');
-let quantity = document.querySelector('.quantity');
+const openShopping = document.querySelector('.shopping');
+const closeShopping = document.querySelector('.closeShopping');
+const list = document.querySelector('.list');
+const listCard = document.querySelector('.listCard');
+const body = document.querySelector('body');
+const total = document.querySelector('.total');
+const quantity = document.querySelector('.quantity');
 
+//Acts as a button function on the Cart icon
 openShopping.addEventListener('click', ()=>{
     body.classList.add('active');
 })
 closeShopping.addEventListener('click', ()=>{
     body.classList.remove('active');
 })
+
 
 let products = [
     {
@@ -51,9 +53,12 @@ let products = [
         price: 200
     }
 ];
+
+//Creating menu item on mainpage
 let listCards  = [];
 function initApp(){
-    products.forEach((value, key) =>{
+    products.forEach((value, key) =>{ 
+        //this is what is being returned by the arrow function
         let newDiv = document.createElement('div');
         newDiv.classList.add('item');
         newDiv.innerHTML = `
@@ -64,23 +69,32 @@ function initApp(){
         list.appendChild(newDiv);
     })
 }
+
+//initApp shows the menu list
 initApp();
 function addToCard(key){
     if(listCards[key] == null){
-        // copy product form list to list card
+        // this keeps a copy of the products
         listCards[key] = JSON.parse(JSON.stringify(products[key]));
         listCards[key].quantity = 1;
     }
     reloadCard();
 }
+
 function reloadCard(){
-    listCard.innerHTML = '';
+    listCard.innerHTML = ''; //this removes the elements in the listCard
     let count = 0;
     let totalPrice = 0;
+
+    //Displays total amount of selected item
     listCards.forEach((value, key)=>{
-        totalPrice = totalPrice + value.price;
-        count = count + value.quantity;
+        totalPrice += value.price;
+        count +=  value.quantity;
+
+        //condition if an item is selected
         if(value != null){
+
+            //it displays the selected item on the cart
             let newDiv = document.createElement('li');
             newDiv.innerHTML = `
                 <div><img src="image/${value.image}"/></div>
@@ -93,10 +107,11 @@ function reloadCard(){
                 </div>`;
                 listCard.appendChild(newDiv);
         }
-    })
+    })//Displays total amount and # of selected item
     total.innerText = totalPrice.toLocaleString();
     quantity.innerText = count;
 }
+
 function changeQuantity(key, quantity){
     if(quantity == 0){
         delete listCards[key];
@@ -106,3 +121,7 @@ function changeQuantity(key, quantity){
     }
     reloadCard();
 }
+
+
+
+

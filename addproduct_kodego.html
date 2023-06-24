@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Item:
+<input type="text" name="item" id="item" />
+<br />Quantity:
+<input type="text" name="quantity" id="quantity" />
+<br />Price: AUD
+<input type="text" name="price" id="price" />
+<br /><br />
+<input type="button" value="Add Product +" onClick="addRow()" id="add">
+<br /><br />
+<table id="table" >
+<thead id="table-head">
+<tr>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Price</th>
+</tr>
+</thead>
+<tbody id="table-body">
+</tbody>
+</table>
+<script>
+function addRow()
+{
+    var table = document.getElementById("table");
+    var row = document.createElement("tr");
+    var cell = document.createElement("td");
+    var cellText = document.createTextNode(document.getElementById("item").value);
+    cell.appendChild(cellText);
+    row.appendChild(cell);
+
+    var cell = document.createElement("td");
+    var cellText = document.createTextNode(document.getElementById("quantity").value);
+    cell.appendChild(cellText);
+    row.appendChild(cell);
+
+    var cell = document.createElement("td");
+    var cellText = document.createTextNode(document.getElementById("price").value);
+    cell.appendChild(cellText);
+    row.appendChild(cell);
+    table.appendChild(row);
+
+}
+</script>
+</body>
+</html>
