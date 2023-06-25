@@ -187,6 +187,11 @@ padding-top: .25rem;
     color: #1C1F25;
 }
 
+.menubtn {
+    font-size: large;
+    font-style:;
+}
+
 </style>
 
 </head>
@@ -208,7 +213,7 @@ padding-top: .25rem;
                     <a class="nav-link active" aria-current="page" href="#">MENU</a>
                     <a class="nav-link" href="#">Pre-Order</a>
                     <a class="nav-link" href="#">Payment</a>
-                    <a class="nav-link" href="#reviews">Customer Reviews</a>
+                    <a class="nav-link" href="#testimonials">Customer Reviews</a>
                     <a class="nav-link" href="#">Contact Us</a>
                     <a class="nav-link" href="story.html">Story</a>
                     
@@ -240,127 +245,179 @@ padding-top: .25rem;
 
         <!--MENU CATEGORIES-->
 
-        <ul class="nav nav-pills nav-fill">
+        <ul class="nav nav-pills nav-fill" role="tablist">
             <li class="nav-item">
-              <a class="menubtn active" aria-current="page" href="#">Cakes</a>
+              <button type="button" class="btn menubtn active " id="tab" data-bs-toggle="tab" data-bs-target="#cakeWindow"
+              type="button" role="tab" aria-controls="review" aria-selected="true">
+                🍰 Cakes</button>
             </li>
             <li class="nav-item">
-              <a class="menubtn " href="#">Cheesecakes and Pies</a>
+                <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#cheesecakeWindow">
+                🥧 Cheesecakes and Pies</button>
             </li>
             <li class="nav-item">
-              <a class="menubtn" href="#">Cupcakes</a>
+                <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#cupcakeWindow">
+                🧁 Cupcakes</button>
             </li>
             <li class="nav-item">
-              <a class="menubtn">Bread</a>
+                <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#breadWindow">
+                🍞 Bread</button>
             </li>
             <li class="nav-item">
-                <a class="menubtn  bg-opacity-50 ">Cookies</a>
-              </li>
-          </ul>
+                <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#cookiesWindow">
+                🍪 Cookies</button>
+            </li>
+        </ul>
 
 
+        <!--CAKES WINDOW-->
+        <div class="tab-content border-1" id="menutabContent">
+            <div class="tab-pane fade show active border-color-info" id="cakeWindow" height="150px" role="tabpanel" tabindex="0">
+                <section class="container">
+                    <div class="list">
+
+                        <div class="item">
+                            <img src="mp2images/carrotcake.jpg" alt="">
+                            <div class="title"> 
+                                Carrot Cake
+                            </div>
+                            <div class="price">
+                                650
+                            </div>
+                            <button onclick="addtocart()"> Add to cart</button>
+                        </div>
+                        
+                        <div class="item">
+                            <img src="mp2images/peachcake.jpg" alt="">
+                            <div class="title"> 
+                                Peaches&Cream Cake
+                            </div>
+                            <div class="price">
+                                700
+                            </div>
+                            <button onclick="addtocart()"> Add to cart</button>
+                        </div>
+                    
+                        <div class="item">
+                            <img src="mp2images/chococake.jpg" alt="">
+                            <div class="title"> 
+                                Chocolate Cake
+                            </div>
+                            <div class="price">
+                                400
+                            </div>
+                            <button onclick="addtocart()"> Add to cart</button>
+                        </div>
+                        
+                        
+                        <div class="item">
+                            <img src="mp2images/meringuecake.jpg" alt="">
+                            <div class="title"> 
+                                Lemon Meringue Cake
+                            </div>
+                            <div class="price">
+                                680
+                            </div>
+                            <button onclick="addtocart()"> Add to cart</button>
+                        </div>
+
+                </section>
+            </div>
+        </div>
 
 
+        <!--CHEESECAKES AND PIES WINDOW-->
+        <div class="tab-content border-1" id="menutabContent">
+            <div class="tab-pane fade show active border-color-info" id="cheesecakeWindow" height="150px" role="tabpanel" tabindex="0">
+                <section class="container">
+                    <div class="list">
+
+                        <div class="item">
+                            <img src="mp2images/blueberry.jpg" alt="">
+                            <div class="title"> 
+                                Blueberry Cheesecake
+                            </div>
+                            <div class="price">
+                                450
+                            </div>
+                            <button onclick="addtocart()"> Add to cart</button>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </div>
 
 
+        <!--CUPCAKES WINDOW-->
+        <div class="tab-content border-1" id="menutabContent">
+            <div class="tab-pane fade show active border-color-info" id="cupcakeWindow" height="150px" role="tabpanel" tabindex="0">
+                <section class="container">
+                    <div class="list">
 
+                        <div class="item">
+                            <img src="mp2images/redvelvetcupcake.jpg" alt="">
+                            <div class="title"> 
+                                Red Velvet Cupcake
+                            </div>
+                            <div class="price">
+                                600
+                            </div>
+                            <button onclick="addtocart()"> Add to cart</button>
+                        </div>
 
-
-        <!--ITEMS WINDOW-->         
-        <div class="list-container ">
-            <div class="list">
-                <div class="item">
-                    <img src="mp2images/carrotcake.jpg" alt="">
-                    <div class="title"> 
-                        Carrot Cake
                     </div>
-                    <div class="price">
-                        650
-                    </div>
-                    <button onclick="addtocart()"> Add to cart</button>
-                </div>
-                
-                <div class="item">
-                    <img src="mp2images/peachcake.jpg" alt="">
-                    <div class="title"> 
-                        Peaches&Cream Cake
-                    </div>
-                    <div class="price">
-                        700
-                    </div>
-                    <button onclick="addtocart()"> Add to cart</button>
-                </div>
-            
-                <div class="item">
-                    <img src="mp2images/chococake.jpg" alt="">
-                    <div class="title"> 
-                        Chocolate Cake
-                    </div>
-                    <div class="price">
-                        400
-                    </div>
-                    <button onclick="addtocart()"> Add to cart</button>
-                </div>
-                
-                
-                <div class="item">
-                    <img src="mp2images/meringuecake.jpg" alt="">
-                    <div class="title"> 
-                        Lemon Meringue Cake
-                    </div>
-                    <div class="price">
-                        680
-                    </div>
-                    <button onclick="addtocart()"> Add to cart</button>
-                </div>
-                
-                <div class="item">
-                    <img src="mp2images/blueberry.jpg" alt="">
-                    <div class="title"> 
-                        Blueberry Cheesecake
-                    </div>
-                    <div class="price">
-                        450
-                    </div>
-                    <button onclick="addtocart()"> Add to cart</button>
-                </div>
-                
-                <div class="item">
-                    <img src="mp2images/redvelvetcupcake.jpg" alt="">
-                    <div class="title"> 
-                        Red Velvet Cupcake
-                    </div>
-                    <div class="price">
-                        600
-                    </div>
-                    <button onclick="addtocart()"> Add to cart</button>
-                </div>
-                
-                <div class="item">
-                    <img src="mp2images/bananabread.jpg" alt="">
-                    <div class="title"> 
-                        Banana Bread
-                    </div>
-                    <div class="price">
-                        220
-                    </div>
-                    <button onclick="addtocart()"> Add to cart</button>
-                </div>
-                
-                <div class="item">
-                    <img src="mp2images/cookies.jpg" alt="">
-                    <div class="title"> 
-                        Oatmeal Cookies
-                    </div>
-                    <div class="price">
-                        600
-                    </div>
-                    <button onclick="addtocart()"> Add to cart</button>
-                </div>
+                </section>
             </div>
         </div>
         
-        
+
+        <!--CUPCAKES WINDOW-->
+        <div class="tab-content border-1" id="menutabContent">
+            <div class="tab-pane fade show active border-color-info" id="breadWindow" height="150px" role="tabpanel" tabindex="0">
+                <section class="container">
+                    <div class="list">
+
+                        <div class="item">
+                            <img src="mp2images/bananabread.jpg" alt="">
+                            <div class="title"> 
+                                Banana Bread
+                            </div>
+                            <div class="price">
+                                220
+                            </div>
+                            <button onclick="addtocart()"> Add to cart</button>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+        <!--CUPCAKES WINDOW-->
+        <div class="tab-content border-1" id="menutabContent">
+            <div class="tab-pane fade show active border-color-info" id="cookiesWindow" height="150px" role="tabpanel" tabindex="0">
+                <section class="container">
+                    <div class="list">
+
+                        <div class="item">
+                            <img src="mp2images/cookies.jpg" alt="">
+                            <div class="title"> 
+                                Oatmeal Cookies
+                            </div>
+                            <div class="price">
+                                600
+                            </div>
+                            <button onclick="addtocart()"> Add to cart</button>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
         <!--CHECKOUT-->
         <!--Basket of Items slide panel on right side -->
 
@@ -428,7 +485,7 @@ padding-top: .25rem;
         
 
         <!--SIGN UP-->
-        <section class="pt-3 mt-3 bg-secondary bg-opacity-25">
+        <section class="pt-3 bg-secondary bg-opacity-25">
             <div class="container">
                 <div class="row pb-3 align-items-center">
 
@@ -438,6 +495,7 @@ padding-top: .25rem;
                             <div class="col-lg-6 p-4 ">
                                 <form action="" class="signup-form  text-center">
                                     <h4>Pre-Order Form</h4>
+                                    <div class="form-text">We won't share your details.</div>
         
                                     <div class="mb-1 text-center">
                                         <input type="text" class="form-control form-control-sm" id="inputSignupName" aria-describedby="SignupName" placeholder="Name">
@@ -457,8 +515,7 @@ padding-top: .25rem;
                                     </div>
         
                                     <button type="submit" class="btn btn-sm btn-primary text-uppercase">Yes, proceed</button>
-                                    <div class="form-text">We won't share your details.</div>
-        
+                                    
                                 </form> 
                             </div>
                     
@@ -478,7 +535,6 @@ padding-top: .25rem;
                     
     
                     <div class="GoogleMaps col-lg text-center ">
-                        <p class="form-text"> Store Address: Calongbuyan, Galimuyod, Ilocos Sur </p>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15438.745196143802!2d121.04497624999998!3d14.673735749999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1687118614822!5m2!1sen!2sph" width="350" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
 
