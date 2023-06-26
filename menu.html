@@ -73,7 +73,7 @@ padding-top: .25rem;
     text-align: center;
     background-color: #DCE0E1;
     padding: 0px;
-    margin-top: 0px;
+    margin-top: 10px;
     box-shadow: 0 15px 10px;
     letter-spacing: 0px;
     border-radius: 0px;
@@ -100,6 +100,15 @@ padding-top: .25rem;
     padding: 5px;
     margin-bottom: 10px;
 }
+#cakemenu {
+    padding: 5px;
+    font-weight:600;
+    font-size: medium;
+    margin: 0px;
+}
+
+
+//
 
 /* CHECKOUT */
 
@@ -270,11 +279,7 @@ padding-top: .25rem;
         <div class="tab-content border-1" id="menutabContent">
             <div class="tab-pane fade show active border-color-info" id="cakeWindow" height="150px" role="tabpanel" tabindex="0">
                 <section class="container">
-                    <div class="list">
-
-                        <div class="item">
-                        
-                        </div>
+                    <div class="list" id="cakemenu">
 
                     </div>
                 </section>
@@ -574,84 +579,83 @@ padding-top: .25rem;
 
 <script>
 
-const product = [
+
+
+const cakeproducts = [
     {
         id: 0,
-        image: 'mp2images/carrotcake.jpg',
-        title: 'Carrot Cake',
+        image: '5.jpg',
+        cname: 'Carrot Cake',
         price: 650,
     },
     {
         id: 1,
-        image: 'mp2images/peachcake.jpg',
-        title: 'Peaches&Cream Cake',
+        image: '3.jpg',
+        cname: 'Peaches&Cream Cake',
         price: 700,
     },
     {
         id: 2,
-        image: 'mp2images/chococake.jpg',
-        title: 'Chocolate Cake',
+        image: '4.jpg',
+        cname: 'Chocolate Cake',
         price: 400,
     },
     {
         id: 3,
-        image: 'mp2images/lemonmeringue.jpg',
-        title: 'Lemon Meringue Cake',
-        price: 680,
+        image: '2.jpg',
+        cname: 'Lemon Meringue Cake',
+        price: 650,
     }
 
 ];
 
-const categories = [...new Set(product.map((item)=>
-{return item}))]
+const categories = [...new Set(cakeproducts.map((item)=>
+    {return item}))]
+    let i=0;
+    document.getElementById('cakemenu').innerHTML = categories.map((item)=>
+    {
+        var {image, cname, price} = item;
+        return(
+            `<div class='item'>
+                <img src="mp2images/${image}">
+                <div class="cakename">${cname}</div>
+                <div class="price">${price}</div>
+                <button onclick='orderNow'`+(i++)+`">Order Now</button>"
+            </div>`
+        )
+    }).join('')
 
+    var basket = [];
 
-var orders = [];
-
-function addtocart(a){
-    orders.push({...categories[a]});
-    displayorders();
-}
-
-function delElement(a){
-    orders.splice(a,1);
-    displayorders();
-}
-
-
-function displayorders(a){
-    let j=0, total=0;
-
-
-    document.getElementById("quantity").innerHTML = orders.length;
-
-    if(orders.length==0){
-        document.getElementById('yourorders').innerHTML = "You have no orders";
-        document.getElementById("totalamount").innerHTML = "TOTAL: P "+0+".00";
+    function orderNow(a){
+        basket.push({...categories[a]});
+        displaycakecart();
     }
-    else{
-        document.getElementById("yourorders").innerHTML = orders.map((items)=>
-        {
-            var {image, title, price} = items;
-            total += price;
-            document.getElementById("totalamount").innerHTML = "TOTAL: P "+total+".00";
 
-            return(
-                `<div class='cart-item'>
+    function displaycakecart(a){
+        let j=0;
+
+        if(basket.length==0){
+            document.getElementById('yourorders').innerHTML = "Your cart is empty";
+        }
+        else{
+            document.getElementById('yourorders').innerHTML = basket.map((items) =>
+            {
+                var {image, cname, price} = items;
+
+                return(
+                    `<div class='cart-item'>
                 <div class='row-img'>
                     <img class='rowimg' src=${image}>
                     </div>
                     <p style='font-size:12px;'>${title}</p>
                     <h2 style='font-size:15px;'>P ${price}.00</h2>`+
                     "<i class='fa-solid fa-trash' onclick='delElement("+(j++)+")'></i></div>"
-            );
-        }).join('');
+            
+                );
+            }).join('');
+        }
     }
-
-}
-
-
-
 </script>
 
 
