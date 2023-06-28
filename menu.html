@@ -579,6 +579,10 @@ padding-top: .25rem;
 
 <script>
 
+let list = document.querySelector('.list');
+let listCard = document.querySelector('.listCard');
+let total = document.querySelector('.total');
+let quantity = document.querySelector('.quantity');
 
 
 const cakeproducts = [
@@ -616,11 +620,11 @@ const categories = [...new Set(cakeproducts.map((item)=>
     {
         var {image, cname, price} = item;
         return(
-            `<div class='item'>
+            `<div class="item">
                 <img src="mp2images/${image}">
                 <div class="cakename">${cname}</div>
                 <div class="price">${price}</div>
-                <button onclick='orderNow'`+(i++)+`">Order Now</button>"
+                <button onclick="orderNow"(`+(i++)+`)>Order Now</button>
             </div>`
         )
     }).join('')
@@ -629,10 +633,15 @@ const categories = [...new Set(cakeproducts.map((item)=>
 
     function orderNow(a){
         basket.push({...categories[a]});
-        displaycakecart();
+        displaybasket();
     }
 
-    function displaycakecart(a){
+    function delElement(a){
+        basket.splice(a,1);
+        displaybasket();
+    }
+
+    function displaybasket(a){
         let j=0;
 
         if(basket.length==0){
@@ -644,14 +653,16 @@ const categories = [...new Set(cakeproducts.map((item)=>
                 var {image, cname, price} = items;
 
                 return(
-                    `<div class='cart-item'>
-                <div class='row-img'>
-                    <img class='rowimg' src=${image}>
-                    </div>
-                    <p style='font-size:12px;'>${title}</p>
-                    <h2 style='font-size:15px;'>P ${price}.00</h2>`+
-                    "<i class='fa-solid fa-trash' onclick='delElement("+(j++)+")'></i></div>"
-            
+                    `<div class="li">
+                    <div><img src="image/${image}"/></div>
+                    <div>${cname}</div>
+                    <div>${price.toLocaleString()}</div>
+                    <div>
+                        <button onclick="changeQuantity((`+(j++)+`), ${quantity - 1})">-</button>
+                        <div class="count">${quantity}</div>
+                        <button onclick="changeQuantity((`+(i++)+`), ${quantity + 1})">+</button>
+                    </div>`
+        
                 );
             }).join('');
         }

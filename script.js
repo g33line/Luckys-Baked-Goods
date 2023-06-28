@@ -70,15 +70,7 @@ const categories = [...new Set(cakeproducts.map((item)=>
                         <p style='font-size:12px;'>${title}</p>
                         <h2 style='font-size:15px;'>P ${price}.00</h2>`+
                         "<i class='fa-solid fa-trash' onclick='delElement("+(j++)+")'></i></div>"
-                //
-                <div><img src="image/${value.image}"/></div>
-                <div>${value.name}</div>
-                <div>${value.price.toLocaleString()}</div>
-                <div>
-                    <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
-                    <div class="count">${value.quantity}</div>
-                    <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
-                </div>
+        
                 );
             }).join('');
         }
