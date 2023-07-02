@@ -531,9 +531,20 @@ figure {
                             <div class="col-lg-6 p-4 ">
                                 <h4>Pre-Order Form</h4>
                                     <form action="https://formsubmit.co/luckysbakedgoods@gmail.com" method="POST">
-                                        <input type="text" name="name" required>
-                                        <input type="email" name="email" required>
-                                        <button type="submit" onclick="alert('Thank you for ordering!')">Send</button>
+                                        <input type="text" name="fname" placeholder="Fullname" required> 
+                                        <br>
+                                        <input type="email" name="email" placeholder="Email" required> 
+                                        <br>
+                                        <select name="dessert" id="">
+                                            <option value=""> Cake </option>
+                                            <option value=""> Cheesecake </option>
+                                            <option value=""> Cupcake</option>
+                                            <option value=""> Bread </option>
+                                            <option value=""> Cookies </option>
+                                        </select> <br>
+                                        <textarea name="message" placeholder="Type in your order" id="" cols="30" rows="4" required></textarea>
+                                        <br>
+                                        <button type="submit" onclick="alert('Thank you')">Send</button>
                                    </form>
                             </div>
                     
@@ -542,11 +553,11 @@ figure {
                                 <h4>Message Box</h4>
                                 <br> 
                                <form action="https://formsubmit.co/luckysbakedgoods@gmail.com" method="POST" class="form-floating">
-                                    <textarea type="text" class="form-control " id="floatingInputValue" placeholder="Send us your inquiries and/or suggestions." style="height: 170px;"> </textarea>
-                                    <label for="floatingInputValue" class="text-wrap">Send us your questions and/or suggestions.</label>
-                                    <button id="btnInquiries" onclick="alert('We appreciate your feedback!')" type="submit" class="btn btn-sm btn-primary mt-3 ">Submit</button>
+                                    <textarea type="text" class="form-control " id="floatingInputValue" placeholder="Message." style="height: 170px;" required> </textarea>
+                                    <label for="floatingInputValue" >Message</label>
+                                    <button onclick="alert('We appreciate your feedback!')" type="submit" >Submit</button>
                                 </form>
-                                 </div>
+                            </div>
 
 
                         </div>
