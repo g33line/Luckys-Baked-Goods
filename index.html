@@ -529,43 +529,24 @@ figure {
                         <div class="row g-0">
 
                             <div class="col-lg-6 p-4 ">
-
-                                <form action="" class="signup-form  text-center">
-                                    <h4>Pre-Order Form</h4>
-                                    <div class="form-text">We won't share your details.</div>
-        
-
-                                    <div class="mb-1 text-center">
-                                        <input type="text" class="form-control form-control-sm" id="inputSignupName" aria-describedby="SignupName" placeholder="Name">
-                                    </div >
-                                    <div class="mb-1">
-                                        <input type="text" class="form-control form-control-sm" id="inputMobile" placeholder="Mobile Number">
-                                    </div>
-                                    <div class="mb-1">
-                                        <input type="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailSignUp" placeholder="Email Address">
-                                    </div>
-                                    <div class="mb-1">
-                                        <input type="password" class="form-control form-control-sm" id="inputPassword" placeholder="Pick-up or Delivery ">
-                                    </div>
-                                    <div class="mb-3 form-check">
-                                        <input type="checkbox" class="form-check-input " id="agreeCheckbox">
-                                        <label class="form-text form-check-label" for="exampleCheck1">I agree to store my details here. </label>
-                                    </div>
-        
-                                    <button type="submit" class="btn btn-sm btn-primary text-uppercase">Yes, proceed</button>
-                                    
-                                </form> 
+                                <h4>Pre-Order Form</h4>
+                                    <form action="https://formsubmit.co/luckysbakedgoods@gmail.com" method="POST">
+                                        <input type="text" name="name" required>
+                                        <input type="email" name="email" required>
+                                        <button type="submit" onclick="alert('Thank you for ordering!')">Send</button>
+                                   </form>
                             </div>
                     
         
-                            <div class="col-lg-6 p-4 mt-2 ">
+                            <div class="col-lg-6 p-4">
+                                <h4>Message Box</h4>
                                 <br> 
-                               <form class="form-floating">
+                               <form action="https://formsubmit.co/luckysbakedgoods@gmail.com" method="POST" class="form-floating">
                                     <textarea type="text" class="form-control " id="floatingInputValue" placeholder="Send us your inquiries and/or suggestions." style="height: 170px;"> </textarea>
                                     <label for="floatingInputValue" class="text-wrap">Send us your questions and/or suggestions.</label>
+                                    <button id="btnInquiries" onclick="alert('We appreciate your feedback!')" type="submit" class="btn btn-sm btn-primary mt-3 ">Submit</button>
                                 </form>
-                                <button id="btnInquiries" type="submit" class="btn btn-sm btn-primary mt-3 ">Submit</button>
-                            </div>
+                                 </div>
 
 
                         </div>
