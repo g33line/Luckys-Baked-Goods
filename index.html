@@ -544,8 +544,12 @@ figure {
                                         </select> <br>
                                         <textarea name="message" placeholder="Type in your order" id="" cols="30" rows="4" required></textarea>
                                         <br>
-                                        <button type="submit" onclick="alert('Thank you')">Send</button>
-                                   </form>
+                                        <div>
+                                            <input type="submit" value="Submit" id="formbuttons" onclick="alert('Form submitted')">
+                                            <input type="hidden" name="_next" value="https://g33line.github.io/Luckys-Baked-Goods/">
+                                            <input type="hidden" name="_autoresponse" value="Thank you!">
+                                        </div>
+                                    </form>
                             </div>
                     
         
