@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web API Activity</title>
+
+<style>
+body {
+    background-image: linear-gradient(180deg, rgb(89, 147, 205) 0%, #65BDC7 30%,  #e0f7f9);
+
+}
+.container{
+    padding: 100px 50px;
+        
+}
+.card {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px  solid white;
+    border-radius: 5px;
+    min-height:60vh;
+    text-align: center;   
+}
+.form{
+   
+}
+
+input{
+    margin-bottom: 10px;
+    height: 30px;
+    width: 60%;
+    border-radius: 5px;
+    border: 1px;
+}
+button {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    height: 30px;
+    width:60%;
+    background:white;
+    border: 1px;
+    border-radius: 5px;
+    color: black;
+}
+button:hover{
+    background-color: white ;
+    color: #1f497d;
+    font-weight: bold;
+}
+a{
+    color: black;
+}
+
+</style>
+
+</head>
+<body>
+    
+<div class="container">
+    <div class="card">
+        <h3>Register</h3>
+        <div class="form">
+            <input type="text" id="emailadd" placeholder="Name" required> 
+            <input type="email" id="emailadd" placeholder="E-mail" required> 
+            <input type="password" id="Pass" placeholder="Password" required>
+            <button type="submit" onclick="logInSuccessful()">Submit</button>
+        
+        </div>
+       <a href="login.html" >Already registered? Login here.</a>
+        
+    </div>
+</div>
+    
+
+<script>
+function logInSuccessful() {
+
+
+</script>
+</body>
+</html>

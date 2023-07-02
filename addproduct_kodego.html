@@ -16,21 +16,22 @@
 <input type="button" value="Add Product +" onClick="addRow()" id="add">
 <br /><br />
 <table id="table" >
-<thead id="table-head">
-<tr>
-    <th>Item</th>
-    <th>Quantity</th>
-    <th>Price</th>
-</tr>
-</thead>
-<tbody id="table-body">
-</tbody>
+    <thead id="table-head">
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody id="table-body">
+    </tbody>
 </table>
 <script>
 function addRow()
 {
     var table = document.getElementById("table");
     var row = document.createElement("tr");
+    
     var cell = document.createElement("td");
     var cellText = document.createTextNode(document.getElementById("item").value);
     cell.appendChild(cellText);
