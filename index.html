@@ -14,14 +14,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
    
     <!--Google maps API-->
-    <script 
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA2tuMjC10ljW_U54EHrLBSQZo7wzkOAs&callback=initMap&libraries=&v=weekly"
-    defer
-    ></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script>
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+          key: "AIzaSyCA2tuMjC10ljW_U54EHrLBSQZo7wzkOAs",
+          v: "weekly",
+          // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+          // Add other bootstrap parameters as needed, using camel case.
+        });
+      </script>
+
 
 <style>
+.maps-container{
+    width: 50vw;
+    height: 55vh;
+}
  #map {
-    height: 100%;
+    height: 85%;
     width: 100%;
     margin: auto;
   }
@@ -568,13 +578,10 @@ figure {
                     </div>
                     
     
-                    <div class="GoogleMaps col-lg text-center ">
+                    <div class="maps-container col-lg text-center ">
                         <h6>Store location</h6>
-                        <div id="map" >
-
-
-
-                        </div>
+                        
+                        <div class="" id="map"> </div>
 
                     </div>
 
@@ -674,7 +681,37 @@ figure {
     
 <!--GOOGLE MAPS API-->
 
-<script type="module" src="code.js"></script>
+<script>
+    let map;
+
+async function initMap() {
+  const { Map } = await google.maps.importLibrary("maps");
+
+  map = new Map(document.getElementById("map"), {
+    center: { lat: 17.1835, lng: 120.4704 },
+    zoom: 15,
+    mapTypeId: "terrain"
+
+  });
+  //declaring marker as an info window const marker = 
+    new google.maps.Marker({
+    position:{lat: 17.1835, lng: 120.4704},
+    map: map,
+    label: "",
+    title: "Lucky's Baked Goods",
+    draggable: false,
+    Animation: google.maps.Animation.BOUNCE, //DROP
+    //customize marker icon:".png"
+});
+/*
+const infoWindow = new google.maps.InfoWindow({
+    content: "<p>This is an info window</p>"
+});
+infoWindow.open(map, marker);*/
+}
+
+initMap();
+</script>
 
 
 </body>
