@@ -178,33 +178,33 @@ padding-top: .25rem;
     color: white;
    
 }
-.listcanvas li{
+.listCard li{
     display: grid;
     grid-template-columns: 100px repeat(3, 1fr);
     color: #453E3B;
     row-gap: 10px;
     
 }
-.listcanvas li div{
+.listCard li div{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.listcanvas li img{
+.listCard li img{
     width: 60%;
 }
-.listcanvas li button{
+.listCard li button{
     background-color: #453E3B;
     border: none;
     color: white;
 
     
 }
-.listcanvas .count{
+.listCard .count{
     margin: 0 10px;
 }
 
-#quantity{
+.quantity{
     
     font-weight: 700;
     font-size: large;
@@ -212,7 +212,7 @@ padding-top: .25rem;
     padding: 0px;
     margin: 0px;
 }
-#quantity:hover{
+.quantity:hover{
     color: #1C1F25;
 }
 
@@ -246,8 +246,9 @@ padding-top: .25rem;
                 <div class="navbar-nav mx-auto align-items-center float-end">
                     <div class="navbar-nav" >
                         <button type="button" class="cart nav-link " data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder"> 
-                            Orders <i class=" bi bi-cart4" style="font-size: x-large;"></i> 
-                           <span  id="quantity">  </span>
+                            <span  class="itemcount"> 0 </span>
+                            <i class=" bi bi-cart4" style="font-size: x-large;"></i> Orders 
+                           
                        
                         </button>
                     </div>
@@ -294,124 +295,17 @@ padding-top: .25rem;
 
  
 
-        <!--CAKES WINDOW-->
+        <!--MENU WINDOW-->
         <div class="tab-content border-1" id="menutabContent">
             <div class="tab-pane fade show active border-color-info" id="cakeWindow" height="150px" role="tabpanel" tabindex="0">
                 <section class="container">
-                    <div class="list" id="cakemenu">
+                   
+                    <div class="list" id="">
 
                     </div>
                 </section>
             </div>
         </div>
-
-
-        <!--CHEESECAKES AND PIES WINDOW-->
-        <div class="tab-content border-1" id="menutabContent">
-            <div class="tab-pane fade border-color-info" id="cheesecakeWindow" height="150px" role="tabpanel" tabindex="0">
-                <section class="container">
-                    <div class="list">
-
-                        <div class="item">
-                            <img src="mp2images/blueberry.jpg" alt="">
-                            <div class="title"> 
-                                Blueberry Cheesecake
-                            </div>
-                            <div class="price">
-                                450
-                            </div>
-                            <button onclick="addtocart()"> Add to cart</button>
-                        </div>
-                    </div>
-
-                </section>
-            </div>
-        </div>
-
-
-        <!--CUPCAKES WINDOW-->
-        <div class="tab-content border-1" id="menutabContent">
-            <div class="tab-pane fade  border-color-info" id="cupcakeWindow" height="150px" role="tabpanel" tabindex="0">
-                <section class="container">
-                    <div class="list">
-
-                        <div class="item">
-                            <img src="mp2images/redvelvetcupcake.jpg" alt="">
-                            <div class="title"> 
-                                Red Velvet Cupcake
-                            </div>
-                            <div class="price">
-                                600
-                            </div>
-                            <button onclick="addtocart()"> Add to cart</button>
-                        </div>
-
-                    </div>
-                </section>
-            </div>
-        </div>
-        
-
-        <!--BREAD WINDOW-->
-        <div class="tab-content border-1" id="menutabContent">
-            <div class="tab-pane fade  border-color-info" id="breadWindow" height="150px" role="tabpanel" tabindex="0">
-                <section class="container">
-                    <div class="list">
-
-                        <div class="item">
-                            <img src="mp2images/bananabread.jpg" alt="">
-                            <div class="title"> 
-                                Banana Bread
-                            </div>
-                            <div class="price">
-                                220
-                            </div>
-                            <button onclick="addtocart()"> Add to cart</button>
-                        </div>
-
-                    </div>
-                </section>
-            </div>
-        </div>
-
-
-        <!--COOKIES WINDOW-->
-        <div class="tab-content border-1" id="menutabContent">
-            <div class="tab-pane fade border-color-info" id="cookiesWindow" height="150px" role="tabpanel" tabindex="0">
-                <section class="container">
-                    <div class="list">
-
-                        <div class="item">
-                            <img src="mp2images/cookies.jpg" alt="">
-                            <div class="title"> 
-                                Oatmeal Cookies
-                            </div>
-                            <div class="price">
-                                600
-                            </div>
-                            <button onclick="addtocart()"> Add to cart</button>
-                        </div>
-
-                    </div>
-                </section>
-            </div>
-        </div>
-
-
-       <!--PRICELIST WINDOW-->
-        <div class="tab-content border-1" id="menutabContent">
-            <div class="tab-pane fade show active border-color-info" id="pricelistWindow" height="150px" role="tabpanel" tabindex="0">
-                <section class="container">
-                    <div class="list">
-                    
-                    
-                        
-
-                    </div>
-                </section>
-            </div>
-        </div>
-
 
         <!--CHECKOUT-->
         <!--Basket of Items slide panel on right side -->
@@ -426,41 +320,18 @@ padding-top: .25rem;
 
                 <div class="orders-container">
 
-                    <ul class="listcanvas">
-                        <li>
-                            <div>
-                                <img src="mp2images/bananabread.jpg" alt="">
-                            </div>
-                            <div> Banana Bread </div>
-                            <div> 220 </div>
-                            <div>
-                                <button onclick="changeQuantity(1,0)"> - </button>
-                                <div class="count"> 1 </div>
-                                <button onclick="changeQuantity(1,0)"> + </button>
-                            </div>
-                        </li>
+                    <ul class="listCard">
+                       
                     </ul>
-    
-    
-    
-    
-                    <!--TESTING ADDTOCART-->
-                    <div class="container" id="yourorders">
-                        You have no orders
-                    </div>
-    
 
-                </div>
-               
-
-
-
-
+                    
 
                 <!--CHECKOUT TOTAL AMOUNT-->
-                <div class="checkOut">
-                    <div id="totalamount"> 0  </div>
-                    <div class="closeOffCanvas" data-bs-dismiss="offcanvas"> Close </div>
+                    <div class="checkOut">
+                        <div class="total"> 0  </div>
+                        <div class="closeOffCanvas" data-bs-dismiss="offcanvas"> Close </div>
+                    </div>
+                   
                 </div>
 
 
@@ -597,7 +468,101 @@ padding-top: .25rem;
 
 <!--JAVASCRIPT-->
 
+<script>
 
+    let list = document.querySelector('.list');
+    let listCard = document.querySelector('.listCard');
+    let total = document.querySelector('.total');
+    let quantity = document.querySelector('.itemcount');
+    
+    
+    const products = [
+        {
+            id: 1,
+            image: '5.jpg',
+            name: 'Carrot Cake',
+            price: 650,
+        },
+        {
+            id: 2,
+            image: '3.jpg',
+            name: 'Peaches&Cream Cake',
+            price: 700,
+        },
+        {
+            id: 3,
+            image: '4.jpg',
+            name: 'Chocolate Cake',
+            price: 400,
+        },
+        {
+            id: 4,
+            image: '2.jpg',
+            name: 'Lemon Meringue Cake',
+            price: 650,
+        }
+    
+    ];
+    
+    let listCards  = [];
+    function initApp(){
+        products.forEach((value, key) =>{ //key is the array index
+            let newDiv = document.createElement('div');
+            newDiv.classList.add('item');
+            newDiv.innerHTML = 
+            //template literal
+            `<img src="mp2images/${value.image}">
+                <div class="title">${value.name}</div>
+                <div class="price">${value.price.toLocaleString()}</div>`+ //.toLocaleString formats the price
+                `<button onclick="addToCard(${key})">Add To Card</button>`;
+            list.appendChild(newDiv);
+        })
+    }
+    initApp(); //calling the function
+    function addToCard(key){
+        if(listCards[key] == null){
+            // copy product form list to list card
+            listCards[key] = JSON.parse(JSON.stringify(products[key]));
+            listCards[key].quantity = 1;
+        }
+        reloadCard();
+    }
+    function reloadCard(){
+        listCard.innerHTML = '';
+        let count = 0;
+        let totalPrice = 0;
+        listCards.forEach((value, key)=>{
+            totalPrice += value.price;
+            count += value.quantity;
+            if(value != null){
+                let newDiv = document.createElement('li');
+                newDiv.innerHTML = `
+                    <div><img src="mp2images/${value.image}"/></div>
+                    <div>${value.name}</div>
+                    <div>${value.price.toLocaleString()}</div>
+                    <div>
+                        <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
+                        <div class="count">${value.quantity}</div>
+                        <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
+                    </div>`;
+                    listCard.appendChild(newDiv);
+            } 
+        })
+        total.innerText = totalPrice.toLocaleString();
+        quantity.innerText = count;
+    }
+    function changeQuantity(key, quantity){
+        if(quantity == 0){
+            delete listCards[key];
+        }else{
+            listCards[key].quantity = quantity;
+            listCards[key].price = quantity * products[key].price;
+        }
+        reloadCard();
+    }
+    </script>
+    
+    
 
 <!-- Messenger Chat Plugin Code -->
 <div id="fb-root"></div>
@@ -632,105 +597,6 @@ padding-top: .25rem;
 
 <!--FB PLUGIN END-->
 
-
-<script>
-
-let list = document.querySelector('.list');
-let listCard = document.querySelector('.listCard');
-let total = document.querySelector('.total');
-let quantity = document.querySelector('.quantity');
-
-
-const cakeproducts = [
-    {
-        id: 0,
-        image: '5.jpg',
-        cname: 'Carrot Cake',
-        price: 650,
-    },
-    {
-        id: 1,
-        image: '3.jpg',
-        cname: 'Peaches&Cream Cake',
-        price: 700,
-    },
-    {
-        id: 2,
-        image: '4.jpg',
-        cname: 'Chocolate Cake',
-        price: 400,
-    },
-    {
-        id: 3,
-        image: '2.jpg',
-        cname: 'Lemon Meringue Cake',
-        price: 650,
-    }
-
-];
-
-const categories = [...new Set(cakeproducts.map((item)=>
-    {return item}))]
-    let i=0;
-    document.getElementById('cakemenu').innerHTML = categories.map((item)=>
-    {
-        var {image, cname, price} = item;
-        return(
-            `<div class="item">
-                <img src="mp2images/${image}">
-                <div class="cakename">${cname}</div>
-                <div class="price">${price}</div>
-                <button onclick="orderNow"(`+(i++)+`)>Order Now</button>
-            </div>`
-        )
-    }).join('')
-
-    var basket = [];
-
-    function orderNow(a){
-        basket.push({...categories[a]});
-        displaybasket();
-    }
-
-    function delElement(a){
-        basket.splice(a,1);
-        displaybasket();
-    }
-
-    function displaybasket(a){
-        let j=0,
-        total = 0;
-
-        document.getElementById("count").innerHTML = basket.length;
-
-        if(basket.length==0){
-            document.getElementById('yourorders').innerHTML = "Your cart is empty";
-            document.getElementById('total').innerHTML = "P "+0+".00";
-        }
-        else{
-            document.getElementById('yourorders').innerHTML = basket.map((items) =>
-            {
-                var {image, cname, price} = items;
-
-                total += price;
-                document.getElementById("total").innerHTML = "P "+total+".00";
-
-                return(
-                    `<div class="li">
-                    <div><img src="image/${image}"/></div>
-                    <div>${cname}</div>
-                    <div>${price}</div>
-                    <div>
-                        <button onclick="changeQuantity((`+(j++)+`), ${quantity - 1})">-</button>
-                        <div class="count">${quantity}</div>
-                        <button onclick="changeQuantity((`+(i++)+`), ${quantity + 1})">+</button>
-                    </div>`
-        
-                );
-            }).join('');
-        }
-    }
-</script>
 
 
 

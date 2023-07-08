@@ -33,7 +33,7 @@ const categories = [...new Set(cakeproducts.map((item)=>
     let i=0;
     document.getElementById('cakemenu').innerHTML = categories.map((item)=>
     {
-        var {image, cname, price} = item;
+        var {image, cname, price} = item; //object destructuring
         return(
             `<div class='item'>
                 <img src="mp2images/${image}">
