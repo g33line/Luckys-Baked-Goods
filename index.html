@@ -26,6 +26,11 @@
 
 
 <style>
+body{
+    background-image: linear-gradient(360deg, #fcfced, #fcedfc 48%, #ebf6ff) ;
+}
+
+
 .maps-container{
     width: 50vw;
     height: 55vh;
@@ -120,8 +125,7 @@ padding-top: .25rem;
 }
 
 /* IMAGE HOVER */
-.row {
-}
+
 .image {
     display: inline-block;
     text-align: center;
@@ -159,6 +163,12 @@ figure {
     border-radius: 5px;
 }
 
+.carousel-item{
+    color: whitesmoke;
+    text-shadow: #453E3B;
+    text-decoration: solid;
+}
+
 </style>
 
 </head>
@@ -193,7 +203,7 @@ figure {
 <!--Main Content-->
 <br>
 
-<section class="pt-5 mt-5 container card bg-secondary bg-opacity-25">
+<div class="pt-5 mt-5 container-fluid  ">
     <div class="container pt-4 pb-2">
 
 
@@ -261,41 +271,45 @@ figure {
             
 
         </div>
-
-
-
-
-
-
     </div>
-</section>
+</div>
 
 <div class="container py-3"> <hr></div>
 
-        <!--ABOUT-->
-        <section class="container card shadow-lg py-4 bg-outline-secondary bg-opacity-25 text-center" >
+<div style="background-image: url('mp2images/baking.jpg');background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover; height: 650px;">
+<p class="display-2 text-center  fst-italic py-4"> Life is what you BAKE it.</p>
+   
+ <!--ABOUT-->
+ <div class=" py-4  text-center" >
  
-            <!--MEET LUCKY-->
-
-                      <div class="col ">
-                            <h5 class="display-6" style="font-size: x-large;">Meet our Resident Baker</h5>
-                            <img src="mp2images/meetlucky.jpg" width="260" class="bg-info bg-opacity-25 float-center img-thumbnail" alt="...">
-                            <div class="container px-5" >
-                                <p class="">Lucky, a.k.a. Yen, was born and raised in Ilocos Sur.  
-                                    <br> Fond of traveling and taking photos. And not many know that she loves to cook.</p>
-                            </div>
-                            <a href="story.html" class="text-decoration-none"> Know more about her... </a>
-                        </div>
-         </section>
-
+    <!--MEET LUCKY-->
+                <div class=" ">
+                    <h5 class="display-6 fst-italic py-3" style="font-size: x-large; font-weight: 400;">Meet our Resident Baker</h5>
+                    <img src="mp2images/meetlucky.jpg" width="260" class="float-center img-thumbnail" alt="...">
+                    <div class=" px-5" >
+                        <p class="fst-italic py-3" style="font-weight: 600;">Lucky, a.k.a. Yen, was born and raised in Ilocos Sur.  
+                            <br> Fond of traveling and taking photos. And not many know that she loves to cook.</p>
+                    </div>
+                    <a href="story.html" class="text-decoration-none text-dark"> Know more about her... </a>
+                
+                </div>
+            
+            </div>
+    
+</div>
+       
+  
     
 
 <div class="container py-3"> <hr></div>
 
 
          <!--photo THUMBNAILS for CUSTOMER REVIEWS-->
-        <section class="container " id="testimonials">
-            <h6 class="display-6 text-uppercase text-center" style="font-size:xx-large;">Testimonials</h6>
+         <h6 class="display-6 text-uppercase text-center" style="font-size:xx-large;">Testimonials</h6>
+        <!--Product Review Thumbnails-->
+        <div class="container " id="testimonials">
             <div class="thumbnail">
                 <div >
                     <figure class="">
@@ -340,24 +354,27 @@ figure {
             </div>
             
 
-         </section>
+        </div> 
+        <!--Product Review Thumbnails END-->
+
 
         <!--Customer Tab Reviews-->
         <nav class="container" id="reviews"> 
             <div class="nav nav-tabs p-4 pb-0" id="customerreview" role="tablist">
-                <button class="nav-link active bg-info bg-opacity-25 border-color-info pt-0 pb-0 mt-0" id="review-tab" data-bs-toggle="tab" data-bs-target="#review1" 
+                <button class="nav-link active  pt-0 pb-0 mt-0" id="review-tab" data-bs-toggle="tab" data-bs-target="#review1" 
                     type="button" role="tab" aria-controls="review" aria-selected="true">
                     <span> <p class="fw-bold mx-2 my-2 text-uppercase">
                         <i class="bi bi-stars"></i> Customer Reviews
                     </p> </span>
                 </button>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#addCustomerReviewModal" class=" btn nav-link border-0 text-muted text-decoration-none"> Add a Review</button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#addCustomerReviewModal" class=" btn nav-link bg-light text-decoration-none"> 
+                    Add a Review</button>
             
                 <!--ADD REVIEW MODAL-->
                 <div class="modal fade" id="addCustomerReviewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
-                        <div class="modal-header bg-info bg-opacity-25">
+                        <div class="modal-header ">
                           <h1 class="modal-title fs-5" id="staticBackdropLabel">THANKS for your support!</h1>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -383,13 +400,20 @@ figure {
             
             </div>
             
+
+
             <!--CUSTOMER REVIEW TAB WINDOW-->
-            </nav>
-            <div class="tab-content border-1" id="reviewtabContent">
+            </nav >
+            <div class="tab-content border-1" id="reviewtabContent" 
+            style="background-image: url('mp2images/reviewbg.jpg'); height: 300px; background-repeat: no-repeat;
+            background-attachment: fixed; background-size:cover; opacity: 90%;">
                 <div class="tab-pane fade show active border-color-info" id="review1" height="150px" role="tabpanel" aria-labelledby="review-tab" tabindex="0">
                     
+
+
+
                     <!--Carousel-->
-                    <div class="container">
+                    <div class="container-fluid" >
                         <div id="customerreviews" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
 
@@ -524,18 +548,18 @@ figure {
 
                 </div>
             </div>
-
+       
 
 
 
         
 
         <!--SIGN UP-->
-        <section class="pt-3 mt-3 bg-secondary bg-opacity-25" id="orderform">
-            <div class="container">
+        <div class="pt-3 mt-3 " id="orderform">
+            <div class="container-fluid card bg-secondary bg-opacity-25">
                 <div class="row pb-3 align-items-center">
 
-                    <div class="col-lg-8 bg-info bg-opacity-25 ">
+                    <div class="col-lg-8  ">
                         <div class="row g-0">
 
                             <div class="col-lg-6 p-4 ">
@@ -589,7 +613,7 @@ figure {
 
                 </div>
              </div>
-        </section>
+            </div>
 
         
 
