@@ -24,8 +24,17 @@ body{
     color: black;
     font-size: large;
 }
-.navbar-nav{
-    justify-content: space-evenly;
+.navbar .container{
+    gap: 1rem;
+    padding-left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.navbar-nav .nav-link {
+    padding-left: 0px
 }
 .navbar .navbar-nav .nav-link::after{
   content: '';
@@ -146,24 +155,22 @@ a.active {
 <!--Header Navigation-->
 <nav class="navbar fixed-top navbar-expand-xl " style="background-color: white;">
    
-        <div class="navbar container "  >
-            <a class="navbar-brand px-5"  href="index.html">
-                <img src="mp2images/logomx.gif" alt="Lucky's logo" height="80" class="">
-            </a>
+        <div class="navbar container px-5"  >
+            <a class="navbar-brand "  href="index.html">
+                <img src="mp2images/headerlogomx.gif" alt="Lucky's logo" height="80" width="300" class="">
+           </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarShop" aria-controls="navbarShop" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse px-auto " id="navbarShop">
-                <div class="navbar-nav  ">
+            <div class="collapse navbar-collapse " id="navbarShop">
+                <div class="navbar-nav ">
                     
                     <a class="nav-link px-4 " href="index.html">HOME</a>
                     <a href="menu.html" class="nav-link px-4" >MENU</a>
                     <a class="nav-link px-4" href="menu.html">ORDER ONLINE</a>
-                    <a class="nav-link px-4" href="#">
-                        <span><i class="bi bi-geo-alt"></i></span> LOCATION</a>
-                    <a class="nav-link px-4 active" href="story.html">STORY</a>
-                    <a class="nav-link px-4 " href="story.html">CONTACT US</a>
-                    
+                     <a class="nav-link px-4 active" href="story.html">STORY</a>
+                   <a class="nav-link px-4" href="#"> Contact Us</a>
+                          
                     
                 </div>
                
@@ -211,7 +218,7 @@ background-attachment: fixed; background-size: cover; min-height: 150px; font-we
 <!--Footer-->
 <footer class=" bg-dark">
     <div class="container text-center">
-        <div class="row justify-content-md-center pb-4">
+        <div class="row justify-content-md-center ">
             <div class="col  text-light pt-4">
                 <ul class="list-unstyled">
                     <li > <small> ABOUT </small></li>
@@ -252,10 +259,15 @@ background-attachment: fixed; background-size: cover; min-height: 150px; font-we
                         </a>
                     </li>
                     <li class="text-secondary pt-2" style="font-size: smaller;">
-                        <i class="bi bi-c-circle"></i>  &nbspAll rights reserved, 2023  </li>
+                        <a href="#" class="btn-floating btn-sm text-white" style="text-decoration: none;"  class="btn-floating btn-sm text-white" style="font-size: 15px;">
+                            Send Feedback  
+                       </a>
                 </ul>
             </div>
         </div>
+        
+        <p class="text-secondary pt-2 " style="font-size: smaller;">
+            <i class="bi bi-c-circle"></i>  &nbspAll rights reserved, 2023  </p>
     </div>
 </footer>
 

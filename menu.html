@@ -85,7 +85,7 @@ padding-top: .25rem;
 
 .list {
     display: grid;
-    /*grid-template-columns: repeat(auto-fill,minmax(230px, 1fr));  for responsive*/
+    /*grid-template-columns: repeat(auto-fill,minmax(230px, 1fr));  for autofill responsive*/
     grid-template-columns: repeat(3,1fr);
     column-gap: 20px;
     row-gap: 20px;
@@ -97,7 +97,7 @@ padding-top: .25rem;
     background-color: #DCE0E1;
     padding: 0px;
     margin-top: 10px;
-    box-shadow: 0 15px 10px;
+    box-shadow: 0 5px 10px;
     letter-spacing: 0px;
     border-radius: 0px;
 }
@@ -187,7 +187,7 @@ padding-top: .25rem;
 }
 .listCard li div{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 .listCard li img{
@@ -239,6 +239,9 @@ a.active {
     margin-left: 20px;
 }
 
+
+
+
 </style>
 
 </head>
@@ -261,7 +264,7 @@ a.active {
                     <a class="nav-link px-4 " href="index.html">HOME</a>
                     <a href="menu.html" class="nav-link px-4" >MENU</a>
                     <a class="nav-link px-4 active" href="menu.html">ORDER ONLINE</a>
-                     <a class="nav-link px-4" href="#">
+                     <a class="nav-link px-4" href="#map">
                         <span><i class="bi bi-geo-alt"></i></span> LOCATION</a>
                     
                     
@@ -373,57 +376,81 @@ a.active {
 </div>
 
 
+
         
 
-        <!--PreOrder Form-->
+        <div class="container  ">
+            <div class="row " style="gap: 3rem; padding-bottom: 20px;">
+                <!--ORDER FORM-->
+                <div class="col  pb-4" style=" border-right: 1px solid #51AFB9;">
+                    <h5 class="">Custom Order</h5>
+                    
+                    <form action="https://formsubmit.co/luckysbakedgoods@gmail.com" method="POST">
+                        
+                        <p style="line-height: .5; padding-top: 15px;">Your details</p>
+                        <input id="fname" name="fname" type="text" placeholder="First Name" required> 
+                        <input id="lname" name="lname" type="text" placeholder="Last Name" required><br>
+                        <input id="email" name="email" type="email" placeholder="Email" required>
+                        <input id="phonenumber" name="phonenumber" type ="text" placeholder="Mobile" required>
+                        <br> <br>
+                      
+
+                        <select name="selectproduct" id="selectproduct" required>
+                            <option selected>Select item</option>
+                            <option value="1"> Cake </option>
+                            <option value="2"> Cheesecake </option>
+                            <option value="3"> CupCake </option>
+                            <option value="4"> Bread </option>
+                            <option value="5"> Cookies </option>
+                        </select>
+                        <select name="selectflavor" id="selectflavor" required>
+                            <option selected>Select flavor</option>
+                            <option value="1">Chocolate</option>
+                            <option value="2">Dark Chocolate</option>
+                            <option value="3">Blueberry</option>
+                            <option value="4">Matcha</option>
+                            <option value="5">Dalgona Coffee</option>
+                            <option value="6">Carrot</option>
+                        </select> 
+                        <select name="deliverymode" id="deliverymode" required>
+                            <option selected>Delivery mode</option>
+                            <option value="1">Pick-up</option>
+                            <option value="1">Delivery</option>
+                        </select>
+                        <textarea name="deliveryaddress" id="deliveryaddress" cols="47" rows="2" placeholder="Delivery Address" class="mt-2" required></textarea>
+                        <textarea name="specialnote" id="specialnote" cols="47" rows="3" placeholder="Special Instructions"></textarea> <br>
+                       
+                        <button id="btnCustomOrder" type="submit" class="btn btn-sm btn-primary mt-3 ">Submit</button>
+                        <button type="button" name="clear" class="btn btn-sm btn-secondary mt-3">Clear</button>
+                    </form>
+                </div >
+
+                <script>
+                    function clearOrderForm() {
+
+                    }
+                </script>
+
+
+                <!--PAYMENT OPTIONS-->
+                <div class="col">
+                    
+                    <h5>Payment Options</h5>  <br>
+                    <img src="mp2images/mastercard.png" alt="Mastercard" height="80" width="120">
+                    <img src="mp2images/GCash.png" alt="GCash" class="ps-3">
+                    <p class="display-6">Cash on Delivery</p>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+        <!--GOOGLE MAPS-->
+
         <div class="pt-3 container-fluid bg-secondary bg-opacity-25">
             <div class="container">
-                <div class="row pb-3 align-items-center">
-
-                    <div class="col-lg-8  " id="preOrderForm">
-                        <div class="row ">
-
-                            <div class="col-lg-6 p-4 ">
-                                <form action="https://formsubmit.co/luckysbakedgoods@gmail.com" method="POST" class="text-center">
-                                    <h4>Pre-Order Form</h4>
-                                    <div class="form-text">We won't share your details.</div>
-        
-                                    <div class="mb-1 text-center">
-                                        <input type="text" class="form-control form-control-sm" id="inputSignupName" aria-describedby="SignupName" placeholder="Name">
-                                    </div >
-                                    <div class="mb-1">
-                                        <input type="text" class="form-control form-control-sm" id="inputMobile" placeholder="Mobile Number">
-                                    </div>
-                                    <div class="mb-1">
-                                        <input type="email" class="form-control form-control-sm" id="inputEmail" aria-describedby="emailSignUp" placeholder="Email Address">
-                                    </div>
-                                    <div class="mb-1">
-                                        <input type="text" class="form-control form-control-sm" id="inputPassword" placeholder="Pick-up or Delivery ">
-                                    </div>
-                                    <div class="mb-3 form-check">
-                                        <input type="checkbox" class="form-check-input " id="agreeCheckbox">
-                                        <label class="form-text form-check-label" for="exampleCheck1">I agree to store my details here. </label>
-                                    </div>
-        
-                                    <button type="submit" class="btn btn-sm btn-primary text-uppercase">Yes, proceed</button>
-                                    
-                                </form> 
-                            </div>
-                    
-        
-                            <div class="col-lg-6 p-4 mt-2 ">
-                                <br> 
-                               <form class="form-floating">
-                                    <textarea type="text" class="form-control " id="floatingInputValue" placeholder="Send us your inquiries and/or suggestions." style="height: 170px;"> </textarea>
-                                    <label for="floatingInputValue text-wrap" >Send us your questions and/or suggestions.</label>
-                                </form>
-                                <button id="btnInquiries" type="submit" class="btn btn-sm btn-primary mt-3 ">Submit</button>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    
+                <div class="row align-items-center">
     
                     <div class="maps-container col-lg text-center ">
                         <h6>Store location</h6>
@@ -432,18 +459,17 @@ a.active {
 
                     </div>
 
-
                 </div>
-             </div>
             </div>
+        </div>
 
         
 
 <!--Footer-->
-<footer class=" bg-dark">
+<footer class=" bg-dark ">
     <div class="container text-center">
         <div class="row justify-content-md-center">
-            <div class="col  text-light pt-4">
+            <div class="col  text-light pt-5">
                 <ul class="list-unstyled">
                     <li > <small> ABOUT </small></li>
                     <hr class="my-1">
@@ -464,11 +490,11 @@ a.active {
          
             <div class="col-2 bg-muted mt-2">
                 <a href="#" class="btn btn-sm ">
-                    <img src="mp2images/logo.png" alt="logo" class="img-fluid" height="110" width="110">
+                    <img src="mp2images/logo.png" alt="logo" class="img-fluid" height="130" width="130">
                 </a>
             </div>
 
-            <div class="col text-light pt-4">
+            <div class="col text-light pt-5">
                 <ul class="list-unstyled">
                     <li class="float-bottom"><small> LET'S CONNECT </small></li>
                     <hr class="my-1">
@@ -483,10 +509,15 @@ a.active {
                         </a>
                     </li>
                     <li class="text-secondary pt-2" style="font-size: smaller;">
-                        <i class="bi bi-c-circle"></i>  &nbspAll rights reserved, 2023  </li>
+                        <a href="#" class="btn-floating btn-sm text-white" style="text-decoration: none;"  class="btn-floating btn-sm text-white" style="font-size: 15px;">
+                            Send Feedback  
+                       </a>
                 </ul>
             </div>
         </div>
+        
+        <p class="text-secondary pt-2 " style="font-size: smaller;">
+            <i class="bi bi-c-circle"></i>  &nbspAll rights reserved, 2023  </p>
     </div>
 </footer>
 
@@ -512,7 +543,7 @@ a.active {
         },
         {
             id: 2,
-            image: '33.jpg',
+            image:'33.jpg',
             name: 'Peaches & Cream Cake',
             price: 700,
         },
@@ -548,9 +579,8 @@ a.active {
         products.forEach((value, key) =>{ //key is the array index
             let newDiv = document.createElement('div');
             newDiv.classList.add('item');
-            newDiv.innerHTML = 
-            //template literal
-            `<img src="mp2images/${value.image}">
+            newDiv.innerHTML =`
+                <img src="mp2images/${value.image}">
                 <div class="title">${value.name}</div>
                 <div class="price">${value.price.toLocaleString()}</div>`+ //.toLocaleString formats the price
                 `<button onclick="addToTray(${key})">Add to Tray</button>`;
