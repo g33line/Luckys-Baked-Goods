@@ -31,22 +31,21 @@ body{
     background-image: linear-gradient(360deg, #fcfced, #fcedfc 48%, #ebf6ff) ;
 }
 
-.maps-container{
-    width: 50vw;
-    height: 55vh;
-}
- #map {
-    height: 85%;
-    width: 100%;
-    margin: auto;
-  }
-
 .nav-link {
     color: black;
     font-size: large;
 }
-.navbar-nav{
-    justify-content: space-evenly;
+
+.navbar .container{
+    gap: 1rem;
+    padding-left: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-nav .nav-link {
+    padding-left: 20px;
+
 }
 .navbar .navbar-nav .nav-link::after{
   content: '';
@@ -223,6 +222,25 @@ padding-top: .25rem;
     font-size: large;
 }
 
+.maps-container{
+    width: 50vw;
+    height: 55vh;
+}
+ #map {
+    height: 85%;
+    width: 100%;
+    margin: auto;
+  }
+
+a.active {
+    font-weight: bold;
+    border-top: 3px solid black;
+    
+}
+#navbarShop{
+    margin-left: 20px;
+}
+
 </style>
 
 </head>
@@ -233,7 +251,7 @@ padding-top: .25rem;
 <nav class="navbar fixed-top navbar-expand-xl " style="background-color: white;">
     <div class="container-md">
         <div class="navbar container py-0"  >
-            <a class="navbar-brand "  href="index.html">
+            <a class="navbar-brand px-5"  href="index.html">
                 <img src="mp2images/logomx.gif" alt="Lucky's logo" height="80" class="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarShop" aria-controls="navbarShop" aria-expanded="false" aria-label="Toggle navigation">
@@ -241,16 +259,19 @@ padding-top: .25rem;
             </button>
             <div class="collapse navbar-collapse px-auto " id="navbarShop">
                 <div class="navbar-nav  ">
-                    <a class="nav-link active" aria-current="page" href="#">MENU</a>
-                    <a class="nav-link" href="#preOrderForm">Pre-Order</a>
-                    <a class="nav-link" href="#">Pricelist</a>
-                    <a class="nav-link" href="#">Payment</a>
+                    
+                    <a class="nav-link px-4 " href="index.html">HOME</a>
+                    <a class="nav-link px-4 active" href="menu.html">ORDER ONLINE</a>
+                     <a class="nav-link px-4" href="#">
+                        <span><i class="bi bi-geo-alt"></i></span> LOCATION</a>
+                    
+                    
                 </div>
-                <div class="navbar-nav mx-auto align-items-center float-end">
+                <div class="navbar-nav mx-auto align-items-center float-start">
                     <div class="navbar-nav" >
                         <button type="button" class="cart nav-link " data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder"> 
                             <span  class="itemcount text-light fw-bold" style="font-size: medium; background-color: #453E3B; padding: 0px 7px; border-radius: 33%;"> 0</span>
-                            <i class=" bi bi-cart4" style="font-size: x-large;"></i> Orders 
+                            <i class=" bi bi-basket2" style="font-size: x-large;"></i> Orders 
                            
                        
                         </button>
@@ -266,9 +287,7 @@ padding-top: .25rem;
 <div class="pt-5 mt-5 ">
     <div class="container pt-4 pb-2">
 
-        <a href="index.html" type="button" class=" text-decoration-none text-muted"> HOMEPAGE </a> > MENU
-
-        <br><br>
+      
 
         <!--MENU CATEGORIES-->
 

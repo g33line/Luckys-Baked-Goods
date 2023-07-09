@@ -34,8 +34,15 @@ body{
     color: black;
     font-size: large;
 }
-.navbar-nav{
-    justify-content: space-evenly;
+.navbar .container{
+    gap: 1rem;
+    padding-left: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-nav .nav-link {
+    padding-left: 20px
 }
 .navbar .navbar-nav .nav-link::after{
   content: '';
@@ -134,6 +141,15 @@ figure {
     cursor: pointer;
   }
 
+  a.active {
+    font-weight: bold;
+    border-top: 3px solid black;
+  }
+
+#navbarShop{
+    margin-left: 20px;
+}
+
 </style>
 
 </head>
@@ -142,27 +158,29 @@ figure {
 <body>
 <!--Header Navigation-->
 <nav class="navbar fixed-top navbar-expand-xl border-bottom" style="background-color: white;">
-    <div class="container-md">
-        <div class="navbar container py-0"  >
-            <a class="navbar-brand "  href="#">
+   
+        <div class="navbar container "  >
+            <a class="navbar-brand px-5"  href="#">
                 <img src="mp2images/logomx.gif" alt="Lucky's logo" height="80" class="">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarShop" aria-controls="navbarShop" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarShop" aria-controls="navbarShop" aria-expanded="false" aria-label="Toggle navigation" >
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse px-auto " id="navbarShop">
-                <div class="navbar-nav  ">
-                    <a href="menu.html" class="nav-link" >MENU</a>
-                    <a class="nav-link" href="#orderform">Pre-Order</a>
-                    <a class="nav-link" href="#">Payment Methods</a>
-                    <a class="nav-link" href="#testimonials">Customer Reviews</a>
-                    <a class="nav-link" href="story.html">Story</a>
-                    <a class="nav-link" href="#">Contact Us</a>
+            <div class="collapse navbar-collapse " id="navbarShop">
+                <div class="navbar-nav ">
+                    
+                    <a class="nav-link px-4 active" href="index.html">HOME</a>
+                    <a href="menu.html" class="nav-link px-4" >MENU</a>
+                    <a class="nav-link px-4" href="menu.html">ORDER ONLINE</a>
+                    <a class="nav-link px-4" href="story.html">STORY</a>
+                    <a class="nav-link px-4" href="#">
+                        <span><i class="bi bi-geo-alt"></i></span> LOCATION</a>
+                    
                     
                 </div>
             </div>
         </div>
-    </div>
+    
 </nav>
 
 <!--Main Content-->
@@ -523,70 +541,24 @@ background-attachment: fixed; background-size: cover; height: 530px;">
         
 
         <!--SIGN UP-->
-        <div class="pt-3 mt-3 " id="orderform">
-            <div class="container  bg-secondary bg-opacity-25">
-                <div class="row pb-3 align-items-center">
+       
+            <div class="container  ">
+                <div class="row pb-5 align-items-center">
 
-                    <div class="col-lg-8  ">
-                        <div class="row g-0">
-
-                            <div class="col-lg-6 p-4 ">
-                                <h4>Pre-Order Form</h4>
-                                    <form action="https://formsubmit.co/luckysbakedgoods@gmail.com" method="POST">
-                                        <input type="text" name="fname" placeholder="Fullname" required> 
-                                        <br>
-                                        <input type="email" name="email" placeholder="Email" required> 
-                                        <br>
-                                        <select name="dessert" id="">
-                                            <option value=""> Cake </option>
-                                            <option value=""> Cheesecake </option>
-                                            <option value=""> Cupcake</option>
-                                            <option value=""> Bread </option>
-                                            <option value=""> Cookies </option>
-                                        </select> <br>
-                                        <textarea name="message" placeholder="Type in your order" id="" cols="30" rows="4" required></textarea>
-                                        <br>
-                                        <div>
-                                            <input type="submit" value="Submit" id="formbuttons" onclick="alert('Order submitted')">
-                                            <input type="hidden" name="_next" value="https://g33line.github.io/Luckys-Baked-Goods/">
-                                            <input type="hidden" name="_autoresponse" value="Thank you!">
-                                        </div>
-                                    </form>
-                            </div>
-                    
-        
-                            <div class="col-lg-6 p-4">
-                                <h4>Message Box</h4>
-                                <br> 
-                               <form action="https://formsubmit.co/luckysbakedgoods@gmail.com" method="POST" class="form-floating">
-                                    <textarea type="text" class="form-control " id="floatingInputValue" placeholder="Message." style="height: 170px;" required> </textarea>
-                                    <label for="floatingInputValue" >Message</label>
-                                    <button onclick="alert('We appreciate your feedback!')" type="submit" >Submit</button>
-                                </form>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    
-    
                     <div class="maps-container col-lg text-center ">
-                        <h6>Store location</h6>
+                        <h5 class="pb-3">Store location</h5>
                         
                         <div class="" id="map"> </div>
-
                     </div>
 
-
-
                 </div>
-             </div>
             </div>
+            
 
         
 
 <!--Footer-->
-<footer class=" bg-dark">
+<footer class=" bg-dark pb-3">
     <div class="container text-center">
         <div class="row justify-content-md-center">
             <div class="col  text-light pt-4">
