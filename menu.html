@@ -27,6 +27,10 @@
 
 <style>
 
+body{
+    background-image: linear-gradient(360deg, #fcfced, #fcedfc 48%, #ebf6ff) ;
+}
+
 .maps-container{
     width: 50vw;
     height: 55vh;
@@ -112,14 +116,14 @@ padding-top: .25rem;
     font-weight:bold;
 }
 .list .item button{
-    background-color: #453E3B;
+    background-color: #51AFB9;
     border-radius: 5px;
     color: #fff;
     width: 50%;
     padding: 5px;
     margin-bottom: 10px;
 }
-#cakemenu {
+#productmenu {
     padding: 5px;
     font-weight:600;
     font-size: medium;
@@ -127,7 +131,6 @@ padding-top: .25rem;
 }
 
 
-//
 
 /* CHECKOUT */
 
@@ -246,7 +249,7 @@ padding-top: .25rem;
                 <div class="navbar-nav mx-auto align-items-center float-end">
                     <div class="navbar-nav" >
                         <button type="button" class="cart nav-link " data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder"> 
-                            <span  class="itemcount"> 0 </span>
+                            <span  class="itemcount text-light fw-bold" style="font-size: medium; background-color: #453E3B; padding: 0px 7px; border-radius: 33%;"> 0</span>
                             <i class=" bi bi-cart4" style="font-size: x-large;"></i> Orders 
                            
                        
@@ -260,7 +263,7 @@ padding-top: .25rem;
 
 
 <!--Main Content-->
-<section class="pt-5 mt-5  bg-secondary bg-opacity-25">
+<div class="pt-5 mt-5 ">
     <div class="container pt-4 pb-2">
 
         <a href="index.html" type="button" class=" text-decoration-none text-muted"> HOMEPAGE </a> > MENU
@@ -300,7 +303,7 @@ padding-top: .25rem;
             <div class="tab-pane fade show active border-color-info" id="cakeWindow" height="150px" role="tabpanel" tabindex="0">
                 <section class="container">
                    
-                    <div class="list" id="">
+                    <div class="list" id="productmenu">
 
                     </div>
                 </section>
@@ -345,17 +348,17 @@ padding-top: .25rem;
 
 
     </div>
-</section>
+</div>
 
 
         
 
         <!--PreOrder Form-->
-        <section class="pt-3 bg-secondary bg-opacity-25">
+        <div class="pt-3 container-fluid bg-secondary bg-opacity-25">
             <div class="container">
                 <div class="row pb-3 align-items-center">
 
-                    <div class="col-lg-8 bg-info bg-opacity-25 " id="preOrderForm">
+                    <div class="col-lg-8  " id="preOrderForm">
                         <div class="row ">
 
                             <div class="col-lg-6 p-4 ">
@@ -410,7 +413,7 @@ padding-top: .25rem;
 
                 </div>
              </div>
-        </section>
+            </div>
 
         
 
@@ -505,7 +508,7 @@ padding-top: .25rem;
     
     ];
     
-    let listCards  = [];
+    let trayList  = [];
     function initApp(){
         products.forEach((value, key) =>{ //key is the array index
             let newDiv = document.createElement('div');
@@ -515,16 +518,16 @@ padding-top: .25rem;
             `<img src="mp2images/${value.image}">
                 <div class="title">${value.name}</div>
                 <div class="price">${value.price.toLocaleString()}</div>`+ //.toLocaleString formats the price
-                `<button onclick="addToCard(${key})">Add To Card</button>`;
+                `<button onclick="addToTray(${key})">Add to Tray</button>`;
             list.appendChild(newDiv);
         })
     }
     initApp(); //calling the function
-    function addToCard(key){
-        if(listCards[key] == null){
+    function addToTray(key){
+        if(trayList[key] == null){
             // copy product form list to list card
-            listCards[key] = JSON.parse(JSON.stringify(products[key]));
-            listCards[key].quantity = 1;
+            trayList[key] = JSON.parse(JSON.stringify(products[key]));
+            trayList[key].quantity = 1;
         }
         reloadCard();
     }
@@ -532,7 +535,7 @@ padding-top: .25rem;
         listCard.innerHTML = '';
         let count = 0;
         let totalPrice = 0;
-        listCards.forEach((value, key)=>{
+        trayList.forEach((value, key)=>{
             totalPrice += value.price;
             count += value.quantity;
             if(value != null){
@@ -554,10 +557,10 @@ padding-top: .25rem;
     }
     function changeQuantity(key, quantity){
         if(quantity == 0){
-            delete listCards[key];
+            delete trayList[key];
         }else{
-            listCards[key].quantity = quantity;
-            listCards[key].price = quantity * products[key].price;
+            trayList[key].quantity = quantity;
+            trayList[key].price = quantity * products[key].price;
         }
         reloadCard();
     }
