@@ -170,7 +170,6 @@ padding-top: .25rem;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    cursor: pointer;
     color: #453E3B;
 }
 .offcanvas .checkOut div:nth-child(2){
@@ -239,6 +238,13 @@ a.active {
     margin-left: 20px;
 }
 
+#checkoutItemCount{
+    background-color: #51AFB9;
+    color: #453E3B;
+    padding: 0px 10px;
+    align-items: center;
+    margin-left: 5px;
+}
 
 
 
@@ -262,12 +268,25 @@ a.active {
                 <div class="navbar-nav  ">
                     
                     <a class="nav-link px-4 " href="index.html">HOME</a>
-                    <a  class="nav-link px-4 active" href="menu.html">MENU</a>
-                    <a class="nav-link px-4" href="orderonline.html">ORDER ONLINE</a>
+                    <a class="nav-link px-4" href="menu.html" >MENU</a>
+                    <a class="nav-link px-4 active" href="#">ORDER ONLINE</a>
                      <a class="nav-link px-4" href="#map">
                         <span><i class="bi bi-geo-alt"></i></span> LOCATION</a>
                     
                     
+                </div>
+                <div class="navbar-nav mx-auto align-items-center float-start">
+                    <div class="navbar-nav" >
+                        <button type="button" class="cart nav-link " data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder"> 
+                            <span  class="itemcount text-light fw-bold" 
+                            style="font-size: medium; background-color: #453E3B; padding: 0px 7px; border-radius: 33%;"> 
+                            0</span>
+                            <i class=" bi bi-basket2" style="font-size: x-large;"></i> Orders 
+                           
+                          
+                       
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -309,7 +328,7 @@ a.active {
 
  
 
-        <!--MENU WINDOW-->
+        <!--ORDER PRODUCTS WINDOW-->
         <div class="tab-content border-1" id="menutabContent">
             <div class="tab-pane fade show active border-color-info" id="cakeWindow" height="150px" role="tabpanel" tabindex="0">
                 <section class="container">
@@ -318,6 +337,41 @@ a.active {
 
                     </div>
                 </section>
+            </div>
+        </div>
+
+        <!--CHECKOUT-->
+        <!--Basket of Items slide panel on right side -->
+
+        <div class="offcanvas offcanvas-end" data-bs-backdrop="false" data-bs-scroll="true" tabindex="-1" id="offCanvasOrder">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title ">Total Orders: 
+                    <span id="checkoutItemCount"> 0 </span>
+                </h5>
+
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" ></button>
+            </div>
+
+            <div id="offcanvas-body" class="ps-0">
+
+                <div class="orders-container">
+
+                    <ul class="listCard">
+                       
+                    </ul>
+
+                    
+
+                <!--CHECKOUT TOTAL AMOUNT-->
+                    <div class="checkOut">
+                        <div class="total"> 0  </div>
+                        <div class="proceedToCheckout" > <button type="button" class="btn btn-link text-decoration-none text-light">
+                            Proceed to Checkout </button> </div>
+                    </div>
+                   
+                </div>
+
+
             </div>
         </div>
 
@@ -578,6 +632,7 @@ a.active {
         })
         total.innerText = totalPrice.toLocaleString();
         quantity.innerText = count;
+        checkoutItemCount.innerText = count;
         
     }
     function changeQuantity(key, quantity){
