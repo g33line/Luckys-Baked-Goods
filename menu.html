@@ -270,7 +270,9 @@ a.active {
                 <div class="navbar-nav mx-auto align-items-center float-start">
                     <div class="navbar-nav" >
                         <button type="button" class="cart nav-link " data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder"> 
-                            <span  class="itemcount text-light fw-bold" style="font-size: medium; background-color: #453E3B; padding: 0px 7px; border-radius: 33%;"> 0</span>
+                            <span  class="itemcount text-light fw-bold" 
+                            style="font-size: medium; background-color: #453E3B; padding: 0px 7px; border-radius: 33%;"> 
+                            0</span>
                             <i class=" bi bi-basket2" style="font-size: x-large;"></i> Orders 
                            
                        
@@ -334,7 +336,9 @@ a.active {
 
         <div class="offcanvas offcanvas-end" data-bs-backdrop="false" data-bs-scroll="true" tabindex="-1" id="offCanvasOrder">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title ">Your Orders</h5>
+                <h5 class="offcanvas-title ">Total Orders</h5>
+                <span id="checkoutItemCount"> 0</span>
+
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" ></button>
             </div>
 
@@ -491,6 +495,7 @@ a.active {
 
 <!--JAVASCRIPT-->
 
+
 <script>
 
     let list = document.querySelector('.list');
@@ -573,6 +578,7 @@ a.active {
         })
         total.innerText = totalPrice.toLocaleString();
         quantity.innerText = count;
+        
     }
     function changeQuantity(key, quantity){
         if(quantity == 0){
@@ -586,6 +592,13 @@ a.active {
     </script>
     
     
+    <script>
+        document.getElementById('checkoutItemCount').innerHTML = document.querySelector('itemcount').value;
+       
+    
+    </script>
+    
+
 
 <!-- Messenger Chat Plugin Code -->
 <div id="fb-root"></div>
