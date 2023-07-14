@@ -107,19 +107,6 @@ figure {
     transform: scale(1.5);
 }
 
-/*THUMBNAIL*/
-.thumbnail {
-    display: inline-block;
-    text-align: center;
-    width: 16%;
-}
-.thumbnail img  {
-    display: block;
-    width: auto;
-    height: 200px;
-    border-radius: 5px;
-}
-
 .carousel-item{
     color: whitesmoke;
     text-shadow: #453E3B;
@@ -151,6 +138,50 @@ figure {
 #navbarShop{
     margin-left: 0px;
 }
+
+/*REVIEWS THUMBNAIL*/
+
+#ReviewsThumbnail{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding: 10px;
+}
+.thumbnail-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: .5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+.thumbnail-container::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+.thumbnail {
+    display: inline-block;
+    text-align: center;
+    width: 17%;
+    aspect-ratio: 1/1;
+    scroll-snap-align: start;
+}
+.thumbnail img  {
+    display: block;
+    width: auto;
+    height: 200px;
+    border-radius: 5px;
+}
+/*@media screen and (max-width: 390px){
+    .about-section{
+        width: 100%;
+        float: none;
+    }
+} */
 
 </style>
 
@@ -282,63 +313,114 @@ background-attachment: fixed; background-size: cover; height: 530px;">
                     </div>
                     <a href="story.html" class=" text-dark"> Know more about her... </a>
                 
+                    <br><br>
                 </div>
             
             </div>
     
 </div>
-       
-  
-    
-
-<div class="container py-3"> <hr></div>
-
+ <br>
 
          <!--photo THUMBNAILS for CUSTOMER REVIEWS-->
          <h6 class="display-6 text-uppercase text-center" style="font-size:xx-large;">Testimonials</h6>
         <!--Product Review Thumbnails-->
-        <div class="container " id="testimonials">
-            <div class="thumbnail">
-                <div >
-                    <figure class="">
-                        <img src="mp2images/19.jpg" alt="">
-                    </figure>
-                </div>
+        <div class="container " id="ReviewsThumbnail">
+
+            <div class="leftIconarrow">
+                <i class="bi bi-caret-left-fill"></i>
             </div>
-            <div class="thumbnail">
-                <div >
-                    <figure class="">
-                        <img src="mp2images/12.jpg" alt="">
-                    </figure>
+
+            <div class="thumbnail-container" id="imageBox">
+               
+                <div class="thumbnail">
+                    <div >
+                        <figure class="">
+                            <img src="mp2images/19.jpg" alt="">
+                        </figure>
+                    </div>
                 </div>
+                <div class="thumbnail">
+                    <div >
+                        <figure class="">
+                            <img src="mp2images/12.jpg" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <div >
+                        <figure class="">
+                            <img src="mp2images/18.jpg" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <div >
+                        <figure class="">
+                            <img src="mp2images/11.jpg" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <div >
+                        <figure class="">
+                            <img src="mp2images/37.jpg" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <div >
+                        <figure class="">
+                            <img src="mp2images/10.jpg" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <div >
+                        <figure class="">
+                            <img src="mp2images/19.jpg" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <div >
+                        <figure class="">
+                            <img src="mp2images/12.jpg" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <div >
+                        <figure class="">
+                            <img src="mp2images/18.jpg" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <div >
+                        <figure class="">
+                            <img src="mp2images/11.jpg" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <div >
+                        <figure class="">
+                            <img src="mp2images/37.jpg" alt="">
+                        </figure>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <div >
+                        <figure class="">
+                            <img src="mp2images/10.jpg" alt="">
+                        </figure>
+                    </div>
+                </div>
+
             </div>
-            <div class="thumbnail">
-                <div >
-                    <figure class="">
-                        <img src="mp2images/18.jpg" alt="">
-                    </figure>
-                </div>
-            </div>
-            <div class="thumbnail">
-                <div >
-                    <figure class="">
-                        <img src="mp2images/11.jpg" alt="">
-                    </figure>
-                </div>
-            </div>
-            <div class="thumbnail">
-                <div >
-                    <figure class="">
-                        <img src="mp2images/37.jpg" alt="">
-                    </figure>
-                </div>
-            </div>
-            <div class="thumbnail">
-                <div >
-                    <figure class="">
-                        <img src="mp2images/10.jpg" alt="">
-                    </figure>
-                </div>
+
+            <div class="thumbnail-leftarrow">
+                <i class="bi bi-caret-right-fill"></i>
             </div>
             
 
@@ -532,6 +614,7 @@ background-attachment: fixed; background-size: cover; height: 530px;">
                             </div>
 
                         </div>
+                        <br>
                     </div>
 
                 </div>
@@ -540,7 +623,7 @@ background-attachment: fixed; background-size: cover; height: 530px;">
 
 
 
-        
+        <br>
 
         <!--GOOGLE MAPS-->
        
@@ -628,7 +711,7 @@ background-attachment: fixed; background-size: cover; height: 530px;">
 
 <script>
   var chatbox = document.getElementById('fb-customer-chat');
-  chatbox.setAttribute("page_id", "110274618787743");
+  chatbox.setAttribute("page_id", "100852973084013");
   chatbox.setAttribute("attribution", "biz_inbox");
 </script>
 
