@@ -71,8 +71,7 @@ padding-top: .25rem;
 }
 
 .item {
-    background-color: #DCE0E1;
-    box-shadow: 0 15px 10px #757676; 
+    box-shadow: 0 5px 0px whitesmoke; 
     padding: 7%;
 }
 
@@ -94,7 +93,6 @@ padding-top: .25rem;
 
 .list .item{
     text-align: center;
-    background-color: #DCE0E1;
     padding: 0px;
     margin-top: 10px;
     box-shadow: 0 5px 10px;
@@ -116,12 +114,18 @@ padding-top: .25rem;
     font-weight:bold;
 }
 .list .item button{
+    border-radius: 50px;
     background-color: #51AFB9;
-    border-radius: 5px;
-    color: #fff;
+    color: #ebf6ff;
+    border-color: #ebf6ff;
     width: 50%;
     padding: 5px;
     margin-bottom: 10px;
+}
+.list .item button:hover{
+    background-color: white;
+    color: black;
+    border-color: #ebf6ff;
 }
 #productmenu {
     padding: 5px;
@@ -323,6 +327,16 @@ a.active {
                 <section class="container">
                    
                     <div class="list" id="productmenu">
+
+                <!--        <div class="list" id="productmenu">
+                                <div class="item">
+                                    <img src="">
+                                    <div class="title"></div>
+                                    <div class="price"></div>
+                                    <button onclick="addToTray()"></button>
+                                </div>
+                            </div>
+                -->
 
                     </div>
                 </section>

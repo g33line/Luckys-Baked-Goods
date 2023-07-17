@@ -12,7 +12,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <!--BS Icon CDN-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-   
+   <!--Fontawesome-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
     <!--Google maps API-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script>
@@ -23,6 +26,8 @@
           // Add other bootstrap parameters as needed, using camel case.
         });
       </script>
+
+
 
 
 <style>
@@ -87,7 +92,7 @@ padding-top: .25rem;
     display: inline-block;
     text-align: center;
     width: 20%;
-    float: left;
+ /*   float: left; */
 }
 figure {
     overflow: hidden;
@@ -96,16 +101,20 @@ figure {
 .image img  {
     display: block;
     width: auto;
-    height: 400px;
+    height: 300px;
     cursor: pointer;
+    border-radius: 10px;
 }
 .image #zoom-In img {
     transform: scale(1);
-    transition: .3s ease-in-out;
+    transition: .3s ease-in-out; 
+   /* transform: translateY(-100%);
+    transition: all 1s ease; */
 }
+ /*
 .image #zoom-In:hover img {
-    transform: scale(1.5);
-}
+    transform: scale(1.5);  
+} */
 
 .carousel-item{
     color: whitesmoke;
@@ -164,24 +173,72 @@ figure {
   display: none; /* For Chrome, Safari, and Opera */
 }
 .thumbnail {
-    display: inline-block;
+    display: inline-flex;
     text-align: center;
     width: 17%;
     aspect-ratio: 1/1;
     scroll-snap-align: start;
 }
 .thumbnail img  {
-    display: block;
+    display: inline-flex;
     width: auto;
     height: 200px;
     border-radius: 5px;
 }
-/*@media screen and (max-width: 390px){
-    .about-section{
-        width: 100%;
-        float: none;
-    }
-} */
+@media screen and (max-width: 1000px){
+   .thumbnail img  {
+    height: 150px;
+}} 
+
+/*Star Rating*/
+.star-rating {
+    display: inline-block;
+    font-size: 17px;
+    color: #ccc;
+    cursor: pointer;
+  }
+
+  .star-rating .star {
+    display: inline-block;
+    transition: color 0.3s;
+  }
+
+  .star-rating .star:hover,
+  .star-rating .star.selected {
+    color: gold;
+  }
+
+/*Carousel TESTIMONIALS - REVIEWS */
+.carousel-inner{
+    padding: 50px 0px;
+
+}
+.reviewBox{
+    padding: 0px 0px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.displayStarRating li{
+    padding: 0px 0px;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+    color: gold;
+}
+.displayRvwComment{
+    text-align: center;
+    word-wrap: break-word;
+    width: 1200px;
+}
+@media screen and (max-width: 1000px){
+    .displayRvwComment{
+    text-align: center;
+    word-wrap: break-word;
+    width: 500px;
+}
+}
 
 </style>
 
@@ -200,7 +257,7 @@ figure {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarShop">
-                <div class="navbar-nav ">
+                <div class="navbar-nav " >
                     
                     <a class="nav-link px-4 active" href="index.html">HOME</a>
                     <a  class="nav-link px-4" href="menu.html">MENU</a>
@@ -212,6 +269,7 @@ figure {
                     
                 </div>
             </div>
+        
         </div>
     
 </nav>
@@ -297,14 +355,524 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
 
 <div class="container py-3"> <hr></div>
 
-<div class="" style="background-image: url('mp2images/baking_.png');background-repeat: no-repeat;
-background-attachment: fixed; background-size: cover; height: 530px;">
+<br>
 
- <!--ABOUT-->
- <div class=" py-4  text-center" >
- 
-    <!--MEET LUCKY-->
-                <div class=" ">
+        <!--Customer Tab Reviews-->
+        <p class="display-5 my-4 text-uppercase text-center" style="font-size: xx-large;">
+            What our customers are saying  <i class="bi bi-chat-heart"></i>  </p> 
+           
+    
+                <!--CUSTOMER REVIEW TAB WINDOW-->
+                <div class="container-fluid"
+                style="background-image: url('mp2images/reviewbg_.png'); height: auto; background-repeat: no-repeat;
+                background-attachment: fixed; background-size:cover; opacity: 90%;">
+                   
+                        <!--Carousel-->
+                        <div class="container-fluid" >
+                            <div id="customerreviews" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#customerreviews" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    </div>
+                                <div class="carousel-inner" id="commentBox">
+    
+                                    <div class="carousel-item active " >
+                                        <div class="reviewBox" >
+                                            <img src="mp2images/venus.jpg" class="rounded-circle" width="130" >
+                                            <h5 class="name-reviewer">Venusa Snow</h5>
+                                            <p class="displayRvwComment">Awan suya factor na. 😁🥰🍰♥️ </p>
+                                            <ul class="displayStarRating">
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                 
+                                 
+    
+                                </div>
+    
+
+                            </div>
+                        </div>
+    
+                    </div>
+                
+           
+                    <script>
+             /*           function addCarouselItem() {
+                            // Get the values from localStorage
+                            var reviewComment = localStorage.getItem("reviewComment");
+    
+                            if (reviewComment){
+    
+                                var displayphoto = "mp2images/defaultprofile.png";
+                                var reviewerName = localStorage.getItem("nameReviewer");
+                                var starRating = parseInt(localStorage.getItem("selectedRating"));
+              */              
+    
+                            function addCarouselItems() {
+                            // Retrieve existing reviews from localStorage
+                            var existingReviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    
+                            // Get the carousel inner container
+                            var carouselInner = document.querySelector(".carousel-inner");
+    
+                            // Clear the existing carousel items
+                     //       carouselInner.innerHTML = "";
+    
+                            // Loop through each review in the existing reviews array
+                            existingReviews.forEach(function(review) {
+                                // Extract the values from the review object
+                                var reviewerName = review.nameReviewer;
+                                var reviewComment = review.reviewComment;
+                                var starRating = parseInt(review.selectedRating);
+                                var displayphoto = "mp2images/defaultprofile.png";
+    
+    
+                                // Check if review comment is not empty
+                                if (reviewComment) {
+                                // Create carousel item div
+                                var carouselItem = document.createElement("div");
+                                carouselItem.classList.add("carousel-item");
+    
+                                // Create review box div
+                                var reviewBox = document.createElement("div");
+                                reviewBox.classList.add("reviewBox");
+    
+                                // Create image element
+                                var image = document.createElement("img");
+                                image.src = displayphoto;
+                                image.classList.add("rounded-circle");
+                                image.width = 130;
+    
+                                // Create heading element for reviewer name
+                                var nameReviewer = document.createElement("h5");
+                                nameReviewer.classList.add("name-reviewer");
+                                nameReviewer.textContent = reviewerName;
+    
+                                // Create paragraph element for review comment
+                                var displayRvwComment = document.createElement("p");
+                                displayRvwComment.classList.add("displayRvwComment");
+                                displayRvwComment.textContent = reviewComment;
+    
+                                // Create star rating element
+                                var displayStarRating = document.createElement("ul");
+                                displayStarRating.classList.add("displayStarRating", "list-unstyled", "d-flex");
+    
+                                // Create list items for star rating
+                                for (var i = 0; i < starRating; i++) {
+                                    var listItem = document.createElement("li");
+                                    var starIcon = document.createElement("i");
+                                    starIcon.classList.add("bi", "bi-star-fill");
+                                    listItem.appendChild(starIcon);
+                                    displayStarRating.appendChild(listItem);
+                                }
+    
+                                // Append image, reviewer name, review comment, and star rating to review box
+                                reviewBox.appendChild(image);
+                                reviewBox.appendChild(nameReviewer);
+                                reviewBox.appendChild(displayRvwComment);
+                                reviewBox.appendChild(displayStarRating);
+    
+                                // Append review box to carousel item
+                                carouselItem.appendChild(reviewBox);
+    
+                                // Append carousel item to carousel inner container
+                                carouselInner.appendChild(carouselItem);
+
+                                
+                                // Get the carousel indicators container
+                                    var carouselIndicators = document.querySelector(".carousel-indicators");
+
+                                // Create a new carousel indicator button
+                                var indicatorButton = document.createElement("button");
+                                indicatorButton.type = "button";
+                                indicatorButton.setAttribute("data-bs-target", "#customerreviews");
+                                indicatorButton.setAttribute("data-bs-slide-to", carouselInner.childElementCount - 1);
+                                indicatorButton.setAttribute("aria-label", "Slide " + carouselInner.childElementCount);
+
+                                // Add active class to the first indicator button
+                                if (carouselInner.childElementCount === 1) {
+                                indicatorButton.classList.add("active");
+                                indicatorButton.setAttribute("aria-current", "true");
+                                }
+
+                                // Append the indicator button to the carousel indicators container
+                                carouselIndicators.appendChild(indicatorButton);
+                                
+                                }
+                            });
+                            }
+    
+                            // Call the function to add the carousel items from localStorage
+                            addCarouselItems();
+    
+              
+                        </script> 
+
+
+         <!--photo THUMBNAILS for CUSTOMER REVIEWS-->
+    <!--     <h6 class="display-6 text-uppercase text-center" style="font-size:xx-large;">Testimonials</h6>
+       -->
+         <br>
+         <div class="float-center mx-auto bg-danger " style="width: 160px;">
+             <button type="button" class="btn text-decoration-underline text-light"  data-bs-target="#postreviewLogin" data-bs-toggle="modal" style="font-size: larger;">
+                 POST A REVIEW
+             </button>
+         </div>
+
+         <!--Product Review Thumbnails-->
+       <br>
+        <div class="container " id="ReviewsThumbnail">
+
+            <div >
+                <button class="btn" id="leftButton" onclick="scrollLeft()"> 
+                   <i class="bi bi-caret-left-fill" ></i>
+                </button>
+            </div>
+
+            <div class="thumbnail-container" id="imageBox"> 
+                
+                                            
+                <div class="thumbnail">
+                        <figure class="postreviewIMG">
+                            <img src="mp2images/19.jpg" alt="">
+                        </figure>
+                </div>
+
+                <script>
+                
+                function addThumbnail() {
+                // Retrieve existing reviews from localStorage
+                var existingReviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+                // Loop through each review
+                existingReviews.forEach(function (review) {
+                    // Retrieve image source from the current review
+                    var imageSrc = review.imageSrc;
+
+                    if (imageSrc) {
+                    // Create new thumbnail div
+                    var thumbnailDiv = document.createElement("div");
+                    thumbnailDiv.classList.add("thumbnail");
+
+                    // Create figure element
+                    var figure = document.createElement("figure");
+                    figure.classList.add("postreviewIMG");
+
+                    // Create image element
+                    var image = document.createElement("img");
+                    image.src = imageSrc;
+
+                    // Append image to the figure
+                    figure.appendChild(image);
+
+                    // Append figure to the thumbnail div
+                    thumbnailDiv.appendChild(figure);
+
+                    // Append thumbnail div to the imageBox container
+                    var imageBox = document.getElementById("imageBox");
+                    imageBox.appendChild(thumbnailDiv);
+                    }
+                });
+                }
+
+                // Usage:
+                addThumbnail(); // Add thumbnails with image sources from existingReviews
+
+
+                </script>
+                  
+
+            </div>
+
+            <div >
+                <button class="btn" id="rightButton" onclick="scrollRight()">
+                    <i class="bi bi-caret-right-fill" ></i>
+                </button>
+            </div>
+            
+
+        </div> 
+
+        <!--LEFT RIGHT Arrow Function-->
+        <script>
+            const leftButton = document.getElementById("leftButton");
+            const rightButton = document.getElementById("rightButton");
+            const thumbnailContainer = document.getElementById("imageBox");
+            const imgContainers = thumbnailContainer.getElementsByClassName("thumbnail");
+            let position = 0;
+        
+            const scrollLeft = () => {
+              const maxScroll = thumbnailContainer.scrollWidth - thumbnailContainer.clientWidth;
+              const newPosition = position + 100;
+        
+              if (newPosition <= maxScroll) {
+                position = newPosition;
+              }
+              thumbnailContainer.scrollTo({
+                left: position,
+                behavior: "smooth"
+              });
+            };
+        
+            const scrollRight = () => {
+              const newPosition = position - 100;
+        
+              if (newPosition >= 0) {
+                position = newPosition;
+              }
+              thumbnailContainer.scrollTo({
+                left: position,
+                behavior: "smooth"
+              });
+            };
+        
+            leftButton.addEventListener("click", scrollLeft);
+            rightButton.addEventListener("click", scrollRight);
+          </script>
+          
+        <!--LEFT RIGHT Arrow Function END-->
+
+
+
+        <div class="container ">
+           
+          
+            <br><br><br>
+         
+              <!--ADD REVIEW MODAL-->
+
+              <div class="modal fade" id="postreviewLogin" aria-hidden="true" aria-labelledby="postreviewLogin" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="postreviewLogin"> Post a review: </h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body row float-center">
+                        
+                        <button class="btn btn-primary" ><i class="bi bi-facebook"></i> &nbsp via Facebook </button>
+                        <br>
+                        <button type="button" class="btn text-decoration-underline" data-bs-toggle="modal" data-bs-target="#addReviewModal">
+                            as Anonymous</button> 
+                    </div>
+                 
+                   
+                  </div>
+                </div>
+              </div>
+            
+              <div class="modal fade" id="addReviewModal" tabindex="-1" data-bs-backdrop="static"  aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header ps-0 ">
+                        <button type="button" class="btn text-decoration-underline" data-bs-toggle="modal" data-bs-target="#postreviewLogin">
+                            <i class="bi bi-arrow-90deg-left"></i></button> 
+                    <h1 class="modal-title fs-5 text-decoration-underline" id="staticBackdropLabel">What did you order? </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <p>Upload a photo of the dessert and add your feedback.</p>
+                        
+                    <form>
+                        <img alt="" src="mp2images/default-image.png" class="img-thumbnail" id="previewImage" style="width: 100px; height: 100px" />            
+                        <br>
+                        <input type="file" id="fileInput" class="" required> 
+
+                        <script>
+                            
+                            const fileInput = document.getElementById("fileInput");
+                            const previewImage = document.getElementById("previewImage");
+
+                            fileInput.addEventListener("change", function (event) {
+                            const file = event.target.files[0];
+                            const fileReader = new FileReader();
+
+                            fileReader.onload = function () {
+                                const result = fileReader.result;
+                                previewImage.src = result;
+                                    // Convert image data to a string
+                                    const imageDataString = result.toString();
+
+                                    // Save image data to localStorage
+                                    localStorage.setItem("imageData", imageDataString);
+                           
+                            };
+
+                            fileReader.readAsDataURL(file);
+                            });
+                            
+                          </script>
+                       
+                       
+                        <br> <br>
+                        
+                        <input type="text" placeholder="Name (optional)" id="nameReviewer" onkeyup="getNameReviewer()">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="textareaReviewComment" style="height: 100px" onkeyup="storageRvwComment()" required></textarea>
+                            <label for="floatingTextarea2">Comments</label>
+                        </div> 
+
+                        <script>
+                            
+                                    //Comments area function
+                                    function storageRvwComment() {
+                                        const rvwComment = document.getElementById("textareaReviewComment").value;
+                                        localStorage.setItem("reviewComment", rvwComment);
+                                        return false; // Prevent form submission
+                                    }
+
+                                    //Get name of reviewr function
+                                    function getNameReviewer(){
+                                        const nameReviewer = document.getElementById("nameReviewer").value;
+                                        localStorage.setItem("nameReviewer", nameReviewer);
+                                        return false;
+                                    }
+
+                        </script>
+
+
+                         <!--STAR RATING-->
+                        Rating: 
+                         <div class="star-rating">
+                            <span class="star" onclick="setRating(1)" onmouseover="hoverStars(this)"  onmouseout="removeHighlight()"><i class="bi bi-star-fill"></i></span>
+                            <span class="star" onclick="setRating(2)" onmouseover="hoverStars(this)"  onmouseout="removeHighlight()"><i class="bi bi-star-fill"></i></span>
+                            <span class="star" onclick="setRating(3)" onmouseover="hoverStars(this)"  onmouseout="removeHighlight()"><i class="bi bi-star-fill"></i></span>
+                            <span class="star" onclick="setRating(4)" onmouseover="hoverStars(this)"  onmouseout="removeHighlight()"><i class="bi bi-star-fill"></i></span>
+                            <span class="star" onclick="setRating(5)" onmouseover="hoverStars(this)"  onmouseout="removeHighlight()"><i class="bi bi-star-fill"></i></span>
+                          </div>
+                      
+                          <script>
+                            const stars = Array.from(document.querySelectorAll('.star-rating .star'));
+                            let selectedRating = 0;
+                          
+                            function highlightStars() {
+                              stars.forEach((star, index) => {
+                                if (index < selectedRating) {
+                                  star.classList.add('selected');
+                                } else {
+                                  star.classList.remove('selected');
+                                }
+                              });
+                            }
+
+                            function hoverStars(element){
+                                const selectedIndex = stars.indexOf(element);
+                                stars.forEach((star, index) => {
+                                if (index <= selectedIndex) {
+                                    star.classList.add('selected');
+                                } else {
+                                    star.classList.remove('selected');
+                                }
+                                });
+                            }
+                            
+                            function removeHighlight() {
+                              stars.forEach((star, index) => {
+                                if (index >= selectedRating) {
+                                  star.classList.remove('selected');
+                                }
+                              });
+                            }
+                          
+                            function setRating(rating) {
+                              selectedRating = rating;
+                              localStorage.setItem("selectedRating", selectedRating);
+                              highlightStars();
+                              // Perform additional logic or submit the rating value to a server
+                            }
+
+                      
+                          </script>
+
+                        <!--STAR RATING END-->
+
+
+                        
+                        <br><br>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button type="button" class="btn btn-sm btn-secondary" onclick="clearFields()">Clear</button>
+                            <button type="submit" class="btn btn-sm btn-info bg-opacity-25" onclick="postReview()">Post review</button>
+
+                                <script>
+
+                                function clearFields() {
+                                        removeHighlight();
+                                        document.getElementById("previewImage").src = "mp2images/default-image.png";
+                                        document.getElementById("textareaReviewComment").value = "";
+                                        document.getElementById("fileInput").value = "";
+                                        document.getElementById("nameReviewer").value = "";
+                                        document.querySelectorAll(".star").forEach(star => star.classList.remove("selected"));
+                                        localStorage.removeItem("selectedRating");
+                                        localStorage.removeItem("imageData");
+                                        localStorage.removeItem("reviewComment");
+                                        localStorage.removeItem("nameReviewer");
+                                        
+                                    }
+
+
+                                  
+
+
+                                    //POST REVIEW function
+                                   
+                               /*     function postReview(imageSRC) {   
+                                        if (fileInput.value && textareaReviewComment.value.trim() !== "") {
+                               */             
+                                            function postReview() {
+                                            if (fileInput.value && textareaReviewComment.value.trim() !== "") {
+                                                const review = {
+                                                imageSrc: localStorage.getItem("imageData"),
+                                                nameReviewer: localStorage.getItem("nameReviewer"),
+                                                reviewComment: localStorage.getItem("reviewComment"),
+                                                selectedRating: localStorage.getItem("selectedRating"),
+                                                };
+
+                                                const existingReviews = JSON.parse(localStorage.getItem("reviews")) || [];
+                                                existingReviews.push(review);
+                                                localStorage.setItem("reviews", JSON.stringify(existingReviews)); 
+                                                                 
+                                                
+                                            alert("Thank you for your support!");
+                                            addThumbnail();
+                                            addCarouselItem();
+                                          
+                                        
+                                        } else {
+                                            alert("Please fill out the required fields.");
+                                        }
+                                    }
+
+                                </script>
+
+                        </div>
+
+                    </form>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+
+        </div>
+        <!--Product Review Thumbnails END-->
+
+
+            
+
+                <div class="" style="background-image: url('mp2images/baking_.png');background-repeat: no-repeat;
+                background-attachment: fixed; background-size: cover; height: 530px;">
+
+                <!--ABOUT-->
+                <div class=" py-4  text-center" >
+                
+                    <!--MEET LUCKY-->
+                    <div class=" ">
                     <h5 class="display-6 fst-italic py-4" style="font-size: x-large; font-weight: 400;">Meet our Resident Baker</h5>
                     <img src="mp2images/meetlucky.jpg" width="260" class="float-center rounded-circle" alt="...">
                     <div class=" px-5" >
@@ -319,308 +887,6 @@ background-attachment: fixed; background-size: cover; height: 530px;">
             </div>
     
 </div>
- <br>
-
-         <!--photo THUMBNAILS for CUSTOMER REVIEWS-->
-         <h6 class="display-6 text-uppercase text-center" style="font-size:xx-large;">Testimonials</h6>
-        <!--Product Review Thumbnails-->
-        <div class="container " id="ReviewsThumbnail">
-
-            <div class="leftIconarrow">
-                <i class="bi bi-caret-left-fill"></i>
-            </div>
-
-            <div class="thumbnail-container" id="imageBox">
-               
-                <div class="thumbnail">
-                    <div >
-                        <figure class="">
-                            <img src="mp2images/19.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <div >
-                        <figure class="">
-                            <img src="mp2images/12.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <div >
-                        <figure class="">
-                            <img src="mp2images/18.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <div >
-                        <figure class="">
-                            <img src="mp2images/11.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <div >
-                        <figure class="">
-                            <img src="mp2images/37.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <div >
-                        <figure class="">
-                            <img src="mp2images/10.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <div >
-                        <figure class="">
-                            <img src="mp2images/19.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <div >
-                        <figure class="">
-                            <img src="mp2images/12.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <div >
-                        <figure class="">
-                            <img src="mp2images/18.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <div >
-                        <figure class="">
-                            <img src="mp2images/11.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <div >
-                        <figure class="">
-                            <img src="mp2images/37.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="thumbnail">
-                    <div >
-                        <figure class="">
-                            <img src="mp2images/10.jpg" alt="">
-                        </figure>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="thumbnail-leftarrow">
-                <i class="bi bi-caret-right-fill"></i>
-            </div>
-            
-
-        </div> 
-        <!--Product Review Thumbnails END-->
-
-
-        <!--Customer Tab Reviews-->
-        <nav class="container" id="reviews"> 
-            <div class="nav nav-tabs p-4 pb-0" id="customerreview" role="tablist">
-                <button class="nav-link active  pt-0 pb-0 mt-0" id="review-tab" data-bs-toggle="tab" data-bs-target="#review1" 
-                    type="button" role="tab" aria-controls="review" aria-selected="true">
-                    <span> <p class="fw-bold mx-2 my-2 text-uppercase">
-                        <i class="bi bi-stars"></i> Customer Reviews
-                    </p> </span>
-                </button>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#addCustomerReviewModal" class=" btn nav-link bg-dark text-light "> 
-                    Add a Review</button>
-            
-                <!--ADD REVIEW MODAL-->
-                <div class="modal fade" id="addCustomerReviewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header ">
-                          <h1 class="modal-title fs-5" id="staticBackdropLabel">THANKS for your support!</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                                <label for="floatingTextarea2">Add a review</label>
-                            </div>  
-                            <br>
-                            <small>Share a photo of the product you ordered</small>
-                            <input type="file" class="form-control form-control-sm" aria-label="file example" required>
-                            <br>
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Clear</button>
-                                <button type="button" class="btn btn-sm btn-info bg-opacity-25">Submit</button>
-                            </div>
-                        </div>
-                        
-                      </div>
-                    </div>
-                  </div>
-            
-            
-            </div>
-            
-
-
-            <!--CUSTOMER REVIEW TAB WINDOW-->
-            </nav >
-            <div class="tab-content border-1" id="reviewtabContent" 
-            style="background-image: url('mp2images/reviewbg_.png'); height: 350px; background-repeat: no-repeat;
-            background-attachment: fixed; background-size:cover; opacity: 90%;">
-                <div class="tab-pane fade show active border-color-info" id="review1" height="150px" role="tabpanel" aria-labelledby="review-tab" tabindex="0">
-                    
-
-
-
-                    <!--Carousel-->
-                    <div class="container-fluid" >
-                        <div id="customerreviews" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner" style="margin: auto auto; padding: 40px 0px;">
-
-                                <div class="carousel-item active " >
-                                    <div class="row text-center " >
-                                        <div class="col">
-                                            <img src="mp2images/venus.jpg" class="rounded-circle" width="130" alt="">
-                                            <h5 class="pt-2">Venusa Snow</h5>
-                                            <p class="fw-light">This is where you can find the best cake in town! Suki na for all kinds of occasions!  
-                                               <br> You'll never go wrong with any of the cakes in their menu! But my all time faves will be their carrot and chocolate cake! 
-                                                Awan suya factor na. 😁🥰🍰♥️
-                                            </p>
-                                        </div>
-                                        <ul class="list-unstyled d-flex justify-content-center text-warning">
-                                            <li><i class="bi bi-star-fill"></i></li>
-                                            <li><i class="bi bi-star-fill"></i></li>
-                                            <li><i class="bi bi-star-fill"></i></li>
-                                            <li><i class="bi bi-star-fill"></i></li>
-                                            <li><i class="bi bi-star-fill"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item ">
-                                    <div class="row text-center py-3">
-                                        <div class="container">
-                                            <div class="col">
-                                                <img src="mp2images/gary.jpg" class="rounded-circle" width="130" alt="">
-                                                <h5 class="pt-2">Garry Aldu Tallayo</h5>
-                                                <div height="80">
-                                                <p class="fw-light">The best cake in town! 
-                                                    <br> The taste and texture stands out among other cake maker.😍 
-                                                     Custom cakes</p>
-                                                </div>
-                                            </div>
-                                            <ul class="list-unstyled d-flex justify-content-center text-warning">
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item ">
-                                    <div class="row text-center py-3">
-                                        <div class="container">
-                                            <div class="col">
-                                                <img src="mp2images/andrea.jpg" class="rounded-circle" width="130" alt="">
-                                                <h5 class="pt-2">Andrea Kristin Ang-oay</h5>
-                                                <div height="80">
-                                                <p class="fw-light">The best cake and cupcakes around gali💞
-                                                    <br>
-                                                    <br>
-                                                </p>
-                                                </div>
-                                            </div>
-                                            <ul class="list-unstyled d-flex justify-content-center text-warning">
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item ">
-                                    <div class="row text-center py-3">
-                                        <div class="container">
-                                            <div class="col">
-                                                <img src="mp2images/cyc.jpg" class="rounded-circle" width="130" alt="">
-                                                <h5 class="pt-2">Cyc Ammog-ao Burgonio</h5>
-                                                <div height="80">
-                                                <p class="fw-light">Naimas, naraman, sakto lang sugar level na ken worth it presyo na. 
-                                                    <br> Quality❣️
-                                                    <br>
-                                                </p>
-                                                </div>
-                                            </div>
-                                            <ul class="list-unstyled d-flex justify-content-center text-warning">
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item ">
-                                    <div class="row text-center py-3">
-                                        <div class="container">
-                                            <div class="col">
-                                                <img src="mp2images/kath.jpg" class="rounded-circle" width="130" alt="">
-                                                <h5 class="pt-2">Kathryn Joyce Galanta</h5>
-                                                <div height="80">
-                                                <p class="fw-light">The best and delicious cakes and cupcakes ever!!🩵
-                                                    <br>
-                                                    <br>
-                                                </p>
-                                                </div>
-                                            </div>
-                                            <ul class="list-unstyled d-flex justify-content-center text-warning">
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                                <li><i class="bi bi-star-fill"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <button class="carousel-control-prev" type="button" data-bs-target="#customerreviews" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#customerreviews" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-
-                            </div>
-
-                        </div>
-                        <br>
-                    </div>
-
-                </div>
-            </div>
-       
-
 
 
         <br>
