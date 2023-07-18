@@ -359,7 +359,7 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
 
         <!--Customer Tab Reviews-->
         <p class="display-5 my-4 text-uppercase text-center" style="font-size: xx-large;">
-            What our customers are saying  <i class="bi bi-chat-heart"></i>  </p> 
+            What our customers are saying  <i class="bi bi-chat-heart text-danger fw-bold display-4" ></i>  </p> 
            
     
                 <!--CUSTOMER REVIEW TAB WINDOW-->
@@ -518,8 +518,8 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
     <!--     <h6 class="display-6 text-uppercase text-center" style="font-size:xx-large;">Testimonials</h6>
        -->
          <br>
-         <div class="float-center mx-auto bg-danger " style="width: 160px;">
-             <button type="button" class="btn text-decoration-underline text-light"  data-bs-target="#postreviewLogin" data-bs-toggle="modal" style="font-size: larger;">
+         <div class="float-center mx-auto " style="width: 170px; border-radius: 5px; background-color: #51AFB9;">
+             <button type="button" class="btn text-light fw-bold "  data-bs-target="#postreviewLogin" data-bs-toggle="modal" style="font-size: larger; ">
                  POST A REVIEW
              </button>
          </div>
@@ -679,10 +679,10 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                         
                         <p>Upload a photo of the dessert and add your feedback.</p>
                         
-                    <form>
+                    <form action="#" method="post">
                         <img alt="" src="mp2images/default-image.png" class="img-thumbnail" id="previewImage" style="width: 100px; height: 100px" />            
                         <br>
-                        <input type="file" id="fileInput" class="" required> 
+                        <input type="file" id="fileInput" class="required" onkeyup="enableSubmit()"> 
 
                         <script>
                             
@@ -706,15 +706,38 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
 
                             fileReader.readAsDataURL(file);
                             });
+
+                            function enableSubmit(){
+                                let inputs = document.getElementsByClassName('required1'); // Enter your class name for a required field, this should also be reflected within your form fields.
+                                let btn = document.querySelector('input[type="submit"]');
+                                let isValid = true;
+                                for (var i = 0; i < inputs.length; i++){
+                                let changedInput = inputs[i];
+                                if (changedInput.value.trim() === "" || changedInput.value === null){
+                                isValid = false;
+                                break;
+                                }
+                                }
+                                btn.disabled = !isValid;
+                                }
+
+                                const btn1 = document.getElementById("button");
+                                const textarea = document.getElementById("lname");
+                                textarea.addEventListener('input', () => {
+                                btn1.disabled = textarea.value == '';
+                                }
+                                );
                             
                           </script>
                        
                        
                         <br> <br>
                         
-                        <input type="text" placeholder="Name (optional)" id="nameReviewer" onkeyup="getNameReviewer()">
+                        <input type="text" placeholder="Name (optional)" id="nameReviewer" class="required" onkeyup="getNameReviewer()">
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="textareaReviewComment" style="height: 100px" onkeyup="storageRvwComment()" required></textarea>
+                            <textarea class="form-control required" placeholder="Leave a comment here" autocomplete="off" 
+                            id="textareaReviewComment" style="height: 100px" onkeyup="storageRvwComment()">
+                            </textarea>
                             <label for="floatingTextarea2">Comments</label>
                         </div> 
 
@@ -722,16 +745,53 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                             
                                     //Comments area function
                                     function storageRvwComment() {
+                                        let inputs = document.getElementsByClassName('required'); // Enter your class name for a required field, this should also be reflected within your form fields.
+                                                let btn = document.querySelector('input[type="submit"]');
+                                                let isValid = true;
+                                                for (var i = 0; i < inputs.length; i++){
+                                                let changedInput = inputs[i];
+                                                if (changedInput.value.trim() === "" || changedInput.value === null){
+                                                isValid = false;
+                                                break;
+                                                }
+                                                }
+                                                btn.disabled = !isValid;
+                                                const btn1 = document.getElementById("button");
+                                                const textarea = document.getElementById("textareaReviewComment");
+                                                textarea.addEventListener('input', () => {
+                                                btn1.disabled = textarea.value == '';
+                                                });
+                                                
+
                                         const rvwComment = document.getElementById("textareaReviewComment").value;
                                         localStorage.setItem("reviewComment", rvwComment);
-                                        return false; // Prevent form submission
+                                       // return false; // Prevent form submission
                                     }
 
                                     //Get name of reviewr function
                                     function getNameReviewer(){
+                                        let inputs = document.getElementsByClassName('required'); // Enter your class name for a required field, this should also be reflected within your form fields.
+                                                let btn = document.querySelector('input[type="submit"]');
+                                                let isValid = true;
+                                                for (var i = 0; i < inputs.length; i++){
+                                                let changedInput = inputs[i];
+                                                if (changedInput.value.trim() === "" || changedInput.value === null){
+                                                isValid = false;
+                                                break;
+                                                }
+                                                }
+                                                btn.disabled = !isValid;
+                                                const btn1 = document.getElementById("button");
+                                                const textarea = document.getElementById("textareaReviewComment");
+                                                textarea.addEventListener('input', () => {
+                                                btn1.disabled = textarea.value == '';
+                                                });
+                                                
+
+
                                         const nameReviewer = document.getElementById("nameReviewer").value;
                                         localStorage.setItem("nameReviewer", nameReviewer);
-                                        return false;
+                                    //    return false;
                                     }
 
                         </script>
@@ -751,7 +811,7 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                             const stars = Array.from(document.querySelectorAll('.star-rating .star'));
                             let selectedRating = 0;
                           
-                            function highlightStars() {
+                       /*     function highlightStars() {
                               stars.forEach((star, index) => {
                                 if (index < selectedRating) {
                                   star.classList.add('selected');
@@ -760,6 +820,7 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                                 }
                               });
                             }
+                        */
 
                             function hoverStars(element){
                                 const selectedIndex = stars.indexOf(element);
@@ -797,7 +858,8 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                         <br><br>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <button type="button" class="btn btn-sm btn-secondary" onclick="clearFields()">Clear</button>
-                            <button type="submit" class="btn btn-sm btn-info bg-opacity-25" onclick="postReview()">Post review</button>
+                            <input type="submit" id="button" value="Post review" class="btn btn-sm btn-info bg-opacity-25" 
+                            onclick="postReview()" disabled>
 
                                 <script>
 
@@ -808,6 +870,7 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                                         document.getElementById("fileInput").value = "";
                                         document.getElementById("nameReviewer").value = "";
                                         document.querySelectorAll(".star").forEach(star => star.classList.remove("selected"));
+                                        document.getElementById("button").disabled = true;
                                         localStorage.removeItem("selectedRating");
                                         localStorage.removeItem("imageData");
                                         localStorage.removeItem("reviewComment");
@@ -825,7 +888,8 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                                         if (fileInput.value && textareaReviewComment.value.trim() !== "") {
                                */             
                                             function postReview() {
-                                            if (fileInput.value && textareaReviewComment.value.trim() !== "") {
+                                               
+                                                if (fileInput.value && textareaReviewComment.value.trim() !== "") {
                                                 const review = {
                                                 imageSrc: localStorage.getItem("imageData"),
                                                 nameReviewer: localStorage.getItem("nameReviewer"),
@@ -837,16 +901,11 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                                                 existingReviews.push(review);
                                                 localStorage.setItem("reviews", JSON.stringify(existingReviews)); 
                                                                  
-                                                
-                                            alert("Thank you for your support!");
-                                            addThumbnail();
-                                            addCarouselItem();
-                                          
-                                        
-                                        } else {
-                                            alert("Please fill out the required fields.");
-                                        }
-                                    }
+                                                    
+                                                alert("Thank you for your support!");
+                                                addThumbnail();
+                                                addCarouselItem();
+                                            }}
 
                                 </script>
 
