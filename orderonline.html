@@ -13,6 +13,7 @@
     <!--BS Icon CDN-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     
     <!--Google maps API-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -201,11 +202,13 @@ padding-top: .25rem;
     background-color: #453E3B;
     border: none;
     color: white;
+    font-size: large;
+    border-radius: 5px;
 
-    
 }
 .listCard .count{
     margin: 0 10px;
+    font-size: large;
 }
 
 .quantity{
@@ -244,12 +247,44 @@ a.active {
 }
 
 #checkoutItemCount{
-    background-color: #51AFB9;
+    background-color: ;
     color: #453E3B;
     padding: 0px 10px;
     align-items: center;
     margin-left: 5px;
 }
+
+.list-group-item-action {
+    text-decoration: none;
+}
+
+/* CSS to position the modal on the left side */
+.modal-dialog-left {
+    position: fixed;
+    left: 20%;
+    transform: translateX(-80%);
+    }
+.modal-content {
+    width: 500px;
+    padding: 10px 20px;
+}
+.modal-header{
+    padding: 5px 0px;
+}
+.modal-body{
+    padding: 10px auto;
+}
+.modal-body h5{
+    font-size: large;
+}
+small{
+    font-size: smaller;
+    color:darkgrey;
+}
+.form-inputs{
+    row-gap: 2rem;
+}
+
 
 
 
@@ -368,15 +403,139 @@ a.active {
                 <!--CHECKOUT TOTAL AMOUNT-->
                     <div class="checkOut">
                         <div class="total"> 0  </div>
-                        <div class="proceedToCheckout" > <button type="button" class="btn btn-link text-decoration-none text-light">
+                        <div class="proceedToCheckout" > 
+                            <button type="button" id="checkOutBtn" class="btn btn-link text-decoration-none text-light"
+                            data-bs-toggle="modal" data-bs-target="#checkOutModal">
                             Proceed to Checkout </button> </div>
                     </div>
                    
                 </div>
 
 
+                
+
+
             </div>
         </div>
+
+        
+
+                    <!--CHECKOUT MODAL-->
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="checkOutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="checkOutModal" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-left modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Check Out</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    
+                                    <h5 class="display-6">Delivery Information</h5>
+
+                                    <form action="">
+                                        <div class="py-3">
+                                            <input type="email" placeholder="Email Address" required>
+                                            <input type="text" placeholder="Mobile Number" required><br>
+                                            <input type="text" placeholder="First Name" required>
+                                            <input type="text" placeholder="Last Name" required><br>
+                                            <input type="text" placeholder="Barangay" required>
+                                            <input type="text" placeholder="Town/City" required><br>
+                                        </div>
+                                       
+                                        <hr>
+                                        <h5 class="display-6">Pickup or Delivery?</h5>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="deliverymethod" id="pickupRadio" checked>
+                                            <label class="form-check-label" for="pickupRadio">
+                                                Pickup at Store - P0.00
+                                            </label><br>
+                                            <small>
+                                                Address: Calongbuyan, Galimuyod, Ilocos Sur <br>
+                                                Contact No: 09171234567 
+                                            </small>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="deliverymethod" id="deliveryRadio" >
+                                            <label class="form-check-label" for="deliveryRadio">
+                                                Delivery - P30.00
+                                            </label>
+                                        </div>
+
+
+                                        
+                                        <br>
+                                        <h5 class="display-6">Choose a Schedule</h5>
+                                        <input type="date"required>
+                                        <input type="time" required><br>
+                                        <textarea name="landmark" id="" cols="49" rows="2" placeholder="Additional Notes" required></textarea><br>
+                                        
+
+                                        <hr>
+                                        <h5 class="display-6 pt-3">Payment Method</h5>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="cashOnDelivery">
+                                            <label class="form-check-label" for="cashOnDelivery">
+                                              Cash on Delivery
+                                            </label>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="scanQRcodes" checked>
+                                            <label class="form-check-label" for="scanQRcodes">
+                                              Scan QR Codes
+                                            </label> <br>
+                                                <input type="text" placeholder="Enter reference number" required>
+                                                <br>    
+                                                <img src="mp2images/scanqr.jpg" alt="" style="height: 150px; width: 350px;">
+                                                    
+                                          </div>
+                                          
+                                        <div class="text-center pt-3">
+                                            <input type="submit" class="btn btn-primary" value="Place Order">
+                                        </div>
+                                        
+                                        
+                                    </form>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+
+        <br><br>
+
+        <!--SIDE SCROLLSPY-->
+   <!--     <div class="row">
+            <div class="col-2">
+              <div id="list-sidemenu" class="list-group" style="font-size: larger; ">
+                <a class=" list-group-item-action" href="#list-item-1" >🍰 Cakes</a>
+                <a class=" list-group-item-action" href="#list-item-2">🥧 Cheesecakes and Pies</a>
+                <a class=" list-group-item-action" href="#list-item-3">🧁 Cupcakes</a>
+                <a class=" list-group-item-action" href="#list-item-3">🍞 Bread</a>
+                <a class=" list-group-item-action" href="#list-item-4">🍪 Cookies</a>
+              </div>
+            </div>
+            <div class="col-8">
+              <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                <h4 id="list-item-1">Cakes</h4>
+                <p>...</p>
+                <h4 id="list-item-2">Cheesecakes</h4>
+                <p>...</p>
+                <h4 id="list-item-3">Cupcakes</h4>
+                <p>...</p>
+                <h4 id="list-item-4">Bread</h4>
+                <p>...</p>
+                <h4 id="list-item-4">Cookies</h4>
+                <p>...</p>
+              </div>
+            </div>
+          </div>
+-->
 
 
 
