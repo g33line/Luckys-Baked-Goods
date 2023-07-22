@@ -10,6 +10,8 @@
     <!--BS5 CDN-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!--BS Icon CDN-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
    
@@ -146,13 +148,17 @@ a.active {
     
 }
 .contactUsBtn{
-    padding-bottom: 40px;
+    padding-bottom: 100px;
 }
 .contactUsBtn input{
     padding: 10px 25px; 
     border-radius: 50px;
     font-size: large;
     box-shadow: 0 0 5px #65BDC7; 
+    
+}
+.data-bs-title{
+    background-color: #b60112;
     
 }
 
@@ -222,10 +228,49 @@ background-attachment: fixed; background-size: cover; min-height: 150px; font-we
     </div>
 </div>
 <div class="contactUsBtn text-center">
-    <input type="button"  value="Contact Us" class="btn btn-danger fw-bold">
-
+    <input type="button" id="contactUsPopover" value="Contact Us" class="btn btn-danger fw-bold"
+    data-bs-toggle="popover" data-bs-placement="right" data-bs-title="We want to hear from you" >
+      
 </div>
-    <br>
+
+<div id="popoverContainer" style="display: none;">
+    <form class="text-center " id="contactUsForm" action="https://formsubmit.co/luckysbakedgoods@gmail.com" method="POST">
+                        
+        <input id="fname" name="fname" type="text" placeholder="Name (optional)" style="width: 100%;"> 
+        <input id="email" name="email" type="email" placeholder="Email" required style="width: 100%;">
+        <input id="phonenumber" name="phonenumber" type ="text" placeholder="Mobile" style="width: 100%;">
+        <textarea name="feedback" id="feedback" rows="2" placeholder="Message..." class="mt-2" required style="width: 100%;"></textarea>
+       
+        <div>
+            <input type="submit" value="Submit" id="" class="btn btn-sm btn-info mt-3 ">
+            <input type="hidden" name="_next" value="https://g33line.github.io/Luckys-Baked-Goods/index.html">
+            <input type="hidden" name="_autoresponse" value="Thanks for your message!">
+        </div>
+    </form>
+</div>
+
+<script>
+    // Initialize the popover when the document is ready
+    document.addEventListener('DOMContentLoaded', function () {
+      var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl, {
+          html: true,
+          content: function () {
+            // Clone the form and append it to the popover container
+            var formClone = document.querySelector('#contactUsForm').cloneNode(true);
+            formClone.style.display = 'block';
+            return formClone;
+          },
+        });
+      });
+    });
+
+  </script>
+  
+
+
+
 </section>
 
         
@@ -405,6 +450,8 @@ function displayorders(a){
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-    
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>
