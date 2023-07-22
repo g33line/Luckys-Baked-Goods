@@ -258,12 +258,12 @@ a.active {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse px-auto " id="navbarShop">
-                <div class="navbar-nav  ">
+                <div class="navbar-nav  ms-auto">
                     
                     <a class="nav-link px-4 " href="index.html">HOME</a>
                     <a  class="nav-link px-4 active" href="menu.html">MENU</a>
                     <a class="nav-link px-4" href="orderonline.html">ORDER ONLINE</a>
-                    
+                    <a class="nav-link px-4" href="story.html">STORY</a>
                     
                 </div>
             </div>
@@ -651,76 +651,6 @@ a.active {
     </div>
 </div>
         
-
-        <div class="container  ">
-            <div class="row " style="gap: 3rem; padding-bottom: 20px;">
-                <!--ORDER FORM-->
-                <div class="col  pb-4" style=" border-right: 1px solid #51AFB9;">
-                    <h5 class="">Custom Order</h5>
-                    
-                    <form action="https://formsubmit.co/luckysbakedgoods@gmail.com" method="POST">
-                        
-                        <p style="line-height: .5; padding-top: 15px;">Your details</p>
-                        <input id="fname" name="fname" type="text" placeholder="First Name" required> 
-                        <input id="lname" name="lname" type="text" placeholder="Last Name" required><br>
-                        <input id="email" name="email" type="email" placeholder="Email" required>
-                        <input id="phonenumber" name="phonenumber" type ="text" placeholder="Mobile" required>
-                        <br> <br>
-                      
-
-                        <select name="selectproduct" id="selectproduct" required>
-                            <option selected>Select item</option>
-                            <option value="1"> Cake </option>
-                            <option value="2"> Cheesecake </option>
-                            <option value="3"> CupCake </option>
-                            <option value="4"> Bread </option>
-                            <option value="5"> Cookies </option>
-                        </select>
-                        <select name="selectflavor" id="selectflavor" required>
-                            <option selected>Select flavor</option>
-                            <option value="1">Chocolate</option>
-                            <option value="2">Dark Chocolate</option>
-                            <option value="3">Blueberry</option>
-                            <option value="4">Matcha</option>
-                            <option value="5">Dalgona Coffee</option>
-                            <option value="6">Carrot</option>
-                        </select> 
-                        <select name="deliverymode" id="deliverymode" required>
-                            <option selected>Delivery mode</option>
-                            <option value="1">Pick-up</option>
-                            <option value="1">Delivery</option>
-                        </select>
-                        <textarea name="deliveryaddress" id="deliveryaddress" cols="47" rows="2" placeholder="Delivery Address" class="mt-2" required></textarea>
-                        <textarea name="specialnote" id="specialnote" cols="47" rows="3" placeholder="Special Instructions"></textarea> <br>
-                       
-                        <div>
-                            <input type="submit" value="Submit" id="btnCustomOrder" onclick="alert('Order submitted! Thank you for your support!')" class="btn btn-sm btn-primary mt-3 ">
-                            <input type="hidden" name="_next" value="https://g33line.github.io/Luckys-Baked-Goods/index.html">
-                            <input type="hidden" name="_autoresponse" value="Thanks for patronizing our products!">
-                            <button type="button" name="clear" class="btn btn-sm btn-secondary mt-3">Clear</button>
-                        </div>
-                    </form>
-                </div >
-
-                <script>
-                    function clearOrderForm() {
-
-                    }
-                </script>
-
-
-                <!--PAYMENT OPTIONS-->
-                <div class="col">
-                    
-                    <h5>Payment Options</h5>  <br>
-                    <img src="mp2images/mastercard.png" alt="Mastercard" height="80" width="120">
-                    <img src="mp2images/GCash.png" alt="GCash" class="ps-3">
-                    <p class="display-6">Cash on Delivery</p>
-                </div>
-                
-            </div>
-        </div>
-
 
 
         <!--GOOGLE MAPS-->
