@@ -420,9 +420,6 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                             // Get the carousel inner container
                             var carouselInner = document.querySelector(".carousel-inner");
     
-                            // Clear the existing carousel items
-                     //       carouselInner.innerHTML = "";
-    
                             // Loop through each review in the existing reviews array
                             existingReviews.forEach(function(review) {
                                 // Extract the values from the review object
@@ -898,11 +895,11 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                                                 };
 
                                                 const existingReviews = JSON.parse(localStorage.getItem("reviews")) || [];
-                                                existingReviews.push(review);
+                                                existingReviews.unshift(review); //Adds element to beginning of array
                                                 localStorage.setItem("reviews", JSON.stringify(existingReviews)); 
                                                                  
                                                     
-                                                alert("Thank you for your support!");
+                                                alert("Review posted!");
                                                 addThumbnail();
                                                 addCarouselItem();
                                             }}

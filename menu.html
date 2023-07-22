@@ -164,13 +164,17 @@ a.active {
 }
 
 
+.allproduct{
+    height: 400px; /* Set the desired height for the container */
+    overflow: auto; /* Enable scrolling for the container */
 
-#productmenu{
+}
+
+#subContent .list{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    padding: 20px 0px;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 2rem;
     row-gap: 2rem;
-    column-gap: 3rem;
 }
 .menuitem{
     display: flex;
@@ -181,10 +185,12 @@ a.active {
     align-items: center;
     border-radius: 10px;
     box-shadow: 0 2px 5px wheat; 
+    overflow: hidden;
 }
 .menuitem img{
     width: 250px;
-    height: 220px;
+    height: 250px;
+    object-fit: cover;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
@@ -283,8 +289,7 @@ a.active {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            ...
-            <br>
+            
             <form action="" class="uploadProductForm ">
                 <img alt="" src="mp2images/default-image.png" id="previewImage" style="width: 100px; height: 100px" />            
                 <br>
@@ -292,10 +297,10 @@ a.active {
                 
                 <script>
                             
-                    const fileInput = document.getElementById("sampleimage");
+                    const imageInput = document.getElementById("sampleimage");
                     const previewImage = document.getElementById("previewImage");
     
-                    fileInput.addEventListener("change", function (event) {
+                    imageInput.addEventListener("change", function (event) {
                     const file = event.target.files[0];
                     const fileReader = new FileReader();
     
@@ -303,10 +308,10 @@ a.active {
                         const result = fileReader.result;
                         previewImage.src = result;
                             // Convert image data to a string
-                            const imageDataString = result.toString();
+                            const imageDataSample = result.toString();
     
                             // Save image data to localStorage
-                            localStorage.setItem("sampleimage", imageDataString);
+                            localStorage.setItem("sampleimage", imageDataSample);
                    
                     };
     
@@ -343,13 +348,34 @@ a.active {
 
 
 
-                <input type="text" placeholder="Flavor" id="flavor" required/> <br>
-                <input type="text" placeholder="Size" id="size" required/> <br>
-                <input type="text" placeholder="Price" id="price" required/>
+                <input type="text" placeholder="Flavor" id="flavor" required onkeyup="getFlavor()"/> <br>
+                <input type="text" placeholder="Size" id="size" required onkeyup="getSize()"/> <br>
+                <input type="text" placeholder="Price" id="price" required onkeyup="getPrice()"/>
+
+                <script>
+
+                    function getFlavor(){
+                        const flavor = document.getElementById("flavor").value;
+                        localStorage.setItem("flavorValue", flavor);
+                    }
+
+                    function getSize(){
+                        const size = document.getElementById("size").value;
+                        localStorage.setItem("sizeValue", size);
+                    }
+
+                    function getPrice(){
+                        const price = document.getElementById("price").value;
+                        localStorage.setItem("priceValue", price);
+                    }
+
+                </script>
+
+
 
                 <br><br>
                 <button type="button" onclick="clearFields()" class="btn btn-secondary">Clear</button>
-                <input type="submit"  onclick="addRowMenu()" class="btn btn-primary" value="Upload">
+                <input type="submit"  onclick="uploadProduct()" class="btn btn-primary" value="Upload">
             
             </form>
                
@@ -360,6 +386,33 @@ a.active {
         </div>
         </div>
     </div>
+
+    <script>
+
+                function uploadProduct() {
+                    if (imageInput.value) {
+                        const newproduct = {
+                        newProductImage: localStorage.getItem("sampleimage"),
+                        productTypeText: localStorage.getItem("selectedProductType"),
+                        productFlavor: localStorage.getItem("flavorValue"),
+                        productSize: localStorage.getItem("sizeValue"),
+                        productPrice: localStorage.getItem("priceValue"),
+                        };
+
+                        // Retrieve the existing products array from localStorage or initialize an empty array
+                        const existingProducts = JSON.parse(localStorage.getItem("newproducts")) || [];
+
+                        // Add the new product to the array
+                        existingProducts.push(newproduct);
+
+                        // Save the updated products array back to localStorage
+                        localStorage.setItem("newproducts", JSON.stringify(existingProducts));
+
+                        addRowMenu();
+                    }
+                    }
+
+    </script>
   
     <!--ADD NEW PRODUCT Modal END -->
 
@@ -376,24 +429,24 @@ a.active {
               </li>
             <li class="nav-item ">
               <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#cakeWindow"
-              type="button" role="tab" aria-controls="review" aria-selected="true">
+              role="tab" aria-controls="review" aria-selected="true" onclick="addNewCake()">
                 🍰 Cakes</button>
             </li>
             <li class="nav-item">
-                <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#cheesecakeWindow">
-                🥧 Cheesecakes and Pies</button>
+                <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#cheesecakeWindow"
+                onclick="addNewCheesecakes()"> 🥧 Cheesecakes and Pies</button>
             </li>
             <li class="nav-item">
-                <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#cupcakeWindow">
-                🧁 Cupcakes</button>
+                <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#cupcakeWindow"
+                onclick="addNewCupcakes()"> 🧁 Cupcakes</button>
             </li>
             <li class="nav-item">
-                <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#breadWindow">
-                🍞 Bread</button>
+                <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#breadWindow"
+                onclick="addNewBread()"> 🍞 Bread</button>
             </li>
             <li class="nav-item">
-                <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#cookiesWindow">
-                🍪 Cookies</button>
+                <button type="button" class="btn menubtn " id="tab" data-bs-toggle="tab" data-bs-target="#cookiesWindow"
+                onclick="addNewCookies()"> 🍪 Cookies</button>
             </li>
         </ul>
 
@@ -416,109 +469,60 @@ a.active {
                                     <th>Price</th>
                                 </tr>
                             </thead>
-                            <tbody id="table-body">
-                                <tr>
-                                    <td><img src="mp2images/42.jpg" alt=""></td>
-                                    <td>Red Velvet </td>
-                                    <td>Cakes</td>
-                                    <td>8 inches round</td>
-                                    <td>650</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="mp2images/cc1.jpg" alt=""></td>
-                                    <td>Blueberry  </td>
-                                    <td>Cheesecakes</td>
-                                    <td>7 inches round</td>
-                                    <td>650</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="mp2images/cup2.jpg" alt=""></td>
-                                    <td>Mocha </td>
-                                    <td>Cupcakes</td>
-                                    <td>Box of 12</td>
-                                    <td>680</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="mp2images/43.jpg" alt=""></td>
-                                    <td>Banana </td>
-                                    <td>Bread</td>
-                                    <td>8"x4"x2"</td>
-                                    <td>220</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="mp2images/44.jpg" alt=""></td>
-                                    <td>Oatmeal </td>
-                                    <td>Cookies</td>
-                                    <td>8 inches round</td>
-                                    <td>550</td>
-                                </tr>
-                                
-                            </tbody>
+
+                            <div class="tbody-container">
+                                <tbody id="table-body">
+                                    <tr>
+                                        <td><img src="mp2images/42.jpg" alt=""></td>
+                                        <td>Red Velvet </td>
+                                        <td>Cakes</td>
+                                        <td>8 inches round</td>
+                                        <td>650</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="mp2images/cc1.jpg" alt=""></td>
+                                        <td>Blueberry  </td>
+                                        <td>Cheesecakes</td>
+                                        <td>7 inches round</td>
+                                        <td>650</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="mp2images/cup2.jpg" alt=""></td>
+                                        <td>Mocha </td>
+                                        <td>Cupcakes</td>
+                                        <td>Box of 12</td>
+                                        <td>680</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="mp2images/43.jpg" alt=""></td>
+                                        <td>Banana </td>
+                                        <td>Bread</td>
+                                        <td>8"x4"x2"</td>
+                                        <td>220</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="mp2images/44.jpg" alt=""></td>
+                                        <td>Oatmeal </td>
+                                        <td>Cookies</td>
+                                        <td>8 inches round</td>
+                                        <td>550</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </div>
+                           
                         </table>
 
                     </div>
 
-                    <script>
-                        
-                        function clearFields() {
-                            var productTypeSelect = document.getElementById('producttype');
-                            productTypeSelect.selectedIndex = 0;
-                            document.getElementById("previewImage").src = "mp2images/default-image.png";
-                            document.getElementById("flavor").value = "";
-                            document.getElementById("sampleimage").value = "";
-                            document.getElementById("size").value = "";
-                            document.getElementById("price").value = "";
-                            localStorage.removeItem("");
-                            localStorage.removeItem("");
-                            localStorage.removeItem("");
-                            localStorage.removeItem("");
-                        }
-
-
-                        function addRowMenu(){
-                        var table = document.getElementById("table-body");
-                        var row = document.createElement("tr");
-
-                        var cell = document.createElement("td");
-                        var sampleImage = localStorage.getItem('sampleimage');
-                        var image = document.createElement('img');
-                        image.src = sampleImage;
-                        cell.appendChild(image);
-                        row.appendChild(cell);
-
-                        
-                        var cell = document.createElement("td");
-                        var cellText = document.createTextNode(document.getElementById("flavor").value);
-                        cell.appendChild(cellText);
-                        row.appendChild(cell);
-        
-                        var cell = document.createElement("td");
-                        var selectedProduct = localStorage.getItem('selectedProductType');
-                        var cellText = document.createTextNode(selectedProduct);
-                        cell.appendChild(cellText);
-                        row.appendChild(cell);
-
-        
-                        var cell = document.createElement("td");
-                        var cellText = document.createTextNode(document.getElementById("size").value);
-                        cell.appendChild(cellText);
-                        row.appendChild(cell);
-
-                        var cell = document.createElement("td");
-                        var cellText = document.createTextNode(document.getElementById("price").value);
-                        cell.appendChild(cellText);
-                        row.appendChild(cell);
-                        table.appendChild(row);
-        
-                    }
-                     </script>
+                   
 
                 </section>
             </div>
         </div>
 
 
-        <div class="tab-content border-1" id="menutabContent">
+        <div class="tab-content border-1" id="subContent">
             <div class="tab-pane fade show  border-color-info" id="cakeWindow" height="auto" role="tabpanel" tabindex="0">
                 <section class="container">
                    
@@ -540,7 +544,7 @@ a.active {
         </div>
 
 
-        <div class="tab-content border-1" id="menutabContent">
+        <div class="tab-content border-1" id="subContent">
             <div class="tab-pane fade show border-color-info" id="cheesecakeWindow" height="auto" role="tabpanel" tabindex="0">
                 <section class="container">
                    
@@ -563,7 +567,7 @@ a.active {
             </div>
         </div>
 
-        <div class="tab-content border-1" id="menutabContent">
+        <div class="tab-content border-1" id="subContent">
             <div class="tab-pane fade show border-color-info" id="cupcakeWindow" height="auto" role="tabpanel" tabindex="0">
                 <section class="container">
                    
@@ -587,7 +591,7 @@ a.active {
         </div>
 
 
-        <div class="tab-content border-1" id="menutabContent">
+        <div class="tab-content border-1" id="subContent">
             <div class="tab-pane fade show border-color-info" id="breadWindow" height="auto" role="tabpanel" tabindex="0">
                 <section class="container">
                    
@@ -610,7 +614,7 @@ a.active {
             </div>
         </div>
 
-        <div class="tab-content border-1" id="menutabContent">
+        <div class="tab-content border-1" id="subContent">
             <div class="tab-pane fade show border-color-info" id="cookiesWindow" height="auto" role="tabpanel" tabindex="0">
                 <section class="container">
                    
@@ -640,9 +644,6 @@ a.active {
 
     </div>
 </div>
-
-
-
         
 
         <div class="container  ">
@@ -794,6 +795,379 @@ a.active {
 
 
 <!--JAVASCRIPT-->
+
+<script>
+                        
+                        function clearFields() {
+                            var productTypeSelect = document.getElementById('producttype');
+                            productTypeSelect.selectedIndex = 0;
+                            document.getElementById("previewImage").src = "mp2images/default-image.png";
+                            document.getElementById("flavor").value = "";
+                            document.getElementById("sampleimage").value = "";
+                            document.getElementById("size").value = "";
+                            document.getElementById("price").value = "";
+                            localStorage.removeItem("sampleimage");
+                            localStorage.removeItem("selectedProductType");
+                            localStorage.removeItem("flavorValue");
+                            localStorage.removeItem("sizeValue");
+                            localStorage.removeItem("priceValue");
+                        }
+                    </script>
+
+                    <script>   
+    
+                        function addRowMenu() {
+                            var table = document.getElementById("table-body");
+
+                            // Retrieve the new products array from local storage
+                            var newProductsArray = JSON.parse(localStorage.getItem("newproducts")) || [];
+
+                            // Loop through the array to create a row for each product
+                            for (var i = 0; i < newProductsArray.length; i++) {
+                                var product = newProductsArray[i];
+
+                                // Create a new row for each product
+                                var row = document.createElement("tr");
+
+                                // Create a cell for the sample image
+                                var cell = document.createElement("td");
+                                var image = document.createElement('img');
+                                image.src = product.newProductImage;
+                                cell.appendChild(image);
+                                row.appendChild(cell);
+
+                                // Create a cell for the flavor
+                                cell = document.createElement("td");
+                                var cellText = document.createTextNode(product.productFlavor);
+                                cell.appendChild(cellText);
+                                row.appendChild(cell);
+
+                                // Create a cell for the selected product type
+                                cell = document.createElement("td");
+                                cellText = document.createTextNode(product.productTypeText);
+                                cell.appendChild(cellText);
+                                row.appendChild(cell);
+
+                                // Create a cell for the size
+                                cell = document.createElement("td");
+                                cellText = document.createTextNode(product.productSize);
+                                cell.appendChild(cellText);
+                                row.appendChild(cell);
+
+                                // Create a cell for the price
+                                cell = document.createElement("td");
+                                cellText = document.createTextNode(product.productPrice);
+                                cell.appendChild(cellText);
+                                row.appendChild(cell);
+
+                                // Append the row to the table body
+                                table.appendChild(row);
+                            }
+                        }
+                        addRowMenu();
+</script>
+
+
+
+<script>
+    
+    // Create an array to keep track of the cake flavors already added
+    var addedCakeFlavors = [];
+
+       // Retrieve the new products array from local storage
+       var newProductsArray = JSON.parse(localStorage.getItem("newproducts")) || [];
+
+    function addNewCake() {
+    var cakeContainer = document.getElementById("cakeContainer");
+
+    // Loop through the array to create a row for each product and add items to cakeContainer
+    for (var i = 0; i < newProductsArray.length; i++) {
+        var cakeproduct = newProductsArray[i];
+
+        // Check if the product type is "Cakes"
+        if (cakeproduct.productTypeText === "Cakes") {
+            // Check if the cake flavor has not been added yet
+            if (!addedCakeFlavors.includes(cakeproduct.productFlavor)) {
+                // Add the cake flavor to the list of added flavors
+                addedCakeFlavors.push(cakeproduct.productFlavor);
+
+            // Create a new row for each product
+            addtoCakeContainer(cakeproduct.productFlavor, cakeproduct.newProductImage);
+        }}}}
+
+
+</script>
+
+<script>
+    
+    var addedCheesecakeFlavors = [];
+    var newProductsArray = JSON.parse(localStorage.getItem("newproducts")) || [];
+    
+    function addNewCheesecakes() {
+    var cheesecakeContainer = document.getElementById("cheesecakeContainer");
+
+    for (var i = 0; i < newProductsArray.length; i++) {
+        var cheesecakeproduct = newProductsArray[i];
+
+        if (cheesecakeproduct.productTypeText === "Cheesecakes") {
+            if (!addedCheesecakeFlavors.includes(cheesecakeproduct.productFlavor)) {
+                addedCheesecakeFlavors.push(cheesecakeproduct.productFlavor);
+
+                addtoCheeseakeContainer(cheesecakeproduct.productFlavor, cheesecakeproduct.newProductImage);
+        }}}}
+
+</script>
+
+<script>
+    
+    var addedCupcakeFlavors = [];
+    var newProductsArray = JSON.parse(localStorage.getItem("newproducts")) || [];
+    
+    function addNewCupcakes() {
+    var cupcakeContainer = document.getElementById("cupcakeContainer");
+
+    for (var i = 0; i < newProductsArray.length; i++) {
+        var cupcakeproduct = newProductsArray[i];
+
+        if (cupcakeproduct.productTypeText === "Cupcakes") {
+            if (!addedCupcakeFlavors.includes(cupcakeproduct.productFlavor)) {
+                addedCupcakeFlavors.push(cupcakeproduct.productFlavor);
+
+                addtoCupcakeContainer(cupcakeproduct.productFlavor, cupcakeproduct.newProductImage);
+        }}}}
+
+</script>
+
+<script>
+    
+    var addedBread = [];
+    var newProductsArray = JSON.parse(localStorage.getItem("newproducts")) || [];
+    
+    function addNewBread() {
+    var breadContainer = document.getElementById("breadContainer");
+
+    for (var i = 0; i < newProductsArray.length; i++) {
+        var breadproduct = newProductsArray[i];
+
+        if (breadproduct.productTypeText === "Bread") {
+            if (!addedBread.includes(breadproduct.productFlavor)) {
+                addedBread.push(breadproduct.productFlavor);
+
+                addtoBreadContainer(breadproduct.productFlavor, breadproduct.newProductImage);
+        }}}}
+
+</script>
+
+<script>
+    
+    var addedCookies = [];
+    var newProductsArray = JSON.parse(localStorage.getItem("newproducts")) || [];
+    
+    function addNewCookies() {
+    var cookiesContainer = document.getElementById("cookiesContainer");
+
+    for (var i = 0; i < newProductsArray.length; i++) {
+        var cookiesproduct = newProductsArray[i];
+
+        if (cookiesproduct.productTypeText === "Cookies") {
+            if (!addedCookies.includes(cookiesproduct.productFlavor)) {
+                addedCookies.push(cookiesproduct.productFlavor);
+
+                addtoCookiesContainer(cookiesproduct.productFlavor, cookiesproduct.newProductImage);
+        }}}}
+
+</script>
+
+<script>
+    //CAKE FUNCTION
+        function addtoCakeContainer(title, imageSrc) {
+            // Create a new menu item element
+            var menuItem = document.createElement('div');
+            menuItem.classList.add('menuitem');
+
+            // Create an image element
+            var image = document.createElement('img');
+            image.src = imageSrc;
+            menuItem.appendChild(image);
+
+            // Create a ul element for the menu item description
+            var menuItemDescription = document.createElement('ul');
+            menuItemDescription.id = 'menuItemDescription';
+
+            // Create a li element for the title
+            var titleLi = document.createElement('li');
+            var titlePara = document.createElement('p');
+            titlePara.classList.add('title');
+            titlePara.textContent = title;
+            titleLi.appendChild(titlePara);
+            menuItemDescription.appendChild(titleLi);
+
+            // Create a li element for the "Details" button
+            var buttonLi = document.createElement('li');
+            var detailsButton = document.createElement('button');
+            detailsButton.textContent = 'Details';
+            buttonLi.appendChild(detailsButton);
+            menuItemDescription.appendChild(buttonLi);
+
+            // Append the menu item description to the menu item
+            menuItem.appendChild(menuItemDescription);
+
+            // Append the menu item to the cake container
+            var cakeContainer = document.getElementById('cakeContainer');
+            cakeContainer.appendChild(menuItem);
+            }
+
+
+    //CHEESECAKE FUNCTION
+            function addtoCheeseakeContainer(title, imageSrc) {
+            // Create a new menu item element
+            var menuItem = document.createElement('div');
+            menuItem.classList.add('menuitem');
+
+            // Create an image element
+            var image = document.createElement('img');
+            image.src = imageSrc;
+            menuItem.appendChild(image);
+
+            // Create a ul element for the menu item description
+            var menuItemDescription = document.createElement('ul');
+            menuItemDescription.id = 'menuItemDescription';
+
+            // Create a li element for the title
+            var titleLi = document.createElement('li');
+            var titlePara = document.createElement('p');
+            titlePara.classList.add('title');
+            titlePara.textContent = title;
+            titleLi.appendChild(titlePara);
+            menuItemDescription.appendChild(titleLi);
+
+            // Create a li element for the "Details" button
+            var buttonLi = document.createElement('li');
+            var detailsButton = document.createElement('button');
+            detailsButton.textContent = 'Details';
+            buttonLi.appendChild(detailsButton);
+            menuItemDescription.appendChild(buttonLi);
+
+            // Append the menu item description to the menu item
+            menuItem.appendChild(menuItemDescription);
+
+            var cheesecakeContainer = document.getElementById('cheesecakeContainer');
+            cheesecakeContainer.appendChild(menuItem);
+            }
+
+    //CUPCAKE FUNCTION
+    function addtoCupcakeContainer(title, imageSrc) {
+            // Create a new menu item element
+            var menuItem = document.createElement('div');
+            menuItem.classList.add('menuitem');
+
+            // Create an image element
+            var image = document.createElement('img');
+            image.src = imageSrc;
+            menuItem.appendChild(image);
+
+            // Create a ul element for the menu item description
+            var menuItemDescription = document.createElement('ul');
+            menuItemDescription.id = 'menuItemDescription';
+
+            // Create a li element for the title
+            var titleLi = document.createElement('li');
+            var titlePara = document.createElement('p');
+            titlePara.classList.add('title');
+            titlePara.textContent = title;
+            titleLi.appendChild(titlePara);
+            menuItemDescription.appendChild(titleLi);
+
+            // Create a li element for the "Details" button
+            var buttonLi = document.createElement('li');
+            var detailsButton = document.createElement('button');
+            detailsButton.textContent = 'Details';
+            buttonLi.appendChild(detailsButton);
+            menuItemDescription.appendChild(buttonLi);
+
+            // Append the menu item description to the menu item
+            menuItem.appendChild(menuItemDescription);
+
+            var cupcakeContainer = document.getElementById('cupcakeContainer');
+            cupcakeContainer.appendChild(menuItem);
+            }
+
+     //BREAD FUNCTION
+     function addtoBreadContainer(title, imageSrc) {
+            // Create a new menu item element
+            var menuItem = document.createElement('div');
+            menuItem.classList.add('menuitem');
+
+            // Create an image element
+            var image = document.createElement('img');
+            image.src = imageSrc;
+            menuItem.appendChild(image);
+
+            // Create a ul element for the menu item description
+            var menuItemDescription = document.createElement('ul');
+            menuItemDescription.id = 'menuItemDescription';
+
+            // Create a li element for the title
+            var titleLi = document.createElement('li');
+            var titlePara = document.createElement('p');
+            titlePara.classList.add('title');
+            titlePara.textContent = title;
+            titleLi.appendChild(titlePara);
+            menuItemDescription.appendChild(titleLi);
+
+            // Create a li element for the "Details" button
+            var buttonLi = document.createElement('li');
+            var detailsButton = document.createElement('button');
+            detailsButton.textContent = 'Details';
+            buttonLi.appendChild(detailsButton);
+            menuItemDescription.appendChild(buttonLi);
+
+            // Append the menu item description to the menu item
+            menuItem.appendChild(menuItemDescription);
+
+            var breadContainer = document.getElementById('breadContainer');
+            breadContainer.appendChild(menuItem);
+            }
+
+    //COOKIES FUNCTION
+    function addtoCookiesContainer(title, imageSrc) {
+            // Create a new menu item element
+            var menuItem = document.createElement('div');
+            menuItem.classList.add('menuitem');
+
+            // Create an image element
+            var image = document.createElement('img');
+            image.src = imageSrc;
+            menuItem.appendChild(image);
+
+            // Create a ul element for the menu item description
+            var menuItemDescription = document.createElement('ul');
+            menuItemDescription.id = 'menuItemDescription';
+
+            // Create a li element for the title
+            var titleLi = document.createElement('li');
+            var titlePara = document.createElement('p');
+            titlePara.classList.add('title');
+            titlePara.textContent = title;
+            titleLi.appendChild(titlePara);
+            menuItemDescription.appendChild(titleLi);
+
+            // Create a li element for the "Details" button
+            var buttonLi = document.createElement('li');
+            var detailsButton = document.createElement('button');
+            detailsButton.textContent = 'Details';
+            buttonLi.appendChild(detailsButton);
+            menuItemDescription.appendChild(buttonLi);
+
+            // Append the menu item description to the menu item
+            menuItem.appendChild(menuItemDescription);
+
+            var cookiesContainer = document.getElementById('cookiesContainer');
+            cookiesContainer.appendChild(menuItem);
+            }
+
+</script>
+
 
 
     
