@@ -149,6 +149,13 @@ padding-top: .25rem;
     overflow: scroll;
     min-height: 1000px;
     font-size: smaller;
+    overflow-y: auto; /* Enable scrolling for the container */
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+.orders-container::-webkit-scrollbar {
+  display: none; /* hides scroll bar*/
 }
 
 .offcanvas h5 {
@@ -557,37 +564,37 @@ small{
                     <form action="https://formsubmit.co/luckysbakedgoods@gmail.com" method="POST">
                         
                         <p style="line-height: .5; padding-top: 15px;">Your details</p>
-                        <input id="fname" name="FirstName" type="text" placeholder="First Name" required> 
-                        <input id="lname" name="LastName" type="text" placeholder="Last Name" required><br>
-                        <input id="email" name="Email" type="email" placeholder="Email" required>
+                        <input id="fname" name="fname" type="text" placeholder="First Name" required> 
+                        <input id="lname" name="lname" type="text" placeholder="Last Name" required><br>
+                        <input id="email" name="email" type="email" placeholder="Email" required>
                         <input id="phonenumber" name="phonenumber" type ="text" placeholder="Mobile" required>
                         <br> <br>
                       
 
-                        <select name="SelectedProduct" id="selectproduct" required>
+                        <select name="selectproduct" id="selectproduct" required>
                             <option selected>Select item</option>
-                            <option value="Cake"> Cake </option>
-                            <option value="Cheesecake"> Cheesecake </option>
-                            <option value="CupCake"> CupCake </option>
-                            <option value="Bread"> Bread </option>
-                            <option value="Cookies"> Cookies </option>
+                            <option value="1"> Cake </option>
+                            <option value="2"> Cheesecake </option>
+                            <option value="3"> CupCake </option>
+                            <option value="4"> Bread </option>
+                            <option value="5"> Cookies </option>
                         </select>
-                        <select name="SelectedFlavor" id="selectflavor" required>
+                        <select name="selectflavor" id="selectflavor" required>
                             <option selected>Select flavor</option>
-                            <option value="Chocolate">Chocolate</option>
-                            <option value="Dark Chocolate">Dark Chocolate</option>
-                            <option value="Blueberry">Blueberry</option>
-                            <option value="Matcha">Matcha</option>
-                            <option value="Dalgona Coffee">Dalgona Coffee</option>
-                            <option value="Carrot">Carrot</option>
+                            <option value="1">Chocolate</option>
+                            <option value="2">Dark Chocolate</option>
+                            <option value="3">Blueberry</option>
+                            <option value="4">Matcha</option>
+                            <option value="5">Dalgona Coffee</option>
+                            <option value="6">Carrot</option>
                         </select> 
-                        <select name="DeliveryMode" id="deliverymode" required>
+                        <select name="deliverymode" id="deliverymode" required>
                             <option selected>Delivery mode</option>
-                            <option value="Pick-up">Pick-up</option>
-                            <option value="Delivery">Delivery</option>
+                            <option value="1">Pick-up</option>
+                            <option value="1">Delivery</option>
                         </select>
-                        <textarea name="DeliveryAddress" id="deliveryaddress" cols="47" rows="2" placeholder="Delivery Address" class="mt-2" required></textarea>
-                        <textarea name="SpecialNote" id="specialnote" cols="47" rows="3" placeholder="Special Instructions"></textarea> <br>
+                        <textarea name="deliveryaddress" id="deliveryaddress" cols="47" rows="2" placeholder="Delivery Address" class="mt-2" required></textarea>
+                        <textarea name="specialnote" id="specialnote" cols="47" rows="3" placeholder="Special Instructions"></textarea> <br>
                        
                         <div>
                             <input type="submit" value="Submit" id="btnCustomOrder" class="btn btn-sm btn-primary mt-3 ">
@@ -606,7 +613,8 @@ small{
                         document.getElementById("phonenumber").value = "";
                         document.getElementById("deliveryaddress").value = "";
                         document.getElementById("specialnote").value = "";
-                     
+                        document.getElementById("fname").value = "";
+                        document.getElementById("fname").value = "";
 
                     }
                 </script>
