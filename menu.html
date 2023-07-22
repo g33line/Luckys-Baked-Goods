@@ -166,10 +166,14 @@ a.active {
 
 .allproduct{
     height: 400px; /* Set the desired height for the container */
-    overflow: auto; /* Enable scrolling for the container */
-
+    overflow-y: auto; /* Enable scrolling for the container */
+    scroll-snap-type: y mandatory;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
 }
-
+.allproduct::-webkit-scrollbar {
+  display: none; /* hides scroll bar*/
+}
 #subContent .list{
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -232,6 +236,9 @@ a.active {
 }
 .uploadProductForm{
     color: red;
+}
+.tab-pane {
+    padding: 20px 0px;
 }
 
 </style>
@@ -406,6 +413,7 @@ a.active {
                         // Save the updated products array back to localStorage
                         localStorage.setItem("newproducts", JSON.stringify(existingProducts));
 
+                        alert("New product added!")
                         addRowMenu();
                     }
                     }
@@ -452,7 +460,7 @@ a.active {
 
         <!--MENU WINDOW-->
         <div class="tab-content border-1" id="menutabContent">
-            <div class="tab-pane fade show active border-color-info" id="ALLMENU" height="auto" role="tabpanel" tabindex="0">
+            <div class="tab-pane fade show active border-color-info" id="ALLMENU" role="tabpanel" tabindex="0">
                 <section class="container">
                    
 
