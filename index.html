@@ -116,6 +116,7 @@ figure {
     transform: scale(1.5);  
 } */
 
+
 .carousel-item{
     color: whitesmoke;
     text-shadow: #453E3B;
@@ -133,11 +134,7 @@ figure {
     margin: auto;
   }
 
-  h5{
-    text-decoration: underline;
-    padding-top: 20px;
-    cursor: pointer;
-  }
+
 
   a.active {
     font-weight: bold;
@@ -220,8 +217,12 @@ figure {
     align-items: center;
     justify-content: center;
 }
+.displayStarRating{
+    align-items: center;
+    justify-content: center;
+    padding-left: 0px;
+}
 .displayStarRating li{
-    padding: 0px 0px;
     display: inline;
     align-items: center;
     justify-content: center;
@@ -253,18 +254,16 @@ figure {
             <a class="navbar-brand "  href="#">
                 <img src="mp2images/headerlogomx.gif" alt="Lucky's logo" height="80" width="300" class="">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarShop" aria-controls="navbarShop" aria-expanded="false" aria-label="Toggle navigation" >
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarShop" aria-controls="navbarShop" aria-expanded="false" aria-label="Toggle navigation" >
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarShop">
-                <div class="navbar-nav " >
+                <div class="navbar-nav ms-auto" >
                     
                     <a class="nav-link px-4 active" href="index.html">HOME</a>
                     <a  class="nav-link px-4" href="menu.html">MENU</a>
                     <a class="nav-link px-4" href="orderonline.html">ORDER ONLINE</a>
                      <a class="nav-link px-4" href="story.html">STORY</a>
-                   <a class="nav-link px-4" href="#map">
-                        <span><i class="bi bi-geo-alt"></i></span> Location</a>
                                            
                     
                 </div>
@@ -361,7 +360,13 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
         <p class="display-5 my-4 text-uppercase text-center" style="font-size: xx-large;">
             What our customers are saying  <i class="bi bi-chat-heart text-danger fw-bold display-4" ></i>  </p> 
            
-    
+            <div class="float-center mx-auto " style="width: 170px; border-radius: 5px; background-color: #51AFB9;">
+                <button type="button" class="btn text-light fw-bold "  data-bs-target="#postreviewLogin" data-bs-toggle="modal" style="font-size: larger; ">
+                    POST A REVIEW
+                </button>
+            </div>
+            <br>
+
                 <!--CUSTOMER REVIEW TAB WINDOW-->
                 <div class="container-fluid"
                 style="background-image: url('mp2images/reviewbg_.png'); height: auto; background-repeat: no-repeat;
@@ -379,7 +384,7 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                                         <div class="reviewBox" >
                                             <img src="mp2images/venus.jpg" class="rounded-circle" width="130" >
                                             <h5 class="name-reviewer">Venusa Snow</h5>
-                                            <p class="displayRvwComment">Awan suya factor na. 😁🥰🍰♥️ </p>
+                                            <p class="displayRvwComment">You'll never go wrong with any of the cakes in their menu! But my all time faves will be their carrot and chocolate cake! 😁🥰🍰♥️ </p>
                                             <ul class="displayStarRating">
                                                 <li><i class="bi bi-star-fill"></i></li>
                                                 <li><i class="bi bi-star-fill"></i></li>
@@ -514,12 +519,7 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
          <!--photo THUMBNAILS for CUSTOMER REVIEWS-->
     <!--     <h6 class="display-6 text-uppercase text-center" style="font-size:xx-large;">Testimonials</h6>
        -->
-         <br>
-         <div class="float-center mx-auto " style="width: 170px; border-radius: 5px; background-color: #51AFB9;">
-             <button type="button" class="btn text-light fw-bold "  data-bs-target="#postreviewLogin" data-bs-toggle="modal" style="font-size: larger; ">
-                 POST A REVIEW
-             </button>
-         </div>
+  
 
          <!--Product Review Thumbnails-->
        <br>
