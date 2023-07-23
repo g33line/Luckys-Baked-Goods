@@ -144,18 +144,14 @@ padding-top: .25rem;
     color: #453E3B;
     font-size: larger;
 }
-
-.orders-container{
-    overflow: scroll;
-    min-height: 1000px;
-    font-size: smaller;
-    overflow-y: auto; /* Enable scrolling for the container */
-    scroll-snap-type: y mandatory;
-    scrollbar-width: none; /* For Firefox */
-    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+.offcanvas-body{
+    max-height: 500px;
 }
-.orders-container::-webkit-scrollbar {
-  display: none; /* hides scroll bar*/
+.orders-container{
+    font-size: small;
+}
+.checkoutprice{
+    color: red;
 }
 
 .offcanvas h5 {
@@ -189,6 +185,11 @@ padding-top: .25rem;
     background-color: #453E3B;
     color: white;
    
+}
+.listCard {
+    min-height: 200px;
+    overflow-y: auto; /* Enable scrolling for the container */
+    padding-bottom: 30px;
 }
 .listCard li{
     display: grid;
@@ -254,7 +255,6 @@ a.active {
 }
 
 #checkoutItemCount{
-    background-color: ;
     color: #453E3B;
     padding: 0px 10px;
     align-items: center;
@@ -321,7 +321,7 @@ small{
                     
                 </div>
                 <div class="navbar-nav align-items-center ps-5">
-                    <div class="navbar-nav ms-auto" >
+                    <div class="navbar-nav " >
                         <button type="button" class="cart nav-link " data-bs-toggle="offcanvas" data-bs-target="#offCanvasOrder"> 
                             <span  class="itemcount text-light fw-bold" 
                             style="font-size: medium; background-color: #453E3B; padding: 0px 7px; border-radius: 33%;"> 
@@ -368,15 +368,7 @@ small{
                    
                     <div class="list" id="productmenu">
 
-                <!--        <div class="list" id="productmenu">
-                                <div class="item">
-                                    <img src="">
-                                    <div class="title"></div>
-                                    <div class="price"></div>
-                                    <button onclick="addToTray()"></button>
-                                </div>
-                            </div>
-                -->
+      
 
                     </div>
                 </section>
@@ -389,13 +381,13 @@ small{
         <div class="offcanvas offcanvas-end" data-bs-backdrop="false" data-bs-scroll="true" tabindex="-1" id="offCanvasOrder">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title ">Total Orders: 
-                    <span id="checkoutItemCount"> 0 </span>
+                    <span id="checkoutItemCount" style="color: red;"> 0 </span>
                 </h5>
 
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" ></button>
             </div>
 
-            <div id="offcanvas-body" class="ps-0">
+            <div id="offcanvas-body" class="offcanvas-body ps-0">
 
                 <div class="orders-container">
 
@@ -404,7 +396,7 @@ small{
                     </ul>
 
                     
-
+                </div>
                 <!--CHECKOUT TOTAL AMOUNT-->
                     <div class="checkOut">
                         <div class="total"> 0  </div>
@@ -414,12 +406,7 @@ small{
                             Proceed to Checkout </button> </div>
                     </div>
                    
-                </div>
-
-
                 
-
-
             </div>
         </div>
 
@@ -439,14 +426,14 @@ small{
                                     
                                     <h5 class="display-6">Delivery Information</h5>
 
-                                    <form action="">
+                                    <form action="https://formsubmit.co/luckysbakedgoods@gmail.com" method="POST">
                                         <div class="py-3">
-                                            <input type="email" placeholder="Email Address" required>
-                                            <input type="text" placeholder="Mobile Number" required><br>
-                                            <input type="text" placeholder="First Name" required>
-                                            <input type="text" placeholder="Last Name" required><br>
-                                            <input type="text" placeholder="Barangay" required>
-                                            <input type="text" placeholder="Town/City" required><br>
+                                            <input type="email" name="email" placeholder="Email Address" required>
+                                            <input type="text" name="mobilenumber" placeholder="Mobile Number" required><br>
+                                            <input type="text" name="firstname" placeholder="First Name" required>
+                                            <input type="text" name="lastname"  placeholder="Last Name" required><br>
+                                            <input type="text" name="barangay" placeholder="Barangay" required>
+                                            <input type="text" name="town" placeholder="Town/City" required><br>
                                         </div>
                                        
                                         <hr>
@@ -459,7 +446,7 @@ small{
                                             </label><br>
                                             <small>
                                                 Address: Calongbuyan, Galimuyod, Ilocos Sur <br>
-                                                Contact No: 09171234567 
+                                                Contact No: 09164205077 
                                             </small>
                                         </div>
                                         <div class="form-check">
@@ -473,8 +460,8 @@ small{
                                         
                                         <br>
                                         <h5 class="display-6">Choose a Schedule</h5>
-                                        <input type="date"required>
-                                        <input type="time" required><br>
+                                        <input type="date" name="scheddate"  required>
+                                        <input type="time" name="schedtime" required><br>
                                         <textarea name="landmark" id="" cols="49" rows="2" placeholder="Additional Notes" required></textarea><br>
                                         
 
@@ -482,24 +469,27 @@ small{
                                         <h5 class="display-6 pt-3">Payment Method</h5>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="paymentMethod" id="cashOnDelivery">
+                                            <input class="form-check-input" type="radio" name="cashpayment" id="cashOnDelivery">
                                             <label class="form-check-label" for="cashOnDelivery">
                                               Cash on Delivery
                                             </label>
                                           </div>
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="paymentMethod" id="scanQRcodes" checked>
+                                            <input class="form-check-input" type="radio" name="QRpayment" id="scanQRcodes" checked>
                                             <label class="form-check-label" for="scanQRcodes">
                                               Scan QR Codes
                                             </label> <br>
-                                                <input type="text" placeholder="Enter reference number" required>
+                                                <input type="text" name="reference" placeholder="Enter reference number" required>
                                                 <br>    
                                                 <img src="mp2images/scanqr.jpg" alt="" style="height: 150px; width: 350px;">
                                                     
                                           </div>
                                           
                                         <div class="text-center pt-3">
-                                            <input type="submit" class="btn btn-primary" value="Place Order" onclick="alert('Order submitted! Confirmation will be sent via text message.')">
+                                            <input type="submit" class="btn btn-primary" value="Place Order" >
+                                            <input type="hidden" name="_next" value="https://g33line.github.io/Luckys-Baked-Goods/index.html">
+                                            <input type="hidden" name="_autoresponse" value="Thanks for your message!">
+                                       
                                         </div>
                                         
                                         
@@ -514,39 +504,7 @@ small{
 
         <br><br>
 
-        <!--SIDE SCROLLSPY-->
-   <!--     <div class="row">
-            <div class="col-2">
-              <div id="list-sidemenu" class="list-group" style="font-size: larger; ">
-                <a class=" list-group-item-action" href="#list-item-1" >🍰 Cakes</a>
-                <a class=" list-group-item-action" href="#list-item-2">🥧 Cheesecakes and Pies</a>
-                <a class=" list-group-item-action" href="#list-item-3">🧁 Cupcakes</a>
-                <a class=" list-group-item-action" href="#list-item-3">🍞 Bread</a>
-                <a class=" list-group-item-action" href="#list-item-4">🍪 Cookies</a>
-              </div>
-            </div>
-            <div class="col-8">
-              <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-                <h4 id="list-item-1">Cakes</h4>
-                <p>...</p>
-                <h4 id="list-item-2">Cheesecakes</h4>
-                <p>...</p>
-                <h4 id="list-item-3">Cupcakes</h4>
-                <p>...</p>
-                <h4 id="list-item-4">Bread</h4>
-                <p>...</p>
-                <h4 id="list-item-4">Cookies</h4>
-                <p>...</p>
-              </div>
-            </div>
-          </div>
--->
-
-
-
         <br> <hr> 
-
-
 
     </div>
 </div>
@@ -725,38 +683,56 @@ small{
     const products = [
         {
             id: 1,
+            image: '42.jpg',
+            name: 'Red Velvet Cake',
+            price: 650,
+        },
+        {
+            id: 2,
+            image:'41.jpg',
+            name: 'Chocolate Ganache',
+            price: 650,
+        },
+        {
+            id: 3,
+            image: '33.jpg',
+            name: 'Peach & Cream',
+            price: 650,
+        },
+        {
+            id: 4,
+            image: '4.jpg',
+            name: 'Chocolate Overload',
+            price: 650,
+        },
+        {
+            id: 5,
+            image: '3.jpg',
+            name: 'ChocoFruit Cake',
+            price: 650,
+        },
+        {
+            id: 6,
             image: '1.jpg',
             name: 'Carrot Cake',
             price: 650,
         },
         {
-            id: 2,
-            image:'33.jpg',
-            name: 'Peaches & Cream Cake',
-            price: 700,
-        },
-        {
-            id: 3,
-            image: '3.jpg',
-            name: 'Fruit Cake',
+            id: 7,
+            image: '38.jpg',
+            name: 'Mango Cheesecake',
             price: 650,
         },
         {
-            id: 4,
-            image: '2.jpg',
-            name: 'Lemon Meringue Cake',
+            id: 8,
+            image: 'cc2.jpg',
+            name: 'Blueberry Cheesecake',
             price: 650,
         },
         {
-            id: 5,
-            image: '5.jpg',
-            name: 'Chocolate Cake',
-            price: 400,
-        },
-        {
-            id: 6,
-            image: '4.jpg',
-            name: 'Choco Overload Cake',
+            id: 9,
+            image: 'cc4.jpg',
+            name: 'Eggpie',
             price: 650,
         }
     
@@ -796,7 +772,7 @@ small{
                 newDiv.innerHTML = `
                     <div><img src="mp2images/${value.image}"/></div>
                     <div>${value.name}</div>
-                    <div>${value.price.toLocaleString()}</div>
+                    <div class="checkoutprice">${value.price.toLocaleString()}</div>
                     <div>
                         <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
                         <div class="count">${value.quantity}</div>
