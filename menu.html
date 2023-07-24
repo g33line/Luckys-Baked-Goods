@@ -235,13 +235,13 @@ a.active {
 
         <!--LOGIN-->
   
-        <div id="popoverContainer" style="display: none;">
+        <div id="popoverContainer" style="display: ;">
             <form class="text-center " id="loginFormPopover" onsubmit="getLoginDetails(event)">
                                 
                 <input  type="email" placeholder="Enter Email" id="loginemail" style="width: 100%;" 
-                onkeyup="" required>
+                required>
                 <input   type ="text" placeholder="Enter Password" id="loginpassword" style="width: 100%;" 
-                onkeyup="" required>
+                 required>
                 
                 <div style="display: flex; gap: 2rem; padding: 5px;">
                     <div class="form-check">
@@ -265,8 +265,6 @@ a.active {
 
         <script>
         function getLoginDetails(event) {
-            event.preventDefault(); // Prevent form submission
-            
             const emaillogin = document.getElementById("loginemail").value;
             const passwordlogin = document.getElementById("loginpassword").value;
             
@@ -284,7 +282,7 @@ a.active {
                   html: true,
                   content: function () {
                     // Clone the form and append it to the popover container
-                    var formClone = document.querySelector('#loginFormPopover').cloneNode(true);
+                    var formClone = document.querySelector('#').cloneNode(true);
                     formClone.style.display = 'block';
                     return formClone;
                   },
@@ -296,7 +294,7 @@ a.active {
            <!--REGISTER-->
   
         <div id="popoverContainer" style="display: none;">
-            <form class="text-center " id="loginFormPopover" >
+            <form class="text-center " id="registerFormPopover" >
                                 
                 <input id="email" name="email" type="email" placeholder="Enter Email" required style="width: 100%;">
                 <input id="password" name="password" type ="text" placeholder="Enter Password" style="width: 100%;">
@@ -308,24 +306,7 @@ a.active {
             </form>
         </div>
    
-        <script>
-            // Initialize the popover when the document is ready
-            document.addEventListener('DOMContentLoaded', function () {
-              var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-              var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-                return new bootstrap.Popover(popoverTriggerEl, {
-                  html: true,
-                  content: function () {
-                    // Clone the form and append it to the popover container
-                    var formClone = document.querySelector('#loginFormPopover').cloneNode(true);
-                    formClone.style.display = 'block';
-                    return formClone;
-                  },
-                });
-              });
-            });
-        
-          </script>
+ 
 
     </div>
 </nav>
