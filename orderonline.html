@@ -404,10 +404,27 @@ small{
                         <div class="total"> 0  </div>
                         <div class="proceedToCheckout" > 
                             <button type="button" id="checkOutBtn" class="btn btn-link text-decoration-none text-light"
-                            data-bs-toggle="modal" data-bs-target="#checkOutModal">
-                            Proceed to Checkout </button> </div>
+                            data-bs-toggle="modal" data-bs-target="#checkOutModal" disabled>
+                            Proceed to Checkout </button> 
+                        </div>
                     </div>
                    
+
+                    <script>
+                 /*        function enableCheckoutButton(){
+                            const checkoutButton = document.getElementById("checkOutBtn");
+                            const checkoutTotal = parseInt(document.getElementById("total").innerText);
+                            const isValid = true;
+                            if (checkoutTotal !== 0){
+                                checkoutButton.disabled = !isValid;
+                            }}
+                            enableCheckoutButton();
+                */
+
+                   
+                            
+                   
+                    </script>
                 
             </div>
         </div>
@@ -471,15 +488,15 @@ small{
                                         <h5 class="display-6 pt-3">Payment Method</h5>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="cashpayment" id="cashOnDelivery">
-                                            <label class="form-check-label" for="cashOnDelivery">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="CODMethod" required>
+                                            <label class="form-check-label" for="CODMethod">
                                               Cash on Delivery
                                             </label>
                                           </div>
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="QRpayment" id="scanQRcodes" checked>
-                                            <label class="form-check-label" for="scanQRcodes">
-                                              Scan QR Codes
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="QRmethod" checked required>
+                                            <label class="form-check-label" for="QRmethod">
+                                             Scan QR Codes
                                             </label> <br>
                                                 <input type="text" name="reference" placeholder="Enter reference number" required>
                                                 <br>    
@@ -678,6 +695,8 @@ small{
     let listCard = document.querySelector('.listCard');
     let total = document.querySelector('.total');
     let quantity = document.querySelector('.itemcount');
+
+    const checkoutButton = document.getElementById("checkOutBtn");
     
     
     const products = [
@@ -752,6 +771,7 @@ small{
         })
     }
     initApp(); //calling the function
+
     function addToTray(key){
         if(trayList[key] == null){
             // copy product form list to list card
@@ -760,6 +780,9 @@ small{
         }
         reloadCard();
     }
+
+
+
     function reloadCard(){
         listCard.innerHTML = '';
         let count = 0;
@@ -784,6 +807,15 @@ small{
         total.innerText = totalPrice.toLocaleString();
         quantity.innerText = count;
         checkoutItemCount.innerText = count;
+        
+        // Enables and disbles the checkout button
+        let isValid = true;
+        if (count !=0 ){
+            checkoutButton.disabled = !isValid;
+        } else {
+            checkoutButton.disabled = isValid;
+        }
+     
         
     }
     function changeQuantity(key, quantity){
