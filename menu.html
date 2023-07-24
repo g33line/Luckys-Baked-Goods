@@ -258,18 +258,20 @@ a.active {
                     </div>
                 </div>
             
-                <input type="submit" value="Submit" id="loginsubmit" onclick="" class="btn btn-sm btn-secondary mt-2 ">
+                <input type="submit" value="Submit" id="loginsubmit" onclick="getLoginDetails()" class="btn btn-sm btn-secondary mt-2 ">
            
             </form>
         </div>
 
         <script>
-   function getLoginDetails(event) {
-  event.preventDefault(); // Prevent form submission
-  const emaillogin = document.getElementById("loginemail").value;
-  const passwordlogin = document.getElementById("loginpassword").value;
-  localStorage.setItem("emailinput", emaillogin);
-  localStorage.setItem("passwordinput", passwordlogin);
+        function getLoginDetails(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            const emaillogin = document.getElementById("loginemail").value;
+            const passwordlogin = document.getElementById("loginpassword").value;
+            
+            localStorage.setItem("emailinput", emaillogin);
+            localStorage.setItem("passwordinput", passwordlogin);
 }
 
         </script>
