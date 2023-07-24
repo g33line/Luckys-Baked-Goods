@@ -47,8 +47,9 @@ body{
     margin-right: auto;;
  
 }
-.navbar-nav{
-    align-items: center;
+
+ .navbar-nav{
+    align-items: baseline;
 }
 
 .navbar-nav .nav-link {
@@ -204,36 +205,125 @@ a.active {
 <!--Header Navigation-->
 <nav class="navbar fixed-top navbar-expand-xl " style="background-color: white;">
     <div class="container-md">
-        <div class="navbar container py-0"  >
-            <a class="navbar-brand px-5"  href="index.html">
+        <div class="navbar container py-0 " style="align-items: baseline;" >
+            <a class="navbar-brand "  href="index.html">
                 <img src="mp2images/logomx.gif" alt="Lucky's logo" height="80" class="">
             </a>
+            <div class="" style="display: flex; gap: 3rem; align-items: baseline;">
+                <h5 class="display-6 fst-italic" style="font-size: x-large; ">
+                    Hello Customer!</h5>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarShop" aria-controls="navbarShop" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse px-auto " id="navbarShop">
+            <div class="collapse navbar-collapse  " id="navbarShop">
                 <div class="navbar-nav ms-auto ">
                     <a class="nav-link px-4 " href="index.html">HOME</a>
                     <a class="nav-link px-4 active" href="menu.html">MENU</a>
                     <a class="nav-link px-4" href="orderonline.html">ORDER ONLINE</a>
                     <a class="nav-link px-4" href="story.html">STORY</a>
-                    
-                  
                    
                   </div>
-                  <button type="button" class=" loginbtn ms-auto" data-bs-toggle="modal" data-bs-target="#">
-                    Register
-                  </button>
-                  <button type="button" class="loginbtn " data-bs-toggle="modal" data-bs-target="#">
-                      Admin Login
-                    </button>
+
+                  <input type="submit" class=" loginbtn " id="loginPopover" value="Login"
+                  data-bs-toggle="popover"  data-bs-placement="bottom" data-bs-title="LOGIN">
+                  <input type="submit" class=" loginbtn " id="registerPopover" value="Register"
+                  data-bs-toggle="popover"  data-bs-placement="bottom" data-bs-title="LOGIN">
+               
             </div>
         </div>
 
-        <!--TESTING ADD NEW PRODUCT-->
+        <!--LOGIN-->
   
-         
+        <div id="popoverContainer" style="display: none;">
+            <form class="text-center " id="loginFormPopover" onsubmit="getLoginDetails(event)">
+                                
+                <input  type="email" placeholder="Enter Email" id="loginemail" style="width: 100%;" 
+                onkeyup="" required>
+                <input   type ="text" placeholder="Enter Password" id="loginpassword" style="width: 100%;" 
+                onkeyup="" required>
+                
+                <div style="display: flex; gap: 2rem; padding: 5px;">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="loginradio" id="customerRadio" >
+                        <label class="form-check-label" for="customerRadio">
+                            Customer
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="loginradio" id="adminRadio" >
+                        <label class="form-check-label" for="adminRadio">
+                            Admin
+                        </label>
+                    </div>
+                </div>
+            
+                <input type="submit" value="Submit" id="loginsubmit" onclick="" class="btn btn-sm btn-secondary mt-2 ">
+           
+            </form>
+        </div>
+
+        <script>
+   function getLoginDetails(event) {
+  event.preventDefault(); // Prevent form submission
+  const emaillogin = document.getElementById("loginemail").value;
+  const passwordlogin = document.getElementById("loginpassword").value;
+  localStorage.setItem("emailinput", emaillogin);
+  localStorage.setItem("passwordinput", passwordlogin);
+}
+
+        </script>
    
+        <script>
+             document.addEventListener('DOMContentLoaded', function () {
+              var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+              var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl, {
+                  html: true,
+                  content: function () {
+                    // Clone the form and append it to the popover container
+                    var formClone = document.querySelector('#loginFormPopover').cloneNode(true);
+                    formClone.style.display = 'block';
+                    return formClone;
+                  },
+                });
+              });
+            });
+        </script>
+
+           <!--REGISTER-->
+  
+        <div id="popoverContainer" style="display: none;">
+            <form class="text-center " id="loginFormPopover" >
+                                
+                <input id="email" name="email" type="email" placeholder="Enter Email" required style="width: 100%;">
+                <input id="password" name="password" type ="text" placeholder="Enter Password" style="width: 100%;">
+                
+
+                
+                <input type="submit" value="Submit" id="loginsubmit" class="btn btn-sm btn-secondary mt-3 ">
+           
+            </form>
+        </div>
+   
+        <script>
+            // Initialize the popover when the document is ready
+            document.addEventListener('DOMContentLoaded', function () {
+              var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+              var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl, {
+                  html: true,
+                  content: function () {
+                    // Clone the form and append it to the popover container
+                    var formClone = document.querySelector('#loginFormPopover').cloneNode(true);
+                    formClone.style.display = 'block';
+                    return formClone;
+                  },
+                });
+              });
+            });
+        
+          </script>
 
     </div>
 </nav>
