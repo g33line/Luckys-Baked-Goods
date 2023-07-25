@@ -309,7 +309,7 @@ form::before{
                             LOGIN
                             <form action="">
                                 <div class="form">
-                                    <input type="email" id="emailInput" placeholder="Email Address" autocomplete="off" required="" >
+                                    <input type="email" id="emailInput" placeholder="Email Address" autocomplete="off" required="" class="required">
                                 </div>
                                 <div class="form">
                                     <input type="password" id="passwordInput" placeholder="Password" required="" >
@@ -328,25 +328,36 @@ form::before{
                                         </label>
                                     </div>
                                 </div> <br>
-                                <button type="submit" onclick="getLoginDetails()">Login</button>
+                                <button type="submit" onClick="getLoginDetails(event)">Login</button>
                             </form>
                         </span>
                     </div>
 
                     <script>
                             function getLoginDetails() {
-                                const email = document.getElementById('emailInput').value;
-                                const password = document.getElementById('passwordInput').value;
-                                const adminRadio = document.getElementById('adminRadio');
+                                event.preventDefault();
 
-                                const validAdminEmail = 'admin@example.com';
-                                const validAdminPassword = 'admin123';
+                                var email = document.getElementById('emailInput').value;
+                                var password = document.getElementById('passwordInput').value;
+                                var adminRadio = document.getElementById('adminRadio');
 
-                           if (email===validAdminEmail){
-
-                         //       if (adminRadio.checked && email === validAdminEmail && password === validAdminPassword) {
-                                    // Redirect admin to the desired page upon successful login
-                                    window.location.href = 'menuAdmin.html'; // Replace 'admin_dashboard.html' with your desired admin page URL
+                           if (email === "admin@example.com" && password === "admin123" && adminRadio.checked)
+                           {
+                                window.location.replace("menuAdmin.html"); 
+                                } else
+                                if (email === "admin@example.com" && password !== "admin123" && adminRadio.checked){
+                                    alert("Invalid Password");
+                                    return;
+                                } else
+                                if (email !== "admin@example.com" && password === "admin123" && adminRadio.checked){
+                                    alert("Invalid Email");
+                                    return;
+                                } else  if (email === "admin@example.com" && password === "admin123" && !adminRadio.checked){
+                                    alert("Select User Type");
+                                    return;
+                                } else {
+                                    alert("Enter login details");
+                                    return;
                                 }
                               }
                             
