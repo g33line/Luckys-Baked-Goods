@@ -196,83 +196,6 @@ a.active {
     border: none;
 }
 
-/*POPOVER LOGIN*/
-:root{
-    --blue: #185adb;
-    --green: #4aa96c;
-    --red: #ff7b54;
-    --shade: #233e8b;
-}
-.login-container{
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding: 0px 20px;
-    margin-left: 10px;
-}
-.link{
-    position: relative;
-    text-decoration: underline;
-    font-size: 1rem;
-    cursor: pointer;
-}
-form {
-    position: absolute;
-    top: 2rem;
-    transform: translateX(-75%);
-    background-color: lightblue;
-    border-radius: .5rem;
-    padding: 1rem;
-    width: 280px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s, visibility .5s, bottom .5s;
-}
-form .form{
-    width: 100%;
-    margin-bottom: 1rem;
-}
-.form input{
-    width: 100%;
-    padding: .5rem 1rem;
-    border: 2px solid #eee;
-    font-size: 1rem;
-    outline: none;
-}
-.form input:required:valid {
-    border-color: var(--green);
-}
-form button{
-    display: block;
-    width: 100%;
-    padding: .5rem 0;
-    background: var(--blue);
-    color: #fff;
-    font-size: 1rem;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: background .5s;
-}
-form button:hover{
-    background: var(--shade);
-}
-form::before{
-    content: '';
-    position: absolute;
-    border: 1rem solid;
-    top: -15px;
-    right: 2rem; 
-    transform: translateY(67%) scaleY(-1); /* Flip content vertically and translate */
-    border-color: lightblue transparent transparent;
-    transform-origin: top right;
-}
-.link:hover form{
-    opacity: 1;
-    visibility: visible;
-    top: 2rem; 
-
-}
 
 </style>
 
@@ -289,7 +212,7 @@ form::before{
             </a>
             <div class="" style="display: flex; gap: 3rem; align-items: baseline;">
                 <h5 class="display-6 fst-italic" style="font-size: x-large; ">
-                    Hello Customer!</h5>
+                    Hello Lucky!</h5>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarShop" aria-controls="navbarShop" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -303,55 +226,10 @@ form::before{
                    
                   </div>
 
-                  <!--LOGIN-->
-                    <div class="login-container ">
-                        <span class="link ">
-                            LOGIN
-                            <form action="">
-                                <div class="form">
-                                    <input type="email" id="emailInput" placeholder="Email Address" autocomplete="off" required="" >
-                                </div>
-                                <div class="form">
-                                    <input type="password" id="passwordInput" placeholder="Password" required="" >
-                                </div>
-                                <div style="display: flex; gap: 2rem; padding: 1px;">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="loginradio" id="customerRadio" required>
-                                        <label class="form-check-label" for="customerRadio">
-                                            Customer
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="loginradio" id="adminRadio" required>
-                                        <label class="form-check-label" for="adminRadio">
-                                            Admin
-                                        </label>
-                                    </div>
-                                </div> <br>
-                                <button type="submit" onclick="getLoginDetails()">Login</button>
-                            </form>
-                        </span>
-                    </div>
-
-                    <script>
-                            function getLoginDetails() {
-                                const email = document.getElementById('emailInput').value;
-                                const password = document.getElementById('passwordInput').value;
-                                const adminRadio = document.getElementById('adminRadio');
-
-                                const validAdminEmail = 'admin@example.com';
-                                const validAdminPassword = 'admin123';
-
-                           if (email===validAdminEmail){
-
-                         //       if (adminRadio.checked && email === validAdminEmail && password === validAdminPassword) {
-                                    // Redirect admin to the desired page upon successful login
-                                    window.location.href = 'menuAdmin.html'; // Replace 'admin_dashboard.html' with your desired admin page URL
-                                }
-                              }
-                            
-                    </script>
-
+                  <!--LOGOUT-->
+                       <button type="submit" style="border: none; background-color: white; text-decoration: underline;">
+                        <i class="bi bi-box-arrow-right"></i> LOGOUT </button>
+           
             </div>
         </div>
 
@@ -363,8 +241,6 @@ form::before{
 <!--Main Content-->
 <div class="pt-5 mt-5 ">
     <div class="product-category container pt-4 pb-2">
-
-
 
     
         <!--MENU CATEGORIES-->
@@ -411,7 +287,9 @@ form::before{
                             <thead id="table-head">
                                 <tr>
                                     <th>
-                                        
+                                        <!--ADD NEW PRODUCT BUTTON-->
+                                        <button type="submit" data-bs-toggle="modal" data-bs-target="#modalNewProduct" class="btn btn-sm btn-danger">
+                                           + Add New</button>
                                     </th>
                                     <th>Flavor</th>
                                     <th>Product Type</th>
@@ -464,6 +342,146 @@ form::before{
                         </table>
 
                     </div>
+
+
+                    
+                            
+                            <!--ADD NEW PRODUCT Modal -->
+                            <div class="modal fade" id="modalNewProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalNewProduct" aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Upload New Product</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    
+                                    <form action="" class="uploadProductForm ">
+                                        <img alt="" src="mp2images/default-image.png" id="previewImage" style="width: 100px; height: 100px" />            
+                                        <br>
+                                        <input type="file" id="sampleimage" class="" required> 
+                                        
+                                        <script>
+                                                    
+                                            const imageInput = document.getElementById("sampleimage");
+                                            const previewImage = document.getElementById("previewImage");
+                            
+                                            imageInput.addEventListener("change", function (event) {
+                                            const file = event.target.files[0];
+                                            const fileReader = new FileReader();
+                            
+                                            fileReader.onload = function () {
+                                                const result = fileReader.result;
+                                                previewImage.src = result;
+                                                    // Convert image data to a string
+                                                    const imageDataSample = result.toString();
+                            
+                                                    // Save image data to localStorage
+                                                    localStorage.setItem("sampleimage", imageDataSample);
+                                        
+                                            };
+                            
+                                            fileReader.readAsDataURL(file);
+                                            });
+                                            
+                                        </script>
+                                        
+                                        <br><br>
+                                        <select id="producttype" required>
+                                        <option selected></option>
+                                            <option value="1">Cakes</option>
+                                            <option value="2">Cheesecakes</option>
+                                            <option value="3">Cupcakes</option>
+                                            <option value="4">Bread</option>
+                                            <option value="5">Cookies</option>
+                                        </select> <br>
+
+                                        <script>
+                                        // Get the <select> element
+                                            var productTypeSelect = document.getElementById('producttype');
+
+                                            // Add event listener for the change event
+                                            productTypeSelect.addEventListener('change', function() {
+                                            // Retrieve the selected option text
+                                            var selectedText = productTypeSelect.options[productTypeSelect.selectedIndex].text;
+
+                                            // Save the selected text to local storage
+                                            localStorage.setItem('selectedProductType', selectedText);
+                                            });
+
+
+                                        </script>
+
+
+
+                                        <input type="text" placeholder="Flavor" id="flavor" required onkeyup="getFlavor()"/> <br>
+                                        <input type="text" placeholder="Size" id="size" required onkeyup="getSize()"/> <br>
+                                        <input type="text" placeholder="Price" id="price" required onkeyup="getPrice()"/>
+
+                                        <script>
+
+                                            function getFlavor(){
+                                                const flavor = document.getElementById("flavor").value;
+                                                localStorage.setItem("flavorValue", flavor);
+                                            }
+
+                                            function getSize(){
+                                                const size = document.getElementById("size").value;
+                                                localStorage.setItem("sizeValue", size);
+                                            }
+
+                                            function getPrice(){
+                                                const price = document.getElementById("price").value;
+                                                localStorage.setItem("priceValue", price);
+                                            }
+
+                                        </script>
+
+
+
+                                        <br><br>
+                                        <button type="button" onclick="clearFields()" class="btn btn-secondary">Clear</button>
+                                        <input type="submit"  onclick="uploadProduct()" class="btn btn-primary" value="Upload">
+                                    
+                                    </form>
+                                    
+                                    
+                                    
+                                
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <script>
+
+                                        function uploadProduct() {
+                                            if (imageInput.value) {
+                                                const newproduct = {
+                                                newProductImage: localStorage.getItem("sampleimage"),
+                                                productTypeText: localStorage.getItem("selectedProductType"),
+                                                productFlavor: localStorage.getItem("flavorValue"),
+                                                productSize: localStorage.getItem("sizeValue"),
+                                                productPrice: localStorage.getItem("priceValue"),
+                                                };
+
+                                                // Retrieve the existing products array from localStorage or initialize an empty array
+                                                const existingProducts = JSON.parse(localStorage.getItem("newproducts")) || [];
+
+                                                // Add the new product to the array
+                                                existingProducts.push(newproduct);
+
+                                                // Save the updated products array back to localStorage
+                                                localStorage.setItem("newproducts", JSON.stringify(existingProducts));
+
+                                                alert("New product added!")
+                                                addRowMenu();
+                                            }
+                                            }
+
+                            </script>
+                        
+                            <!--ADD NEW PRODUCT Modal END -->
 
                    
 
