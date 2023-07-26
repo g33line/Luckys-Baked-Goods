@@ -241,6 +241,40 @@ figure {
 }
 }
 
+/*POPOVER LOGIN*/
+:root{
+    --blue: #185adb;
+    --green: #4aa96c;
+    --red: #ff7b54;
+    --shade: #233e8b;
+}
+.login-container{
+    align-items: right;
+    transform: translateX(20%);
+}
+.link{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.form input:required:valid {
+    border-color: var(--green);
+}
+form button{
+    cursor: pointer;
+}
+.form input{    
+    border: 1px solid #eee;
+    font-size: 1rem;
+    outline: none;
+}
+.loginsubmit{
+    visibility: hidden;
+}
+
+
 </style>
 
 </head>
@@ -267,6 +301,68 @@ figure {
                                            
                     
                 </div>
+
+                <!--LOGIN-->
+                    <div class="login-container">
+
+                   
+                        <form action="">
+                                <div>
+                                <input type="email" id="emailInput" placeholder="Email Address" autocomplete="off" required="" class="required">
+                                <input type="password" id="passwordInput" placeholder="Password" required="" >
+                                <input type="submit" onClick="getLoginDetails(event)" value="" class="loginsubmit">
+                          
+                            </div>
+                        
+                            <div style="display: flex; gap: 3rem; ">
+                                <b>LOGIN as:</b> 
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="loginradio" id="customerRadio" required>
+                                    <label class="form-check-label" for="customerRadio">
+                                        Customer
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="loginradio" id="adminRadio" required>
+                                    <label class="form-check-label" for="adminRadio">
+                                        Admin
+                                    </label>
+                                </div>
+                                
+                            </div> 
+                            </form>
+                        </div>
+
+                <script>
+                        function getLoginDetails() {
+                            event.preventDefault();
+
+                            var email = document.getElementById('emailInput').value;
+                            var password = document.getElementById('passwordInput').value;
+                            var adminRadio = document.getElementById('adminRadio');
+
+                    if (email === "admin@example.com" && password === "admin123" && adminRadio.checked)
+                    {
+                            window.location.replace("menuAdmin.html"); 
+                            } else
+                            if (email === "admin@example.com" && password !== "admin123" && adminRadio.checked){
+                                alert("Invalid Password");
+                                return;
+                            } else
+                            if (email !== "admin@example.com" && password === "admin123" && adminRadio.checked){
+                                alert("Invalid Email");
+                                return;
+                            } else  if (email === "admin@example.com" && password === "admin123" && !adminRadio.checked){
+                                alert("Select User Type");
+                                return;
+                            } else {
+                                alert("Enter login details");
+                                return;
+                            }
+                        }
+                        
+                </script>
+
             </div>
         
         </div>
@@ -407,16 +503,6 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                 
            
                     <script>
-             /*           function addCarouselItem() {
-                            // Get the values from localStorage
-                            var reviewComment = localStorage.getItem("reviewComment");
-    
-                            if (reviewComment){
-    
-                                var displayphoto = "mp2images/defaultprofile.png";
-                                var reviewerName = localStorage.getItem("nameReviewer");
-                                var starRating = parseInt(localStorage.getItem("selectedRating"));
-              */              
     
                             function addCarouselItems() {
                             // Retrieve existing reviews from localStorage
@@ -517,9 +603,6 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
 
 
          <!--photo THUMBNAILS for CUSTOMER REVIEWS-->
-    <!--     <h6 class="display-6 text-uppercase text-center" style="font-size:xx-large;">Testimonials</h6>
-       -->
-  
 
          <!--Product Review Thumbnails-->
        <br>
@@ -679,7 +762,7 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                     <form >
                         <img alt="" src="mp2images/default-image.png" class="img-thumbnail" id="previewImage" style="width: 100px; height: 100px" />            
                         <br>
-                        <input type="file" id="fileInput" class="required" onkeyup="enableSubmit()"> 
+                        <input type="file" id="fileInput" class="required" onkeyup="enableSubmit()" required> 
 
                         <script>
                             
@@ -704,36 +787,15 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                             fileReader.readAsDataURL(file);
                             });
 
-                            function enableSubmit(){
-                                let inputs = document.getElementsByClassName('required1'); // Enter your class name for a required field, this should also be reflected within your form fields.
-                                let btn = document.querySelector('input[type="submit"]');
-                                let isValid = true;
-                                for (var i = 0; i < inputs.length; i++){
-                                let changedInput = inputs[i];
-                                if (changedInput.value.trim() === "" || changedInput.value === null){
-                                isValid = false;
-                                break;
-                                }
-                                }
-                                btn.disabled = !isValid;
-                                }
-
-                                const btn1 = document.getElementById("button");
-                                const textarea = document.getElementById("lname");
-                                textarea.addEventListener('input', () => {
-                                btn1.disabled = textarea.value == '';
-                                }
-                                );
-                            
                           </script>
                        
                        
                         <br> <br>
                         
-                        <input type="text" placeholder="Name (optional)" id="nameReviewer" class="required" onkeyup="getNameReviewer()">
+                        <input type="text" placeholder="Name (optional)" id="nameReviewer" class="required" onkeyup="getNameReviewer()" required>
                         <div class="form-floating">
                             <textarea class="form-control required" placeholder="Leave a comment here" autocomplete="off" 
-                            id="textareaReviewComment" style="height: 100px" onkeyup="storageRvwComment()">
+                            id="textareaReviewComment" style="height: 100px" onkeyup="storageRvwComment()" required>
                             </textarea>
                             <label for="floatingTextarea2">Comments</label>
                         </div> 
@@ -742,22 +804,7 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                             
                                     //Comments area function
                                     function storageRvwComment() {
-                                        let inputs = document.getElementsByClassName('required'); // Enter your class name for a required field, this should also be reflected within your form fields.
-                                                let btn = document.querySelector('input[type="submit"]');
-                                                let isValid = true;
-                                                for (var i = 0; i < inputs.length; i++){
-                                                let changedInput = inputs[i];
-                                                if (changedInput.value.trim() === "" || changedInput.value === null){
-                                                isValid = false;
-                                                break;
-                                                }
-                                                }
-                                                btn.disabled = !isValid;
-                                                const btn1 = document.getElementById("button");
-                                                const textarea = document.getElementById("textareaReviewComment");
-                                                textarea.addEventListener('input', () => {
-                                                btn1.disabled = textarea.value == '';
-                                                });
+                                    
                                                 
 
                                         const rvwComment = document.getElementById("textareaReviewComment").value;
@@ -767,25 +814,6 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
 
                                     //Get name of reviewr function
                                     function getNameReviewer(){
-                                        let inputs = document.getElementsByClassName('required'); // Enter your class name for a required field, this should also be reflected within your form fields.
-                                                let btn = document.querySelector('input[type="submit"]');
-                                                let isValid = true;
-                                                for (var i = 0; i < inputs.length; i++){
-                                                let changedInput = inputs[i];
-                                                if (changedInput.value.trim() === "" || changedInput.value === null){
-                                                isValid = false;
-                                                break;
-                                                }
-                                                }
-                                                btn.disabled = !isValid;
-                                                const btn1 = document.getElementById("button");
-                                                const textarea = document.getElementById("textareaReviewComment");
-                                                textarea.addEventListener('input', () => {
-                                                btn1.disabled = textarea.value == '';
-                                                });
-                                                
-
-
                                         const nameReviewer = document.getElementById("nameReviewer").value;
                                         localStorage.setItem("nameReviewer", nameReviewer);
                                     //    return false;
@@ -808,17 +836,6 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                             const stars = Array.from(document.querySelectorAll('.star-rating .star'));
                             let selectedRating = 0;
                           
-                       /*     function highlightStars() {
-                              stars.forEach((star, index) => {
-                                if (index < selectedRating) {
-                                  star.classList.add('selected');
-                                } else {
-                                  star.classList.remove('selected');
-                                }
-                              });
-                            }
-                        */
-
                             function hoverStars(element){
                                 const selectedIndex = stars.indexOf(element);
                                 stars.forEach((star, index) => {
@@ -854,9 +871,9 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                         
                         <br><br>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <button type="button" class="btn btn-sm btn-secondary" onclick="clearFields()">Clear</button>
+                            <input type="button" class="btn btn-sm btn-secondary" value="Clear" onclick="clearFields()">
                             <input type="submit" id="button" value="Post review" class="btn btn-sm btn-info bg-opacity-25" 
-                            onclick="postReview()" disabled>
+                            onclick="postReview()" >
 
                                 <script>
 
@@ -876,14 +893,9 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                                     }
 
 
-                                  
-
 
                                     //POST REVIEW function
-                                   
-                               /*     function postReview(imageSRC) {   
-                                        if (fileInput.value && textareaReviewComment.value.trim() !== "") {
-                               */             
+                                  
                                             function postReview() {
                                                
                                                 if (fileInput.value && textareaReviewComment.value.trim() !== "") {
