@@ -142,13 +142,14 @@ a.active {
     border-bottom-left-radius: 10px;
 }
 #menuItemDescription{
-    padding-left: 10px;
+    padding-left: 20px;
     padding-right: 20px;
 }
 #menuItemDescription li{
     display: flex;
-    flex-direction: column;
+    flex-direction: ;
     padding: 0px 10px;
+    font-size: large;
 }
 #menuItemDescription li button{
     border: none;
@@ -217,6 +218,7 @@ a.active {
     cursor: pointer;
 }
 form {
+    text-align: center;
     position: absolute;
     top: 2rem;
     transform: translateX(-75%);
@@ -231,6 +233,7 @@ form {
 form .form{
     width: 100%;
     margin-bottom: 1rem;
+    
 }
 .form input{
     width: 100%;
@@ -244,7 +247,7 @@ form .form{
 }
 form button{
     display: block;
-    width: 100%;
+    width: 50%;
     padding: .5rem 0;
     background: var(--blue);
     color: #fff;
@@ -328,7 +331,7 @@ form::before{
                                         </label>
                                     </div>
                                 </div> <br>
-                                <button type="submit" onClick="getLoginDetails(event)">Login</button>
+                                <button type="submit" onClick="getLoginDetails(event)" class="btn btn-primary">Login</button>
                             </form>
                         </span>
                     </div>
@@ -494,11 +497,40 @@ form::before{
                             <img src="mp2images/42.jpg">
                             <ul id="menuItemDescription">
                                 <li><p class="title"> Redvelvet Cake </p></li>
-                                <li><button >Details</button></li>
+                                <li><button type="button" onclick="likeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="likes">0</span></li> 
+                                <li><button type="button" onclick="dislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="dislike">0</span></li>
                             </ul>
                         </div>
                         
                     </div>
+
+                    <script>
+                        
+                        function likeCounter() {
+                            if (localStorage.likeCount) {
+                                localStorage.likeCount = Number(localStorage.likeCount) + 1;
+                            } else {
+                                localStorage.likeCount = 1;
+                            }
+                            document.getElementById("likes").innerText = localStorage.likeCount;
+                        }
+
+                        function dislikeCounter() {
+                            if (localStorage.dislikeCount) {
+                                localStorage.dislikeCount = Number(localStorage.dislikeCount) + 1;
+                            } else {
+                                localStorage.dislikeCount = 1;
+                            }
+                            document.getElementById("dislike").innerText = localStorage.dislikeCount;
+                        }
+
+                        // Call the functions to display the initial counts
+                        document.getElementById("likes").innerText = localStorage.likeCount || 0;
+                        document.getElementById("dislike").innerText = localStorage.dislikeCount || 0;
+
+                        </script>
 
                 </section>
             </div>
@@ -516,7 +548,10 @@ form::before{
                             <img src="mp2images/cc1.jpg">
                             <ul id="menuItemDescription">
                                 <li><p class="title"> Blueberry Cheesecake </p></li>
-                                <li><button >Details</button></li>
+                                <li><button type="button" onclick="likeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="likes">0</span></li> 
+                                <li><button type="button" onclick="dislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="dislike">0</span></li>
                             </ul>
                         </div>
                         
@@ -539,7 +574,10 @@ form::before{
                             <img src="mp2images/cup2.jpg">
                             <ul id="menuItemDescription">
                                 <li><p class="title"> Mocha Cupcake </p></li>
-                                <li><button >Details</button></li>
+                                <li><button type="button" onclick="likeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="likes">0</span></li> 
+                                <li><button type="button" onclick="dislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="dislike">0</span></li>
                             </ul>
                         </div>
                         
@@ -563,7 +601,10 @@ form::before{
                             <img src="mp2images/43.jpg">
                             <ul id="menuItemDescription">
                                 <li><p class="title"> Banana Bread </p></li>
-                                <li><button >Details</button></li>
+                                <li><button type="button" onclick="likeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="likes">0</span></li> 
+                                <li><button type="button" onclick="dislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="dislike">0</span></li>
                             </ul>
                         </div>
                         
@@ -586,7 +627,10 @@ form::before{
                             <img src="mp2images/44.jpg">
                             <ul id="menuItemDescription">
                                 <li><p class="title"> Oatmeal Cookies </p></li>
-                                <li><button >Details</button></li>
+                                <li><button type="button" onclick="likeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="likes">0</span></li> 
+                                <li><button type="button" onclick="dislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="dislike">0</span></li>
                             </ul>
                         </div>
                         
@@ -686,380 +730,6 @@ form::before{
 
 
 <!--JAVASCRIPT-->
-
-<script>
-                        
-                        function clearFields() {
-                            var productTypeSelect = document.getElementById('producttype');
-                            productTypeSelect.selectedIndex = 0;
-                            document.getElementById("previewImage").src = "mp2images/default-image.png";
-                            document.getElementById("flavor").value = "";
-                            document.getElementById("sampleimage").value = "";
-                            document.getElementById("size").value = "";
-                            document.getElementById("price").value = "";
-                            localStorage.removeItem("sampleimage");
-                            localStorage.removeItem("selectedProductType");
-                            localStorage.removeItem("flavorValue");
-                            localStorage.removeItem("sizeValue");
-                            localStorage.removeItem("priceValue");
-                        }
-                    </script>
-
-                    <script>   
-    
-                        function addRowMenu() {
-                            var table = document.getElementById("table-body");
-
-                            // Retrieve the new products array from local storage
-                            var newProductsArray = JSON.parse(localStorage.getItem("newproducts")) || [];
-
-                            // Loop through the array to create a row for each product
-                            for (var i = 0; i < newProductsArray.length; i++) {
-                                var product = newProductsArray[i];
-
-                                // Create a new row for each product
-                                var row = document.createElement("tr");
-
-                                // Create a cell for the sample image
-                                var cell = document.createElement("td");
-                                var image = document.createElement('img');
-                                image.src = product.newProductImage;
-                                cell.appendChild(image);
-                                row.appendChild(cell);
-
-                                // Create a cell for the flavor
-                                cell = document.createElement("td");
-                                var cellText = document.createTextNode(product.productFlavor);
-                                cell.appendChild(cellText);
-                                row.appendChild(cell);
-
-                                // Create a cell for the selected product type
-                                cell = document.createElement("td");
-                                cellText = document.createTextNode(product.productTypeText);
-                                cell.appendChild(cellText);
-                                row.appendChild(cell);
-
-                                // Create a cell for the size
-                                cell = document.createElement("td");
-                                cellText = document.createTextNode(product.productSize);
-                                cell.appendChild(cellText);
-                                row.appendChild(cell);
-
-                                // Create a cell for the price
-                                cell = document.createElement("td");
-                                cellText = document.createTextNode(product.productPrice);
-                                cell.appendChild(cellText);
-                                row.appendChild(cell);
-
-                                // Append the row to the table body
-                                table.appendChild(row);
-                            }
-                        }
-                        addRowMenu();
-</script>
-
-
-
-<script>
-    
-    // Create an array to keep track of the cake flavors already added
-    var addedCakeFlavors = [];
-
-       // Retrieve the new products array from local storage
-       var newProductsArray = JSON.parse(localStorage.getItem("newproducts")) || [];
-
-    function addNewCake() {
-    var cakeContainer = document.getElementById("cakeContainer");
-
-    // Loop through the array to create a row for each product and add items to cakeContainer
-    for (var i = 0; i < newProductsArray.length; i++) {
-        var cakeproduct = newProductsArray[i];
-
-        // Check if the product type is "Cakes"
-        if (cakeproduct.productTypeText === "Cakes") {
-            // Check if the cake flavor has not been added yet
-            if (!addedCakeFlavors.includes(cakeproduct.productFlavor)) {
-                // Add the cake flavor to the list of added flavors
-                addedCakeFlavors.push(cakeproduct.productFlavor);
-
-            // Create a new row for each product
-            addtoCakeContainer(cakeproduct.productFlavor, cakeproduct.newProductImage);
-        }}}}
-
-
-</script>
-
-<script>
-    
-    var addedCheesecakeFlavors = [];
-    var newProductsArray = JSON.parse(localStorage.getItem("newproducts")) || [];
-    
-    function addNewCheesecakes() {
-    var cheesecakeContainer = document.getElementById("cheesecakeContainer");
-
-    for (var i = 0; i < newProductsArray.length; i++) {
-        var cheesecakeproduct = newProductsArray[i];
-
-        if (cheesecakeproduct.productTypeText === "Cheesecakes") {
-            if (!addedCheesecakeFlavors.includes(cheesecakeproduct.productFlavor)) {
-                addedCheesecakeFlavors.push(cheesecakeproduct.productFlavor);
-
-                addtoCheeseakeContainer(cheesecakeproduct.productFlavor, cheesecakeproduct.newProductImage);
-        }}}}
-
-</script>
-
-<script>
-    
-    var addedCupcakeFlavors = [];
-    var newProductsArray = JSON.parse(localStorage.getItem("newproducts")) || [];
-    
-    function addNewCupcakes() {
-    var cupcakeContainer = document.getElementById("cupcakeContainer");
-
-    for (var i = 0; i < newProductsArray.length; i++) {
-        var cupcakeproduct = newProductsArray[i];
-
-        if (cupcakeproduct.productTypeText === "Cupcakes") {
-            if (!addedCupcakeFlavors.includes(cupcakeproduct.productFlavor)) {
-                addedCupcakeFlavors.push(cupcakeproduct.productFlavor);
-
-                addtoCupcakeContainer(cupcakeproduct.productFlavor, cupcakeproduct.newProductImage);
-        }}}}
-
-</script>
-
-<script>
-    
-    var addedBread = [];
-    var newProductsArray = JSON.parse(localStorage.getItem("newproducts")) || [];
-    
-    function addNewBread() {
-    var breadContainer = document.getElementById("breadContainer");
-
-    for (var i = 0; i < newProductsArray.length; i++) {
-        var breadproduct = newProductsArray[i];
-
-        if (breadproduct.productTypeText === "Bread") {
-            if (!addedBread.includes(breadproduct.productFlavor)) {
-                addedBread.push(breadproduct.productFlavor);
-
-                addtoBreadContainer(breadproduct.productFlavor, breadproduct.newProductImage);
-        }}}}
-
-</script>
-
-<script>
-    
-    var addedCookies = [];
-    var newProductsArray = JSON.parse(localStorage.getItem("newproducts")) || [];
-    
-    function addNewCookies() {
-    var cookiesContainer = document.getElementById("cookiesContainer");
-
-    for (var i = 0; i < newProductsArray.length; i++) {
-        var cookiesproduct = newProductsArray[i];
-
-        if (cookiesproduct.productTypeText === "Cookies") {
-            if (!addedCookies.includes(cookiesproduct.productFlavor)) {
-                addedCookies.push(cookiesproduct.productFlavor);
-
-                addtoCookiesContainer(cookiesproduct.productFlavor, cookiesproduct.newProductImage);
-        }}}}
-
-</script>
-
-<script>
-    //CAKE FUNCTION
-        function addtoCakeContainer(title, imageSrc) {
-            // Create a new menu item element
-            var menuItem = document.createElement('div');
-            menuItem.classList.add('menuitem');
-
-            // Create an image element
-            var image = document.createElement('img');
-            image.src = imageSrc;
-            menuItem.appendChild(image);
-
-            // Create a ul element for the menu item description
-            var menuItemDescription = document.createElement('ul');
-            menuItemDescription.id = 'menuItemDescription';
-
-            // Create a li element for the title
-            var titleLi = document.createElement('li');
-            var titlePara = document.createElement('p');
-            titlePara.classList.add('title');
-            titlePara.textContent = title;
-            titleLi.appendChild(titlePara);
-            menuItemDescription.appendChild(titleLi);
-
-            // Create a li element for the "Details" button
-            var buttonLi = document.createElement('li');
-            var detailsButton = document.createElement('button');
-            detailsButton.textContent = 'Details';
-            buttonLi.appendChild(detailsButton);
-            menuItemDescription.appendChild(buttonLi);
-
-            // Append the menu item description to the menu item
-            menuItem.appendChild(menuItemDescription);
-
-            // Append the menu item to the cake container
-            var cakeContainer = document.getElementById('cakeContainer');
-            cakeContainer.appendChild(menuItem);
-            }
-
-
-    //CHEESECAKE FUNCTION
-            function addtoCheeseakeContainer(title, imageSrc) {
-            // Create a new menu item element
-            var menuItem = document.createElement('div');
-            menuItem.classList.add('menuitem');
-
-            // Create an image element
-            var image = document.createElement('img');
-            image.src = imageSrc;
-            menuItem.appendChild(image);
-
-            // Create a ul element for the menu item description
-            var menuItemDescription = document.createElement('ul');
-            menuItemDescription.id = 'menuItemDescription';
-
-            // Create a li element for the title
-            var titleLi = document.createElement('li');
-            var titlePara = document.createElement('p');
-            titlePara.classList.add('title');
-            titlePara.textContent = title;
-            titleLi.appendChild(titlePara);
-            menuItemDescription.appendChild(titleLi);
-
-            // Create a li element for the "Details" button
-            var buttonLi = document.createElement('li');
-            var detailsButton = document.createElement('button');
-            detailsButton.textContent = 'Details';
-            buttonLi.appendChild(detailsButton);
-            menuItemDescription.appendChild(buttonLi);
-
-            // Append the menu item description to the menu item
-            menuItem.appendChild(menuItemDescription);
-
-            var cheesecakeContainer = document.getElementById('cheesecakeContainer');
-            cheesecakeContainer.appendChild(menuItem);
-            }
-
-    //CUPCAKE FUNCTION
-    function addtoCupcakeContainer(title, imageSrc) {
-            // Create a new menu item element
-            var menuItem = document.createElement('div');
-            menuItem.classList.add('menuitem');
-
-            // Create an image element
-            var image = document.createElement('img');
-            image.src = imageSrc;
-            menuItem.appendChild(image);
-
-            // Create a ul element for the menu item description
-            var menuItemDescription = document.createElement('ul');
-            menuItemDescription.id = 'menuItemDescription';
-
-            // Create a li element for the title
-            var titleLi = document.createElement('li');
-            var titlePara = document.createElement('p');
-            titlePara.classList.add('title');
-            titlePara.textContent = title;
-            titleLi.appendChild(titlePara);
-            menuItemDescription.appendChild(titleLi);
-
-            // Create a li element for the "Details" button
-            var buttonLi = document.createElement('li');
-            var detailsButton = document.createElement('button');
-            detailsButton.textContent = 'Details';
-            buttonLi.appendChild(detailsButton);
-            menuItemDescription.appendChild(buttonLi);
-
-            // Append the menu item description to the menu item
-            menuItem.appendChild(menuItemDescription);
-
-            var cupcakeContainer = document.getElementById('cupcakeContainer');
-            cupcakeContainer.appendChild(menuItem);
-            }
-
-     //BREAD FUNCTION
-     function addtoBreadContainer(title, imageSrc) {
-            // Create a new menu item element
-            var menuItem = document.createElement('div');
-            menuItem.classList.add('menuitem');
-
-            // Create an image element
-            var image = document.createElement('img');
-            image.src = imageSrc;
-            menuItem.appendChild(image);
-
-            // Create a ul element for the menu item description
-            var menuItemDescription = document.createElement('ul');
-            menuItemDescription.id = 'menuItemDescription';
-
-            // Create a li element for the title
-            var titleLi = document.createElement('li');
-            var titlePara = document.createElement('p');
-            titlePara.classList.add('title');
-            titlePara.textContent = title;
-            titleLi.appendChild(titlePara);
-            menuItemDescription.appendChild(titleLi);
-
-            // Create a li element for the "Details" button
-            var buttonLi = document.createElement('li');
-            var detailsButton = document.createElement('button');
-            detailsButton.textContent = 'Details';
-            buttonLi.appendChild(detailsButton);
-            menuItemDescription.appendChild(buttonLi);
-
-            // Append the menu item description to the menu item
-            menuItem.appendChild(menuItemDescription);
-
-            var breadContainer = document.getElementById('breadContainer');
-            breadContainer.appendChild(menuItem);
-            }
-
-    //COOKIES FUNCTION
-    function addtoCookiesContainer(title, imageSrc) {
-            // Create a new menu item element
-            var menuItem = document.createElement('div');
-            menuItem.classList.add('menuitem');
-
-            // Create an image element
-            var image = document.createElement('img');
-            image.src = imageSrc;
-            menuItem.appendChild(image);
-
-            // Create a ul element for the menu item description
-            var menuItemDescription = document.createElement('ul');
-            menuItemDescription.id = 'menuItemDescription';
-
-            // Create a li element for the title
-            var titleLi = document.createElement('li');
-            var titlePara = document.createElement('p');
-            titlePara.classList.add('title');
-            titlePara.textContent = title;
-            titleLi.appendChild(titlePara);
-            menuItemDescription.appendChild(titleLi);
-
-            // Create a li element for the "Details" button
-            var buttonLi = document.createElement('li');
-            var detailsButton = document.createElement('button');
-            detailsButton.textContent = 'Details';
-            buttonLi.appendChild(detailsButton);
-            menuItemDescription.appendChild(buttonLi);
-
-            // Append the menu item description to the menu item
-            menuItem.appendChild(menuItemDescription);
-
-            var cookiesContainer = document.getElementById('cookiesContainer');
-            cookiesContainer.appendChild(menuItem);
-            }
-
-</script>
-
-
 
     
 
