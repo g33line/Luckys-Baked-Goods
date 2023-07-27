@@ -143,6 +143,7 @@ figure {
 
 #navbarShop{
     margin-left: 0px;
+    align-items: baseline;
 }
 
 /*REVIEWS THUMBNAIL*/
@@ -307,31 +308,17 @@ form button{
 
                    
                         <form action="">
-                                <div>
+                            
+                            <div>
+                                <small><b>LOGIN</b></small> 
                                 <input type="email" id="emailInput" placeholder="Email Address" autocomplete="off" required="" class="required">
                                 <input type="password" id="passwordInput" placeholder="Password" required="" >
                                 <input type="submit" onClick="getLoginDetails(event)" value="" class="loginsubmit">
                           
                             </div>
                         
-                            <div style="display: flex; gap: 3rem; align-items: baseline;">
-                                <small><b>LOGIN as:</b></small> 
-                                <div class="form-check">
-                                    <input class="form-check-input fw-bold" type="radio" name="loginradio" id="customerRadio" required>
-                                    <label class="form-check-label" for="customerRadio">
-                                        <small><u><b>Customer</b></u></small>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="loginradio" id="adminRadio" required>
-                                    <label class="form-check-label" for="adminRadio">
-                                        <small><u><b>Admin</b></u></small>
-                                    </label>
-                                </div>
-                                
-                            </div> 
                             </form>
-                        </div>
+                    </div>
 
                 <script>
                         function getLoginDetails() {
@@ -341,19 +328,16 @@ form button{
                             var password = document.getElementById('passwordInput').value;
                             var adminRadio = document.getElementById('adminRadio');
 
-                    if (email === "admin@example.com" && password === "admin123" && adminRadio.checked)
+                    if (email === "admin@example.com" && password === "admin123")
                     {
                             window.location.replace("menuAdmin.html"); 
                             } else
-                            if (email === "admin@example.com" && password !== "admin123" && adminRadio.checked){
+                            if (email === "admin@example.com" && password !== "admin123" ){
                                 alert("Invalid Password");
                                 return;
                             } else
-                            if (email !== "admin@example.com" && password === "admin123" && adminRadio.checked){
+                            if (email !== "admin@example.com" && password === "admin123" ){
                                 alert("Invalid Email");
-                                return;
-                            } else  if (email === "admin@example.com" && password === "admin123" && !adminRadio.checked){
-                                alert("Select User Type");
                                 return;
                             } else {
                                 alert("Enter login details");
@@ -473,14 +457,65 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                             <div id="customerreviews" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
                                     <button type="button" data-bs-target="#customerreviews" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    </div>
+                                    <button type="button" data-bs-target="#customerreviews" data-bs-slide-to="1" class="" aria-current="true" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#customerreviews" data-bs-slide-to="2" class="" aria-current="true" aria-label="Slide 3"></button>
+                                    <button type="button" data-bs-target="#customerreviews" data-bs-slide-to="3" class="" aria-current="true" aria-label="Slide 4"></button>
+                                    <button type="button" data-bs-target="#customerreviews" data-bs-slide-to="4" class="" aria-current="true" aria-label="Slide 5"></button>
+                                    <button type="button" data-bs-target="#customerreviews" data-bs-slide-to="5" class="" aria-current="true" aria-label="Slide 6"></button>
+                                
+                                </div>
                                 <div class="carousel-inner" id="commentBox">
-    
-                                    <div class="carousel-item active " >
+
+                                    <div class="carousel-item  active" >
                                         <div class="reviewBox" >
                                             <img src="mp2images/venus.jpg" class="rounded-circle" width="130" >
                                             <h5 class="name-reviewer">Venusa Snow</h5>
-                                            <p class="displayRvwComment">You'll never go wrong with any of the cakes in their menu! But my all time faves will be their carrot and chocolate cake! 😁🥰🍰♥️ </p>
+                                            <p class="displayRvwComment">This is where you can find the best cake in town! Suki na for all kinds of occasions! You'll never go wrong with any of the cakes in their menu! But my all time faves will be their carrot and chocolate cake! Awan suya factor na. 😁🥰🍰♥️</p>
+                                            <ul class="displayStarRating">
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item  " >
+                                        <div class="reviewBox" >
+                                            <img src="mp2images/garry.jpg" class="rounded-circle" width="130" >
+                                            <h5 class="name-reviewer">Garry Aldu</h5>
+                                            <p class="displayRvwComment"> The best cake in town! The taste and texture stands out among other cake makers.😍 Custom cakes</p>
+                                            <ul class="displayStarRating">
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item  " >
+                                        <div class="reviewBox" >
+                                            <img src="mp2images/krisha.jpg" class="rounded-circle" width="130" >
+                                            <h5 class="name-reviewer">Krisha Angelei</h5>
+                                            <p class="displayRvwComment"> The best cupcakes and cakes! Worth it! 💟🤩</p>
+                                            <ul class="displayStarRating">
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item  " >
+                                        <div class="reviewBox" >
+                                            <img src="mp2images/kathryn.jpg" class="rounded-circle" width="130" >
+                                            <h5 class="name-reviewer">Kathryn Joyce</h5>
+                                            <p class="displayRvwComment"> The best and delicious cakes and cupcakes ever!!🩵</p>
                                             <ul class="displayStarRating">
                                                 <li><i class="bi bi-star-fill"></i></li>
                                                 <li><i class="bi bi-star-fill"></i></li>
@@ -491,6 +526,35 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                                         </div>
                                     </div>
                                  
+                                    <div class="carousel-item  " >
+                                        <div class="reviewBox" >
+                                            <img src="mp2images/cyc.jpg" class="rounded-circle" width="130" >
+                                            <h5 class="name-reviewer">Cyc Burgonio</h5>
+                                            <p class="displayRvwComment"> Naimas, naraman, sakto lang sugar level na ken worth it presyo na. Quality❣️</p>
+                                            <ul class="displayStarRating">
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item  " >
+                                        <div class="reviewBox" >
+                                            <img src="mp2images/andrea.jpg" class="rounded-circle" width="130" >
+                                            <h5 class="name-reviewer">Andrea Kristin</h5>
+                                            <p class="displayRvwComment"> The best cake and cupcakes around gali💞</p>
+                                            <ul class="displayStarRating">
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                                <li><i class="bi bi-star-fill"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                  
     
                                 </div>
@@ -619,9 +683,41 @@ background-attachment: fixed; background-size: cover; height: 550px; width: auto
                                             
                 <div class="thumbnail">
                         <figure class="postreviewIMG">
-                            <img src="mp2images/19.jpg" alt="">
+                            <img src="mp2images/46.jpg" alt="">
                         </figure>
                 </div>
+
+                <div class="thumbnail">
+                    <figure class="postreviewIMG">
+                        <img src="mp2images/47.jpg" alt="">
+                    </figure>
+                </div>
+
+                <div class="thumbnail">
+                    <figure class="postreviewIMG">
+                        <img src="mp2images/48.jpg" alt="">
+                    </figure>
+                </div>
+
+                <div class="thumbnail">
+                        <figure class="postreviewIMG">
+                            <img src="mp2images/49.jpg" alt="">
+                        </figure>
+                </div>
+
+                <div class="thumbnail">
+                    <figure class="postreviewIMG">
+                        <img src="mp2images/50.jpg" alt="">
+                    </figure>
+                </div>
+
+                <div class="thumbnail">
+                    <figure class="postreviewIMG">
+                        <img src="mp2images/12.jpg" alt="">
+                    </figure>
+                </div>
+
+
 
                 <script>
                 
