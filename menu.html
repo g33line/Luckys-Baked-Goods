@@ -127,12 +127,15 @@ a.active {
     display: flex;
     flex-direction: row;
     border: 1px solid wite;
-    width: 400px;
+    width: 500px;
     padding: 0px;
     align-items: center;
     border-radius: 10px;
-    box-shadow: 0 2px 5px wheat; 
+    border:1px solid gray;
     overflow: hidden;
+}
+.menuitem:hover{
+    box-shadow: 0 2px 20px lightgrey; 
 }
 .menuitem img{
     width: 250px;
@@ -147,10 +150,10 @@ a.active {
 }
 #menuItemDescription li{
     display: flex;
-    flex-direction: ;
     padding: 0px 10px;
     font-size: large;
 }
+
 #menuItemDescription li button{
     border: none;
     background-color: white;
@@ -444,6 +447,41 @@ form::before{
                                         <td>650</td>
                                     </tr>
                                     <tr>
+                                        <td><img src="mp2images/2.jpg" alt=""></td>
+                                        <td>Lemon Meringue </td>
+                                        <td>Cakes</td>
+                                        <td>8 inches round</td>
+                                        <td>650</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="mp2images/41.jpg" alt=""></td>
+                                        <td>Chocolate </td>
+                                        <td>Cakes</td>
+                                        <td>8 inches round</td>
+                                        <td>650</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="mp2images/4.jpg" alt=""></td>
+                                        <td>Choco Overload </td>
+                                        <td>Cakes</td>
+                                        <td>8 inches round</td>
+                                        <td>680</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="mp2images/33.jpg" alt=""></td>
+                                        <td>Peaches and Cream </td>
+                                        <td>Cakes</td>
+                                        <td>8 inches round</td>
+                                        <td>650</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="mp2images/1.jpg" alt=""></td>
+                                        <td>Carrot </td>
+                                        <td>Cakes</td>
+                                        <td>8 inches round</td>
+                                        <td>650</td>
+                                    </tr>
+                                    <tr>
                                         <td><img src="mp2images/cc1.jpg" alt=""></td>
                                         <td>Blueberry  </td>
                                         <td>Cheesecakes</td>
@@ -455,7 +493,14 @@ form::before{
                                         <td>Mocha </td>
                                         <td>Cupcakes</td>
                                         <td>Box of 12</td>
-                                        <td>680</td>
+                                        <td>600</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="mp2images/51.jpg" alt=""></td>
+                                        <td>S'mores </td>
+                                        <td>Cupcakes</td>
+                                        <td>Box of 12</td>
+                                        <td>600</td>
                                     </tr>
                                     <tr>
                                         <td><img src="mp2images/43.jpg" alt=""></td>
@@ -468,7 +513,7 @@ form::before{
                                         <td><img src="mp2images/44.jpg" alt=""></td>
                                         <td>Oatmeal </td>
                                         <td>Cookies</td>
-                                        <td>8 inches round</td>
+                                        <td>Box of 12</td>
                                         <td>550</td>
                                     </tr>
                                     
@@ -496,41 +541,235 @@ form::before{
                         <div class="menuitem">
                             <img src="mp2images/42.jpg">
                             <ul id="menuItemDescription">
-                                <li><p class="title"> Redvelvet Cake </p></li>
-                                <li><button type="button" onclick="likeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
-                                    <span id="likes">0</span></li> 
-                                <li><button type="button" onclick="dislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
-                                    <span id="dislike">0</span></li>
+                                <li><p class="title"> Red Velvet Cake </p></li>
+                                <li><button type="button" onclick="cakelikeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="cakelikes">18</span></li> 
+                                <li><button type="button" onclick="cakedislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="cakedislike">0</span></li>
+                            </ul>
+                        </div>
+                        <script>
+                        
+                            function cakelikeCounter() {
+                                if (localStorage.likeCount) {
+                                    localStorage.likeCount = Number(localStorage.likeCount) + 1;
+                                } else {
+                                    localStorage.likeCount = 1;
+                                }
+                                document.getElementById("cakelikes").innerText = localStorage.likeCount;
+                            }
+    
+                            function cakedislikeCounter() {
+                                if (localStorage.dislikeCount) {
+                                    localStorage.dislikeCount = Number(localStorage.dislikeCount) + 1;
+                                } else {
+                                    localStorage.dislikeCount = 1;
+                                }
+                                document.getElementById("cakedislike").innerText =  localStorage.dislikeCount;
+                            }
+    
+                            // Call the functions to display the initial counts
+                            localStorage.likeCount = 18;
+                            localStorage.dislikeCount = 0;
+                            document.getElementById("cakelikes").innerText = localStorage.likeCount;
+                            document.getElementById("cakedislike").innerText = localStorage.dislikeCount;
+    
+                            </script>
+
+                        <div class="menuitem">
+                            <img src="mp2images/2.jpg">
+                            <ul id="menuItemDescription">
+                                <li><p class="title"> Lemon Meringue Cake </p></li>
+                                <li><button type="button" onclick="lemonlikeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="lemonlikes">20</span></li> 
+                                <li><button type="button" onclick="lemondislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="lemondislike">0</span></li>
+                            </ul>
+                        </div>
+                        <script>
+                        
+                            function lemonlikeCounter() {
+                                if (localStorage.lemonlikeCount) {
+                                    localStorage.lemonlikeCount = Number(localStorage.lemonlikeCount) + 1;
+                                } else {
+                                    localStorage.lemonlikeCount = 1;
+                                }
+                                document.getElementById("lemonlikes").innerText = localStorage.lemonlikeCount;
+                            }
+    
+                            function lemondislikeCounter() {
+                                if (localStorage.lemondislikeCount) {
+                                    localStorage.lemondislikeCount = Number(localStorage.lemondislikeCount) + 1;
+                                } else {
+                                    localStorage.lemondislikeCount = 1;
+                                }
+                                document.getElementById("lemondislike").innerText =  localStorage.lemondislikeCount;
+                            }
+    
+                            // Call the functions to display the initial counts
+                            localStorage.lemonlikeCount = 20;
+                            localStorage.lemondislikeCount = 0;
+                            document.getElementById("lemonlikes").innerText = localStorage.lemonlikeCount;
+                            document.getElementById("lemondislike").innerText = localStorage.lemondislikeCount;
+    
+                            </script>
+
+                        <div class="menuitem">
+                            <img src="mp2images/41.jpg">
+                            <ul id="menuItemDescription">
+                                <li><p class="title"> Chocolate Cake </p></li>
+                                <li><button type="button" onclick="choclikeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="choclikes">17</span></li> 
+                                <li><button type="button" onclick="chocdislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="chocdislike">0</span></li>
+                            </ul>
+                        </div>
+                        <script>
+                        
+                            function choclikeCounter() {
+                                if (localStorage.choclikesCount) {
+                                    localStorage.choclikesCount = Number(localStorage.choclikesCount) + 1;
+                                } else {
+                                    localStorage.choclikesCount = 1;
+                                }
+                                document.getElementById("choclikes").innerText = localStorage.choclikesCount;
+                            }
+    
+                            function chocdislikeCounter() {
+                                if (localStorage.chocdislikeCount) {
+                                    localStorage.chocdislikeCount = Number(localStorage.chocdislikeCount) + 1;
+                                } else {
+                                    localStorage.chocdislikeCount = 1;
+                                }
+                                document.getElementById("chocdislike").innerText =  localStorage.chocdislikeCount;
+                            }
+    
+                            // Call the functions to display the initial counts
+                            localStorage.choclikesCount = 17;
+                            localStorage.chocdislikeCount = 0;
+                            document.getElementById("choclikes").innerText = localStorage.choclikesCount;
+                            document.getElementById("chocdislike").innerText = localStorage.chocdislikeCount;
+    
+                            </script>
+
+                        <div class="menuitem">
+                            <img src="mp2images/4.jpg">
+                            <ul id="menuItemDescription">
+                                <li><p class="title"> Choco Overload Cake </p></li>
+                                <li><button type="button" onclick="overloadlikeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="overloadlikes">0</span></li> 
+                                <li><button type="button" onclick="overloaddislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="overloaddislike">0</span></li>
+                            </ul>
+                        </div>
+                        <script>
+
+                            function overloadlikeCounter() {
+                                if (localStorage.overloadlikesCount) {
+                                    localStorage.overloadlikesCount = Number(localStorage.overloadlikesCount) + 1;
+                                } else {
+                                    localStorage.overloadlikesCount = 1;
+                                }
+                                document.getElementById("overloadlikes").innerText = localStorage.overloadlikesCount;
+                            }
+
+                            function overloaddislikeCounter() {
+                                if (localStorage.overloaddislikeCount) {
+                                    localStorage.overloaddislikeCount = Number(localStorage.overloaddislikeCount) + 1;
+                                } else {
+                                    localStorage.overloaddislikeCount = 1;
+                                }
+                                document.getElementById("overloaddislike").innerText =  localStorage.overloaddislikeCount;
+                            }
+
+                            // Call the functions to display the initial counts
+                            localStorage.overloadlikesCount = 0;
+                            localStorage.overloaddislikeCount = 0;
+                            document.getElementById("overloadlikes").innerText = localStorage.overloadlikesCount;
+                            document.getElementById("overloaddislike").innerText = localStorage.overloaddislikeCount;
+
+                            </script>
+
+                        <div class="menuitem">
+                            <img src="mp2images/33.jpg">
+                            <ul id="menuItemDescription">
+                                <li><p class="title"> Peaches and Cream Cake </p></li>
+                                <li><button type="button" onclick="peachlikeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="peachlikes">22</span></li> 
+                                <li><button type="button" onclick="peachdislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="peachdislike">0</span></li>
+                            </ul>
+                        </div>
+                        <script>
+                        
+                            function peachlikeCounter() {
+                                if (localStorage.peachlikesCount) {
+                                    localStorage.peachlikesCount = Number(localStorage.peachlikesCount) + 1;
+                                } else {
+                                    localStorage.peachlikesCount = 1;
+                                }
+                                document.getElementById("peachlikes").innerText = localStorage.peachlikesCount;
+                            }
+    
+                            function peachdislikeCounter() {
+                                if (localStorage.peachdislikeCount) {
+                                    localStorage.peachdislikeCount = Number(localStorage.peachdislikeCount) + 1;
+                                } else {
+                                    localStorage.peachdislikeCount = 1;
+                                }
+                                document.getElementById("peachdislike").innerText =  localStorage.peachdislikeCount;
+                            }
+    
+                            // Call the functions to display the initial counts
+                            localStorage.peachlikesCount = 22;
+                            localStorage.peachdislikeCount = 0;
+                            document.getElementById("peachlikes").innerText = localStorage.peachlikesCount;
+                            document.getElementById("peachdislike").innerText = localStorage.peachdislikeCount;
+    
+                            </script>
+
+
+                        <div class="menuitem">
+                            <img src="mp2images/1.jpg">
+                            <ul id="menuItemDescription">
+                                <li><p class="title"> Carrot Cake </p></li>
+                                <li><button type="button" onclick="carrotlikeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="carrotlikes">17</span></li> 
+                                <li><button type="button" onclick="carrotdislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="carrotdislike">0</span></li>
                             </ul>
                         </div>
                         
                     </div>
-
                     <script>
-                        
-                        function likeCounter() {
-                            if (localStorage.likeCount) {
-                                localStorage.likeCount = Number(localStorage.likeCount) + 1;
+                    
+                        function carrotlikeCounter() {
+                            if (localStorage.carrotlikesCount) {
+                                localStorage.carrotlikesCount = Number(localStorage.carrotlikesCount) + 1;
                             } else {
-                                localStorage.likeCount = 1;
+                                localStorage.carrotlikesCount = 1;
                             }
-                            document.getElementById("likes").innerText = localStorage.likeCount;
+                            document.getElementById("carrotlikes").innerText = localStorage.carrotlikesCount;
                         }
 
-                        function dislikeCounter() {
-                            if (localStorage.dislikeCount) {
-                                localStorage.dislikeCount = Number(localStorage.dislikeCount) + 1;
+                        function carrotdislikeCounter() {
+                            if (localStorage.carrotdislikeCount) {
+                                localStorage.carrotdislikeCount = Number(localStorage.carrotdislikeCount) + 1;
                             } else {
-                                localStorage.dislikeCount = 1;
+                                localStorage.carrotdislikeCount = 1;
                             }
-                            document.getElementById("dislike").innerText = localStorage.dislikeCount;
+                            document.getElementById("carrotdislike").innerText =  localStorage.carrotdislikeCount;
                         }
 
                         // Call the functions to display the initial counts
-                        document.getElementById("likes").innerText = localStorage.likeCount || 0;
-                        document.getElementById("dislike").innerText = localStorage.dislikeCount || 0;
+                        localStorage.carrotlikesCount = 17;
+                        localStorage.carrotdislikeCount = 0;
+                        document.getElementById("carrotlikes").innerText = localStorage.carrotlikesCount;
+                        document.getElementById("carrotdislike").innerText = localStorage.carrotdislikeCount;
 
                         </script>
+
+                   
 
                 </section>
             </div>
@@ -548,12 +787,39 @@ form::before{
                             <img src="mp2images/cc1.jpg">
                             <ul id="menuItemDescription">
                                 <li><p class="title"> Blueberry Cheesecake </p></li>
-                                <li><button type="button" onclick="likeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
-                                    <span id="likes">0</span></li> 
-                                <li><button type="button" onclick="dislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
-                                    <span id="dislike">0</span></li>
+                                <li><button type="button" onclick="blueberrylikeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="blueberrylikes">6</span></li> 
+                                <li><button type="button" onclick="blueberrydislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="blueberrydislike">0</span></li>
                             </ul>
                         </div>
+                        <script>
+                        
+                            function blueberrylikeCounter() {
+                                if (localStorage.blueberrylikesCount) {
+                                    localStorage.blueberrylikesCount = Number(localStorage.blueberrylikesCount) + 1;
+                                } else {
+                                    localStorage.blueberrylikesCount = 1;
+                                }
+                                document.getElementById("blueberrylikes").innerText = localStorage.blueberrylikesCount;
+                            }
+    
+                            function blueberrydislikeCounter() {
+                                if (localStorage.blueberrydislikeCount) {
+                                    localStorage.blueberrydislikeCount = Number(localStorage.blueberrydislikeCount) + 1;
+                                } else {
+                                    localStorage.blueberrydislikeCount = 1;
+                                }
+                                document.getElementById("blueberrydislike").innerText =  localStorage.blueberrydislikeCount;
+                            }
+    
+                            // Call the functions to display the initial counts
+                            localStorage.blueberrylikesCount = 6;
+                            localStorage.blueberrydislikeCount = 0;
+                            document.getElementById("blueberrylikes").innerText = localStorage.blueberrylikesCount;
+                            document.getElementById("blueberrydislike").innerText = localStorage.blueberrydislikeCount;
+    
+                            </script>
                         
 
 
@@ -574,12 +840,78 @@ form::before{
                             <img src="mp2images/cup2.jpg">
                             <ul id="menuItemDescription">
                                 <li><p class="title"> Mocha Cupcake </p></li>
-                                <li><button type="button" onclick="likeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
-                                    <span id="likes">0</span></li> 
-                                <li><button type="button" onclick="dislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
-                                    <span id="dislike">0</span></li>
+                                <li><button type="button" onclick="mochalikeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="mochalikes">16</span></li> 
+                                <li><button type="button" onclick="mochadislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="mochadislike">0</span></li>
                             </ul>
                         </div>
+                        <script>
+                        
+                            function mochalikeCounter() {
+                                if (localStorage.mochalikesCount) {
+                                    localStorage.mochalikesCount = Number(localStorage.mochalikesCount) + 1;
+                                } else {
+                                    localStorage.mochalikesCount = 1;
+                                }
+                                document.getElementById("mochalikes").innerText = localStorage.mochalikesCount;
+                            }
+    
+                            function mochadislikeCounter() {
+                                if (localStorage.mochadislikeCount) {
+                                    localStorage.mochadislikeCount = Number(localStorage.mochadislikeCount) + 1;
+                                } else {
+                                    localStorage.mochadislikeCount = 1;
+                                }
+                                document.getElementById("mochadislike").innerText =  localStorage.mochadislikeCount;
+                            }
+    
+                            // Call the functions to display the initial counts
+                            localStorage.mochalikesCount = 16;
+                            localStorage.mochadislikeCount = 0;
+                            document.getElementById("mochalikes").innerText = localStorage.mochalikesCount;
+                            document.getElementById("mochadislike").innerText = localStorage.mochadislikeCount;
+    
+                            </script>
+
+
+                        <div class="menuitem">
+                            <img src="mp2images/51.jpg">
+                            <ul id="menuItemDescription">
+                                <li><p class="title"> Smores </p></li>
+                                <li><button type="button" onclick="smoreslikeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="smoreslikes">19</span></li> 
+                                <li><button type="button" onclick="smoresdislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="smoresdislike">0</span></li>
+                            </ul>
+                        </div>
+                        <script>
+                        
+                            function smoreslikeCounter() {
+                                if (localStorage.smoreslikesCount) {
+                                    localStorage.smoreslikesCount = Number(localStorage.smoreslikesCount) + 1;
+                                } else {
+                                    localStorage.smoreslikesCount = 1;
+                                }
+                                document.getElementById("smoreslikes").innerText = localStorage.smoreslikesCount;
+                            }
+    
+                            function smoresdislikeCounter() {
+                                if (localStorage.smoresdislikeCount) {
+                                    localStorage.smoresdislikeCount = Number(localStorage.smoresdislikeCount) + 1;
+                                } else {
+                                    localStorage.smoresdislikeCount = 1;
+                                }
+                                document.getElementById("smoresdislike").innerText =  localStorage.smoresdislikeCount;
+                            }
+    
+                            // Call the functions to display the initial counts
+                            localStorage.smoreslikesCount = 19;
+                            localStorage.smoresdislikeCount = 0;
+                            document.getElementById("smoreslikes").innerText = localStorage.smoreslikesCount;
+                            document.getElementById("smoresdislike").innerText = localStorage.smoresdislikeCount;
+    
+                            </script>
                         
 
 
@@ -601,12 +933,39 @@ form::before{
                             <img src="mp2images/43.jpg">
                             <ul id="menuItemDescription">
                                 <li><p class="title"> Banana Bread </p></li>
-                                <li><button type="button" onclick="likeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
-                                    <span id="likes">0</span></li> 
-                                <li><button type="button" onclick="dislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
-                                    <span id="dislike">0</span></li>
+                                <li><button type="button" onclick="bananalikeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="bananalikes">14</span></li> 
+                                <li><button type="button" onclick="bananadislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="bananadislike">0</span></li>
                             </ul>
                         </div>
+                        <script>
+                        
+                            function bananalikeCounter() {
+                                if (localStorage.bananalikesCount) {
+                                    localStorage.bananalikesCount = Number(localStorage.bananalikesCount) + 1;
+                                } else {
+                                    localStorage.bananalikesCount = 1;
+                                }
+                                document.getElementById("bananalikes").innerText = localStorage.bananalikesCount;
+                            }
+    
+                            function bananadislikeCounter() {
+                                if (localStorage.bananadislikeCount) {
+                                    localStorage.bananadislikeCount = Number(localStorage.bananadislikeCount) + 1;
+                                } else {
+                                    localStorage.bananadislikeCount = 1;
+                                }
+                                document.getElementById("bananadislike").innerText =  localStorage.bananadislikeCount;
+                            }
+    
+                            // Call the functions to display the initial counts
+                            localStorage.bananalikesCount = 14;
+                            localStorage.bananadislikeCount = 0;
+                            document.getElementById("bananalikes").innerText = localStorage.bananalikesCount;
+                            document.getElementById("bananadislike").innerText = localStorage.bananadislikeCount;
+    
+                            </script>
                         
 
 
@@ -627,12 +986,39 @@ form::before{
                             <img src="mp2images/44.jpg">
                             <ul id="menuItemDescription">
                                 <li><p class="title"> Oatmeal Cookies </p></li>
-                                <li><button type="button" onclick="likeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
-                                    <span id="likes">0</span></li> 
-                                <li><button type="button" onclick="dislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
-                                    <span id="dislike">0</span></li>
+                                <li><button type="button" onclick="oatmeallikeCounter()"><i class="bi bi-suit-heart-fill"></i></button>
+                                    <span id="oatmeallikes">13</span></li> 
+                                <li><button type="button" onclick="oatmealdislikeCounter()"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <span id="oatmealdislike">0</span></li>
                             </ul>
                         </div>
+                        <script>
+                        
+                            function oatmeallikeCounter() {
+                                if (localStorage.oatmeallikesCount) {
+                                    localStorage.oatmeallikesCount = Number(localStorage.oatmeallikesCount) + 1;
+                                } else {
+                                    localStorage.oatmeallikesCount = 1;
+                                }
+                                document.getElementById("oatmeallikes").innerText = localStorage.oatmeallikesCount;
+                            }
+    
+                            function oatmealdislikeCounter() {
+                                if (localStorage.oatmealdislikeCount) {
+                                    localStorage.oatmealdislikeCount = Number(localStorage.oatmealdislikeCount) + 1;
+                                } else {
+                                    localStorage.oatmealdislikeCount = 1;
+                                }
+                                document.getElementById("oatmealdislike").innerText =  localStorage.oatmealdislikeCount;
+                            }
+    
+                            // Call the functions to display the initial counts
+                            localStorage.oatmeallikesCount = 14;
+                            localStorage.oatmealdislikeCount = 0;
+                            document.getElementById("oatmeallikes").innerText = localStorage.oatmeallikesCount;
+                            document.getElementById("oatmealdislike").innerText = localStorage.oatmealdislikeCount;
+    
+                            </script>
                         
 
 
